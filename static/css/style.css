@@ -1,0 +1,8 @@
+.banner {
+    height: 200px;
+    background-color: rgb(114, 114, 114);
+    background-image: url("../images/banner1.jpg");
+    background-repeat: no-repeat;    
+    background-position: right;
+}
+
