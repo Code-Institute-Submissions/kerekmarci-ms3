@@ -46,6 +46,7 @@ def register():
 
         # put the new user into 'session' cookie        
         session["user"] = request.form.get("username").lower()
+        session["name"] = request.form.get("name")
         flash("Registration Successful!")
         return redirect(url_for("profile", username=session["user"]))
 
@@ -68,6 +69,14 @@ def profile(username):
                                 profile_picture=profile_picture)
 
     return redirect(url_for("login"))
+
+
+@app.route("/logout")
+def logout():
+    flash("You have been successfully logged out!")
+    session.pop("user")
+    session.pop("name")
+    return redirect(url_for("home"))
 
 
 if __name__ == "__main__":
