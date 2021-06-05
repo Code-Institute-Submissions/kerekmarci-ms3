@@ -47,9 +47,27 @@ def register():
         # put the new user into 'session' cookie        
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!")
-        return render_template("register.html")
+        return redirect(url_for("profile", username=session["user"]))
 
     return render_template("register.html")
+
+
+@app.route("/profile/<username>", methods=["GET", "POST"])
+def profile(username):    
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    name = mongo.db.users.find_one(
+        {"username": session["user"]})["name"]
+    profile_picture = mongo.db.users.find_one(
+        {"username": session["user"]})["profile_picture"]    
+    
+    if session["user"]:
+        return render_template("profile.html",
+                                username=username,
+                                name=name,
+                                profile_picture=profile_picture)
+
+    return redirect(url_for("login"))
 
 
 if __name__ == "__main__":

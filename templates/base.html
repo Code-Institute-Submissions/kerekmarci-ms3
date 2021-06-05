@@ -11,18 +11,17 @@
     <title>Epic Food</title>
 </head>
 <body>
-    <!-- FLASH MESSAGES
-
+    <!-- FLASH MESSAGES -->
+    
     {% with messages = get_flashed_messages() %}
         {% if messages %}
             {% for message in messages %}
-                <div>
+                <div class="text-center">
                     {{ message }}
                 </div>
             {% endfor %}
         {% endif %}
-    {% endwith %}
-    -->
+    {% endwith %}    
 
     <header class="container-lg">
         <div class="banner">
