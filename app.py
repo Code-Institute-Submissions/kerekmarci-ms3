@@ -109,6 +109,12 @@ def logout():
     return redirect(url_for("home"))
 
 
+@app.route("/upload_recipe")
+def upload_recipe():
+    categories = list(mongo.db.categories.find())
+    return render_template("upload_recipe.html", categories=categories)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

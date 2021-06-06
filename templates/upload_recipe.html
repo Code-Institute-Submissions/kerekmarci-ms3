@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="text-center mt-3">
+        <h2>Upload Recipe</h2>
+    </div>    
+
+    <section class="form-container text-center">
+        <form method="POST" action="{{ url_for('upload_recipe') }}">
+            <!-- Recipe name -->
+            <div class="mb-3">
+                <label for="recipename" class="form-label">Recipe Name</label>
+                <input type="text" name="recipename" class="form-control" id="recipename">                
+            </div>
+            <!-- Recipe category -->
+            <div>
+                <label for="recipe-category">Choose a category:</label>
+                <br>
+                <select name="recipe-category" id="recipe-category">
+                    <option value="" disabled selected>Choose Category</option>
+                    {% for category in categories %}
+                        <option value="{{ category.category_name }}">{{ category.category_name }}</option>                    
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" name="username" class="form-control" id="username">                
+            </div>            
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" name="password" class="form-control" id="password">
+            </div>   
+            <div class="mb-3">
+                <label for="profile_picture" class="form-label">Profile picture URL</label>
+                <input type="text" name="profile_picture" class="form-control" id="profile_picture">
+            </div>          
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+    </section>
+        
+
+{% endblock %}
