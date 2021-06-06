@@ -5,6 +5,7 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import datetime
 if os.path.exists("env.py"):
     import env
 
@@ -112,25 +113,27 @@ def logout():
 @app.route("/upload_recipe", methods=["GET", "POST"])
 def upload_recipe():
     if request.method == "POST":
-        ingredient_list = []
+        is_vegetarian = "veg" if request.form.get("vegetarian") else "nonveg"
+        ingredient_list, method_list = ([] for i in range(2))
         ingredients = request.form.getlist("ingredients")
-        for ingredient in ingredients:
-            ingredient_list.append(ingredient)
-        method_list = []
         methods = request.form.getlist("method")
-        for method in methods:
-            method_list.append(method)
+        for ingredient, method in zip(ingredients, methods):
+            ingredient_list.append(ingredient)        
+            method_list.append(method)        
+        timestamp = datetime.now().strftime('%d-%m-%Y')
         recipe = {
             "recipe_name": request.form.get("recipename"),
             "recipe_cagetory": request.form.get("recipe-category"),
             "level": request.form.get("level"),
             "servings": request.form.get("servings"),
-            "vegetarian": request.form.get("vegetarian"),
+            "vegetarian": is_vegetarian,
             "preptime": request.form.get("preptime"),
             "cooktime": request.form.get("cooktime"),
             "ingredients": ingredient_list,
             "recipe_method": method_list,
-            "recipe_picture": request.form.get("recipe_picture")
+            "recipe_picture": request.form.get("recipe_picture"),
+            "uploaded_on": timestamp,
+            "uploaded_by": session["name"]
         }
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe has been successfully added!")
