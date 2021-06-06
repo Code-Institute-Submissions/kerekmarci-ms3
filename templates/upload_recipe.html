@@ -12,6 +12,11 @@
                 <label for="recipename" class="form-label">Recipe Name</label>
                 <input type="text" name="recipename" class="form-control" id="recipename">                
             </div>
+            <!-- Description -->
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <input type="text" name="description" class="form-control" id="description">                
+            </div>
             <!-- Recipe category -->
             <div class="mt-3 mb-3">
                 <label for="recipe-category">Choose a category:</label>
@@ -22,15 +27,15 @@
                         <option value="{{ category.category_name }}">{{ category.category_name }}</option>                    
                     {% endfor %}
                 </select>
-            </div>
+            </div>            
             <!-- Level -->
             <div class="pb-3">
             <h5>Level</h5>
-            <input type="radio" id="easy-level" name="level" value="easy-level">
+            <input type="radio" id="easy-level" name="level" value="Easy">
             <label for="easy-level">Easy</label><br>
-            <input type="radio" id="medium-level" name="level" value="medium-level">
+            <input type="radio" id="medium-level" name="level" value="Medium">
             <label for="medium-level">Medium</label><br>
-            <input type="radio" id="complex-level" name="level" value="complex-level">
+            <input type="radio" id="complex-level" name="level" value="Complex">
             <label for="complex-level">Complex</label>
             </div>
              

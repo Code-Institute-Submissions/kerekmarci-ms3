@@ -22,7 +22,8 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template("home.html")
+    recipes = list(mongo.db.recipes.find())
+    return render_template("home.html", recipes=recipes)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -123,6 +124,7 @@ def upload_recipe():
         timestamp = datetime.now().strftime('%d-%m-%Y')
         recipe = {
             "recipe_name": request.form.get("recipename"),
+            "description": request.form.get("description"),
             "recipe_cagetory": request.form.get("recipe-category"),
             "level": request.form.get("level"),
             "servings": request.form.get("servings"),
@@ -141,6 +143,14 @@ def upload_recipe():
 
     categories = list(mongo.db.categories.find())
     return render_template("upload_recipe.html", categories=categories)
+
+
+@app.route("/recipe/<recipe_id>")
+def recipe(recipe_id):
+    recipe = mongo.db.recipes.find_one(
+        {"_id": ObjectId(recipe_id)})
+
+    return render_template("recipe.html", recipe=recipe)
 
 
 if __name__ == "__main__":
