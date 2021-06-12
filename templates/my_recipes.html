@@ -24,7 +24,7 @@
         </div>
     </section>
     
-    <section class="recipe-container text-center">
+    <section class="container-xl mx1200 text-center">
         <h2>My Recipes</h2>
         {% for recipe in recipes %}
         <div class="card recipe-card" style="width: 18rem;">
@@ -35,7 +35,7 @@
                 <a href="{{ url_for('recipe', recipe_id=recipe._id )}}" class="btn btn-primary">Open Recipe</a>
                 {% if session.user|lower == recipe.uploaded_by|lower %}
                     <a href="{{ url_for('edit_recipe', recipe_id=recipe._id )}}" class="btn btn-warning">Edit Recipe</a>
-                    <a href="{{ url_for('recipe', recipe_id=recipe._id )}}" class="btn btn-danger">Delete Recipe</a>                    
+                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id )}}" class="btn btn-danger">Delete Recipe</a>                    
                 {% endif %}
             </div>
         </div>    

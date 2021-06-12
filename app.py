@@ -3,6 +3,7 @@ from flask import (
     Flask, flash, render_template, redirect, 
     request, session, url_for)
 from flask_pymongo import PyMongo
+from flask_paginate import Pagination, get_page_args, get_page_parameter
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
@@ -199,6 +200,13 @@ def edit_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})    
     categories = list(mongo.db.categories.find())
     return render_template("edit_recipe.html", categories=categories, recipe=recipe)
+
+
+@app.route("/delete_recipe/<recipe_id>")
+def delete_recipe(recipe_id):
+    mongo.db.recipes.remove({"_id": ObjectId(task_id)})
+    flash("Recipe Successfully Deleted")
+    return redirect(url_for("get_tasks"))
 
 
 @app.route("/recipe/<recipe_id>")
