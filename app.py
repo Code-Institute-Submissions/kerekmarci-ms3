@@ -33,6 +33,14 @@ def search():
     return render_template("home.html", recipes=recipes)
 
 
+@app.route("/my_recipes")
+def my_recipes():
+    recipes = list(mongo.db.recipes.find(
+        {"uploaded_by": session["user"]}
+    ))
+    return render_template("home.html", recipes=recipes)
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():    
     if request.method == "POST":
@@ -142,7 +150,7 @@ def upload_recipe():
             "recipe_method": method_list,
             "recipe_picture": request.form.get("recipe_picture"),
             "uploaded_on": timestamp,
-            "uploaded_by": session["name"]
+            "uploaded_by": session["user"]
         }
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe has been successfully added!")
