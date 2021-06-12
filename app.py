@@ -44,7 +44,7 @@ def my_recipes():
     recipes = list(mongo.db.recipes.find(
         {"uploaded_by": session["user"]}
     ))
-    return render_template("home.html", recipes=recipes)
+    return render_template("my_recipes.html", recipes=recipes)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -164,6 +164,41 @@ def upload_recipe():
 
     categories = list(mongo.db.categories.find())
     return render_template("upload_recipe.html", categories=categories)
+
+
+@app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
+def edit_recipe(recipe_id):
+    if request.method == "POST":
+        is_vegetarian = "veg" if request.form.get("vegetarian") else "nonveg"
+        ingredient_list, method_list = ([] for i in range(2))
+        ingredients = request.form.getlist("ingredients")
+        methods = request.form.getlist("method")
+        for ingredient, method in zip(ingredients, methods):
+            ingredient_list.append(ingredient)        
+            method_list.append(method)        
+        timestamp = datetime.now().strftime('%d-%m-%Y')
+        recipe = {
+            "recipe_name": request.form.get("recipename"),
+            "description": request.form.get("description"),
+            "recipe_cagetory": request.form.get("recipe-category"),
+            "level": request.form.get("level"),
+            "servings": request.form.get("servings"),
+            "vegetarian": is_vegetarian,
+            "preptime": request.form.get("preptime"),
+            "cooktime": request.form.get("cooktime"),
+            "ingredients": ingredient_list,
+            "recipe_method": method_list,
+            "recipe_picture": request.form.get("recipe_picture"),
+            "uploaded_on": timestamp,
+            "uploaded_by": session["user"]
+        }
+        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, recipe)
+        flash("Recipe has been successfully updated!")
+        return redirect(url_for("my_recipes"))
+
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})    
+    categories = list(mongo.db.categories.find())
+    return render_template("edit_recipe.html", categories=categories, recipe=recipe)
 
 
 @app.route("/recipe/<recipe_id>")
