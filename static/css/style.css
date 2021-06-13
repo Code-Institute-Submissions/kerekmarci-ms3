@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -14,6 +16,11 @@
 .mx1200 {
     max-width: 1200px;
     padding: 0;
+}
+
+.page-title {
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .form-container {
@@ -51,10 +58,6 @@
     opacity: 0.75;
 }
 
-.recipe-card {
-    display: inline-block;
-}
-
 .pagination-page-info {
     padding: .6em;
     padding-left: 0;
@@ -70,6 +73,64 @@
     padding-left: 2px;
     padding: .1em .25em;
     font-size: 150%;
+}
+
+/* RECIPE CARD */
+
+.recipe-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.recipe-card {
+    border: 1px solid #ebebeb;
+    text-align: left;   
+    margin: 0 1.5% 3%;
+    padding: 0;
+    border-radius: 5px; 
+    box-shadow: 0px 0px 15px rgb(41 48 55 / 3%);
+}
+
+.card-title {
+    font-family: "Barlow", sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #2E2F31;   
+    text-decoration: none; 
+}
+
+.card-text {
+    font-size: 15px;
+    color: #7D7F82;
+}
+
+.card-bottom {
+    box-sizing: content-box;
+    font-size: 13px;
+    color: #7D7F82;
+    border-top: 1px solid #e5e5e5;
+    padding: 0px;
+    margin: 30px 0px 0px 0px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.recipe-index-category,
+.recipe-index-duration {
+    padding: 15px 15px 22px 15px;    
+}
+
+.recipe-index-category {
+    float: left;
+    width: 50%;
+    border-right: 1px solid #e5e5e5;    
+}
+
+.recipe-index-duration {
+    float: right;
+    width: 50%;
 }
 
 @media screen and (max-width: 576px) {
