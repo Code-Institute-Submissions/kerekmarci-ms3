@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 
+{% include "navigation.html" %}    
+
+    <div class="page-title text-center">
+        <h2>Registration</h2>
+    </div>
+
     <section class="form-container text-center">
         <form method="POST" action="{{ url_for('register') }}">
             <div class="mb-3">
