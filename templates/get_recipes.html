@@ -34,57 +34,21 @@
             <a href="{{ url_for('recipe', recipe_id=recipe._id )}}"><img src="{{ recipe.recipe_picture }}" class="card-img-top" alt="Open Full Recipe"></a>
             <div class="card-body">
                 <a class="card-title" href="{{ url_for('recipe', recipe_id=recipe._id )}}">{{ recipe.recipe_name }} </a>
-                <p class="card-text">{{ recipe.description }}</p>
+                <p class="card-text">{{ recipe.description }}</p>                
                 <div class="card-bottom">
                     <div class="recipe-index-category">{{ recipe.recipe_cagetory }}</div>
                     <div class="recipe-index-duration">{{ recipe.cooktime }} min</div>
-                </div>
+                </div>                
             </div>
         </article>    
         {% endfor %}   
-    </section>
+    </section>   
     
-    <!--
-    {{ pagination.info }}
-    {{ pagination.links }}
-        <table>            
-            <tbody>
-                {% for recipe in recipes %}
-            <tr>
-                <td>{{ loop.index + pagination.skip }}</td>                
-            </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    {{ pagination.links }}
-    
-
-    <div class="container">      
-      <div class="table-responsive">
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Value</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for user in users %}
-            <tr>
-              <td>{{ loop.index + (page - 1) * per_page }}</td>
-              <td>{{ user }}</td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
-      {{ pagination.links }}
+    <div class="text-center">
+        {% if recipes|length >= 1 %}
+            {{ pagination.links }}
+            {{ pagination.info }}
+        {% endif %}
     </div>
-    -->
-
-    {% if recipes|length >= 1 %}
-        {{ pagination.links }}
-        {{ pagination.info }}
-    {% endif %}
 
 {% endblock %}

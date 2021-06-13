@@ -24,21 +24,29 @@
         </div>
     </section>
     
-    <section class="container-xl mx1200 text-center">
+    <div class="page-title text-center">
         <h2>Latest Recipes</h2>
-        {% for recipe in recipes %}
-        <div class="card recipe-card" style="width: 18rem;">
-            <img src="{{ recipe.recipe_picture }}" class="card-img-top" alt="...">
+    </div>
+    <section class="container-xl recipe-container mx1200 text-center">        
+        {% for recipe in recipes %}       
+        {% if loop.index <= 6 %}  
+        <article class="card recipe-card" style="width: 18rem;">
+            <a href="{{ url_for('recipe', recipe_id=recipe._id )}}"><img src="{{ recipe.recipe_picture }}" class="card-img-top" alt="Open Full Recipe"></a>
             <div class="card-body">
-                <h5 class="card-title">{{ recipe.recipe_name }}</h5>
+                <a class="card-title" href="{{ url_for('recipe', recipe_id=recipe._id )}}">{{ recipe.recipe_name }} </a>
                 <p class="card-text">{{ recipe.description }}</p>
-                <a href="{{ url_for('recipe', recipe_id=recipe._id )}}" class="btn btn-primary">Open Recipe</a>
+                <div class="card-bottom">
+                    <div class="recipe-index-category">{{ recipe.recipe_cagetory }}</div>
+                    <div class="recipe-index-duration">{{ recipe.cooktime }} min</div>
+                </div>
             </div>
-        </div>    
-        {% endfor %}   
-        <div>
+        </article>    
+        {% endif %}
+        {% endfor %}        
+    </section>
+
+        <div class="text-center">
             <a href="{{ url_for('get_recipes') }}" class="btn btn-primary mt-5 mb-5">Show All</a>
         </div>
-    </section>
 
 {% endblock %}
