@@ -1,6 +1,6 @@
 # Epic Food Receipe Website - Milestone Project 3
 
-## View live project here: [Epic Food](https://kerekmarci.github.io/ms3/)
+## View live project here: [Epic Food](http://epic-food.herokuapp.com/)
 
 This website was created for my 3rd Milestone Project at the Code Institute. 
 The website will utilise the languages and tools I learned so far, both in Front-End and Back-End.

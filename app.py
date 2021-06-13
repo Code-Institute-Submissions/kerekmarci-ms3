@@ -27,12 +27,10 @@ def home():
     return render_template("home.html", recipes=recipes)
 
 
-def get_users(offset=0, per_page=2):
-    return users[offset: offset + per_page]
-
-
 @app.route("/get_recipes")
 def get_recipes():    
+    categories = list(mongo.db.categories.find())
+    
     # Pagination help found: https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9
     # flask_paginate documentation: https://flask-paginate.readthedocs.io/_/downloads/en/master/pdf/
     page, per_page, offset = get_page_args(
