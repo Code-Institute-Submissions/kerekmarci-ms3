@@ -50,7 +50,7 @@
             </tbody>
         </table>
     {{ pagination.links }}
-    -->
+    
 
     <div class="container">      
       <div class="table-responsive">
@@ -73,5 +73,11 @@
       </div>
       {{ pagination.links }}
     </div>
+    -->
+
+    {% if recipes|length >= 1 %}
+        {{ pagination.links }}
+        {{ pagination.info }}
+    {% endif %}
 
 {% endblock %}

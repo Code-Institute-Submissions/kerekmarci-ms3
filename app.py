@@ -27,33 +27,30 @@ def home():
     return render_template("home.html", recipes=recipes)
 
 
-users = list(range(100))
- 
- 
 def get_users(offset=0, per_page=2):
     return users[offset: offset + per_page]
 
 
 @app.route("/get_recipes")
-def get_recipes():
-    search = False
-    q = request.args.get('q')
-    if q:
-        search = True
-    page, per_page, offset = get_page_args(page_parameter='page',
-                                           per_page_parameter='per_page')
-    total = len(users)
-    pagination_users = get_users(offset=offset, per_page=per_page)                      
-    recipes = list(mongo.db.recipes.find())    
-    page = request.args.get(get_page_parameter(), type=int, default=1)      
-    # total = mongo.db.recipes.find().count()  
+def get_recipes():    
+    # Pagination help found: https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9
+    # flask_paginate documentation: https://flask-paginate.readthedocs.io/_/downloads/en/master/pdf/
+    page, per_page, offset = get_page_args(
+        page_parameter='page',
+        per_page_parameter='per_page',
+        offset_parameter='offset')
+    per_page = 6
+    offset = (page - 1) * 6
+    total = mongo.db.recipes.find().count()
+    recipes = list(mongo.db.recipes.find())
+    recipes_paginated = recipes[offset: offset + per_page]
     pagination = Pagination(page=page, per_page=per_page, total=total,
                             css_framework='bootstrap4')
-    return render_template("get_recipes.html", recipes=recipes, 
-                                            users=pagination_users,
-                                            pagination=pagination,
-                                            page=page,
-                                            per_page=per_page)
+
+    return render_template("get_recipes.html", recipes=recipes_paginated,                                        
+                                        pagination=pagination,
+                                        page=page,
+                                        per_page=per_page)
 
 
 @app.route("/search", methods=["GET", "POST"])
