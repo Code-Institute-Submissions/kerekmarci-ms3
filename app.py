@@ -19,6 +19,29 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+# Pagination
+# Pagination help found: https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9
+# and here: https://betterprogramming.pub/simple-flask-pagination-example-4190b12c2e2e
+# flask_paginate documentation: https://flask-paginate.readthedocs.io/_/downloads/en/master/pdf/
+
+PER_PAGE = 6
+
+def paginate(recipes):    
+    page, _, offset = get_page_args(
+        page_parameter='page', per_page_parameter='per_page')
+    offset = page * PER_PAGE - PER_PAGE
+
+    return recipes[offset: offset + PER_PAGE]
+
+
+def pagination_args(recipes):   
+    page, _, _ = get_page_args(
+        page_parameter='page', per_page_parameter='per_page')
+    total = len(recipes)
+
+    return Pagination(page=page, per_page=PER_PAGE, total=total,
+                        css_framework='bootstrap4')
+
 
 @app.route("/")
 @app.route("/home")
@@ -29,66 +52,36 @@ def home():
 
 @app.route("/get_recipes")
 def get_recipes():    
-    categories = list(mongo.db.categories.find())
-    
-    # Pagination help found: https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9
-    # flask_paginate documentation: https://flask-paginate.readthedocs.io/_/downloads/en/master/pdf/
-    page, per_page, offset = get_page_args(
-        page_parameter='page',
-        per_page_parameter='per_page',
-        offset_parameter='offset')
-    per_page = 6
-    offset = (page - 1) * 6
+    categories = list(mongo.db.categories.find())   
     total = mongo.db.recipes.find().count()
     recipes = list(mongo.db.recipes.find())
-    recipes_paginated = recipes[offset: offset + per_page]
-    pagination = Pagination(page=page, per_page=per_page, total=total,
-                            css_framework='bootstrap4')
+    recipes_paginated = paginate(recipes)
+    pagination = pagination_args(recipes)
 
     return render_template("get_recipes.html", recipes=recipes_paginated,                                        
-                                        pagination=pagination,
-                                        page=page,
-                                        per_page=per_page)
+                                        pagination=pagination)
 
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
-    recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
-    page, per_page, offset = get_page_args(
-        page_parameter='page',
-        per_page_parameter='per_page',
-        offset_parameter='offset')
-    per_page = 6
-    offset = (page - 1) * 6
+    recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))    
     total = mongo.db.recipes.find().count()    
-    recipes_paginated = recipes[offset: offset + per_page]
-    pagination = Pagination(page=page, per_page=per_page, total=total,
-                            css_framework='bootstrap4')
+    recipes_paginated = paginate(recipes)
+    pagination = pagination_args(recipes)
     return render_template("get_recipes.html", recipes=recipes_paginated,                                        
-                                        pagination=pagination,
-                                        page=page,
-                                        per_page=per_page)
+                                        pagination=pagination)
 
 
 @app.route("/search/<category>")
 def food_category(category):
     recipes = list(mongo.db.recipes.find(
         {"recipe_cagetory": category}))
-    page, per_page, offset = get_page_args(
-        page_parameter='page',
-        per_page_parameter='per_page',
-        offset_parameter='offset')
-    per_page = 6
-    offset = (page - 1) * 6
     total = mongo.db.recipes.find().count()    
-    recipes_paginated = recipes[offset: offset + per_page]
-    pagination = Pagination(page=page, per_page=per_page, total=total,
-                            css_framework='bootstrap4')
+    recipes_paginated = paginate(recipes)
+    pagination = pagination_args(recipes)
     return render_template("get_recipes.html", recipes=recipes_paginated,                                        
-                                        pagination=pagination,
-                                        page=page,
-                                        per_page=per_page)
+                                        pagination=pagination)
 
 
 @app.route("/my_recipes")
