@@ -1,28 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <section class="container-xl mx1200 food-categories-container text-center">
-        <div class="food-categories">
-            <img src="../static/images/appetizer.jpg" alt="" class="food-categories-img">
-            <h4>Appetizers</h4>
-        </div>
-        <div class="food-categories text-center">
-            <img src="../static/images/soup.jpg" alt="" class="food-categories-img">
-            <h4>Soup</h4>
-        </div>
-        <div class="food-categories text-center">
-            <img src="../static/images/main_course.jpg" alt="" class="food-categories-img">
-            <h4>Main Course</h4>
-        </div>
-        <div class="food-categories text-center">
-            <img src="../static/images/vegetarian.jpeg" alt="" class="food-categories-img">
-            <h4>Vegetarian</h4>
-        </div>
-        <div class="food-categories text-center">
-            <img src="../static/images/dessert.jpeg" alt="" class="food-categories-img">
-            <h4>Desserts</h4>
-        </div>
-    </section>
+{% include "navigation.html" %}   
+
 
     <div class="page-title text-center">
         <h2>My Recipes</h2>
