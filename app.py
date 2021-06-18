@@ -17,9 +17,6 @@ app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
-# app.config["MONGO_DBNAME"] = "epic_food"
-# app.config["MONGO_URI"] = "mongodb+srv://root:rootpassword@myfirstcluster.ufu5j.mongodb.net/epic_food?retryWrites=true"
-# app.secret_key = "4fHrj0pLB7"
 
 mongo = PyMongo(app)
 
