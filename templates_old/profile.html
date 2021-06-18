@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% include "navigation.html" %}
+
+    <div class="text-center">
+        <h2>Welcome!</h2>
+        <h4>Your usename is: {{ username }}</h4>
+        <h4>Your name is: {{ name }}</h4>
+        <h4>Your profile image is: </h4>
+        <img src="{{ profile_picture }}" alt="Profile picture">
+        
+    </div>
+
+{% endblock %}

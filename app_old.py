@@ -17,10 +17,6 @@ app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
-# app.config["MONGO_DBNAME"] = "epic_food"
-# app.config["MONGO_URI"] = "mongodb+srv://root:rootpassword@myfirstcluster.ufu5j.mongodb.net/epic_food?retryWrites=true"
-# app.secret_key = "4fHrj0pLB7"
-
 mongo = PyMongo(app)
 
 # Pagination
@@ -79,20 +75,8 @@ def search():
 
 @app.route("/search/<category>")
 def food_category(category):
-
-    level = request.args.get('level')
-
     recipes = list(mongo.db.recipes.find(
         {"recipe_cagetory": category}))
-
-    if level != 'all-level':
-        recipes_new = []
-        for recipe in recipes:
-            if level.lower() in recipe['level'].lower():
-                recipes_new.append(recipe)
-
-        recipes = recipes_new
-
     total = mongo.db.recipes.find().count()    
     recipes_paginated = paginate(recipes)
     pagination = pagination_args(recipes)
@@ -264,7 +248,7 @@ def edit_recipe(recipe_id):
 
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
-    mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
+    mongo.db.recipes.remove({"_id": ObjectId(task_id)})
     flash("Recipe Successfully Deleted")
     return redirect(url_for("get_tasks"))
 
@@ -281,7 +265,3 @@ if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
             debug=True)
-
-    # app.run(host="0.0.0.0",
-    #         port=int("5000"),
-    #         debug=True)

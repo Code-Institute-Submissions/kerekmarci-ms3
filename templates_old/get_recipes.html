@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% include "navigation.html" %}    
+    
+    <div class="page-title text-center">
+        <h2>All Recipes</h2>
+    </div>
+    
+    <section class="container-xl recipe-container mx1200 text-center">        
+        {% for recipe in recipes %}
+        <article class="card recipe-card" style="width: 18rem;">
+            <a href="{{ url_for('recipe', recipe_id=recipe._id )}}"><img src="{{ recipe.recipe_picture }}" class="card-img-top" alt="Open Full Recipe"></a>
+            <div class="card-body">
+                <a class="card-title" href="{{ url_for('recipe', recipe_id=recipe._id )}}">{{ recipe.recipe_name }} </a>
+                <p class="card-text">{{ recipe.description }}</p>                
+                <div class="card-bottom">
+                    <div class="recipe-index-category">{{ recipe.recipe_cagetory }}</div>
+                    <div class="recipe-index-duration">{{ recipe.cooktime }} min</div>
+                </div>                
+            </div>
+        </article>    
+        {% endfor %}   
+    </section>   
+    
+    <div class="text-center">
+        {% if recipes|length >= 1 %}
+            {{ pagination.links }}
+            {{ pagination.info }}
+        {% endif %}
+    </div>
+
+{% endblock %}
