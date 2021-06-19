@@ -1,33 +1,78 @@
 {% extends "base.html" %}
 {% block content %}
 
-{% include "navigation.html" %}    
-    
-    <div class="page-title text-center">
-        <h2>All Recipes</h2>
-    </div>
-    
-    <section class="container-xl recipe-container mx1200 text-center">        
-        {% for recipe in recipes %}
-        <article class="card recipe-card" style="width: 18rem;">
-            <a href="{{ url_for('recipe', recipe_id=recipe._id )}}"><img src="{{ recipe.recipe_picture }}" class="card-img-top" alt="Open Full Recipe"></a>
-            <div class="card-body">
-                <a class="card-title" href="{{ url_for('recipe', recipe_id=recipe._id )}}">{{ recipe.recipe_name }} </a>
-                <p class="card-text">{{ recipe.description }}</p>                
-                <div class="card-bottom">
-                    <div class="recipe-index-category">{{ recipe.recipe_cagetory }}</div>
-                    <div class="recipe-index-duration">{{ recipe.cooktime }} min</div>
-                </div>                
+{% include "navigation.html" %}
+
+<div class="page-title text-center">
+    <h2>All Recipes</h2>
+</div>
+
+
+<div class="text-center">
+    {% if category %}
+    {% if level %}
+    <h5><b>Category:</b> {{ category }}, <b>Level: </b>{{ level }}</h5>
+    {% else %}
+    <h5><b>Category:</b> {{ category }}</h5>
+    {% endif %}
+    {% endif %}
+</div>
+
+<section class="container-xl recipe-container mx1200 text-center">
+    {% for recipe in recipes %}
+    <article class="card recipe-card" style="width: 18rem;">
+        <a href="{{ url_for('recipe', recipe_id=recipe._id )}}"><img src="{{ recipe.recipe_picture }}"
+                class="card-img-top" alt="Open Full Recipe"></a>
+        <div class="card-body">
+            <a class="card-title" href="{{ url_for('recipe', recipe_id=recipe._id )}}">{{ recipe.recipe_name }} </a>
+            <p class="card-text">{{ recipe.description }}</p>
+            <div class="card-bottom">
+                <div class="recipe-index-category">{{ recipe.recipe_cagetory }}</div>
+                <div class="recipe-index-duration">{{ recipe.cooktime }} min</div>
             </div>
-        </article>    
-        {% endfor %}   
-    </section>   
-    
-    <div class="text-center">
-        {% if recipes|length >= 1 %}
-            {{ pagination.links }}
-            {{ pagination.info }}
-        {% endif %}
-    </div>
+        </div>
+    </article>
+    {% endfor %}
+</section>
+
+<div class="text-center">
+    {% if recipes|length >= 1 %}
+    {{ pagination.links }}
+    {{ pagination.info }}
+    {% endif %}
+</div>
+
+
+<script>
+    function search_recipe(type) {
+
+        var url = $(location).attr('href'),
+            parts = url.split("/"),
+            last_part = parts[parts.length - 1];
+
+
+        if (last_part.indexOf("%") >= 0) {
+            last_part = last_part.replace("%20", " ");
+        }
+
+        if (last_part.indexOf("?") >= 0) {
+            parts = last_part.split("?"),
+                last_part = parts[0];
+        }
+
+        level = $('#difficulty').val()
+
+        window.location.href = "{{ url_for('food_category', category='VAR1', level='VAR2') }}".allReplace({ 'VAR1': last_part, 'VAR2': level });
+    }
+
+    String.prototype.allReplace = function (obj) {
+        var retStr = this;
+        for (var x in obj) {
+            retStr = retStr.replace(new RegExp(x, 'g'), obj[x]);
+        }
+        return retStr;
+    };
+
+</script>
 
 {% endblock %}
