@@ -109,18 +109,23 @@
     font-size: 22px;
     font-weight: 600;
     color: #2E2F31;   
-    text-decoration: none; 
+    text-decoration: none;   
+    padding: 35px;  
+    margin-top: 45px;
+    margin-bottom: 0;
 }
 
 .card-description {
     font-size: 15px;
     color: #7D7F82;
-    height: 150px;
+    padding: 35px;
+    height: 200px;    
 }
 
-.card-text2 {
-    
+.card-content2 {
+    margin-top: 25px;
 }
+
 .card-bottom {
     position: absolute;
     width: 100%;
