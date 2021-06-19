@@ -18,17 +18,23 @@
     {% endif %}
 </div>
 
-<section class="container-xl recipe-container mx1200 text-center">
+<section class="container-xl recipe-container mx1200">
     {% for recipe in recipes %}
-    <article class="card recipe-card" style="width: 18rem;">
+    <article class="card recipe-card">
         <a href="{{ url_for('recipe', recipe_id=recipe._id )}}"><img src="{{ recipe.recipe_picture }}"
                 class="card-img-top" alt="Open Full Recipe"></a>
-        <div class="card-body">
+        <div>
             <a class="card-title" href="{{ url_for('recipe', recipe_id=recipe._id )}}">{{ recipe.recipe_name }} </a>
-            <p class="card-text">{{ recipe.description }}</p>
-            <div class="card-bottom">
-                <div class="recipe-index-category">{{ recipe.recipe_cagetory }}</div>
-                <div class="recipe-index-duration">{{ recipe.cooktime }} min</div>
+            <p class="card-description">{{ recipe.description }}</p>
+            <div class="card-text2">
+                <div class="card-bottom">
+                    <div class="recipe-index-category">
+                        <i class="far fa-folder-open"></i>
+                        {{ recipe.recipe_cagetory }}</div>
+                    <div class="recipe-index-duration">
+                        <i class="far fa-clock"></i>
+                        {{ recipe.cooktime }} min</div>
+                </div>
             </div>
         </div>
     </article>
