@@ -1,20 +1,43 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div class="text-center">
-        <h4>{{ recipe.recipe_name }}</h4>
-        <img src="{{ recipe.recipe_picture }}" alt="Photo of the final dish"><br>
-        {{ recipe.description }} <br>
-        Level: {{ recipe.level }} <br>
-        {{ recipe.servings }} servings <br>
-        <h4>Ingredients:</h4>
+    <div class="container-xl" style="max-width: 800px;">
+        <h4 class="pt-4 pb-4 text-center">{{ recipe.recipe_name }}</h4>
+        <div class="full-recipe-header">
+            <div class="left">
+                Author: {{ recipe.uploaded_by}}
+            </div>
+            <div class="right">
+                <span class="full-recipe-header-dc">Difficulty: <br>{{ recipe.level }} </span>
+                <span class="full-recipe-header-dc">Category: <br> {{ recipe.recipe_cagetory }}</span>
+            </div>
+        </div>
+        <section class="full-recipe-description">
+            {{ recipe.description }} 
+        </section>
+        <img src="{{ recipe.recipe_picture }}" alt="Photo of the final dish" class="img-fluid"><br>
+        
+        <div class="full-recipe-header mt-5">
+            <div class="left">
+                Yields: {{ recipe.servings }} Servings
+            </div>
+            <div class="right">
+                <span class="full-recipe-header-dc">Preparation Time: <br>{{ recipe.preptime }} mins </span>
+                <span class="full-recipe-header-dc">Cooking Time: <br> {{ recipe.cooktime }} mins</span>
+            </div>
+        </div>
+        
+        <h4 class="pb-4">Main Ingredients:</h4>
         {% for x in recipe.ingredients %}
-            <ul><li>{{ x }}</li></ul>    
+            <ul><li class="recipe-text checkbox">{{ x }}</li></ul>    
         {% endfor %}
-        <h4>Method:</h4>
-        {% for step in recipe.recipe_method %}
-            <ul><li>{{ step }}</li></ul> 
-        {% endfor %}
+
+        <h4 class="pt-4 pb-4">Method:</h4>
+        <div class="numbered-list">
+            {% for step in recipe.recipe_method %}
+                <div class="numbered-list-step">{{ step }}</div>
+            {% endfor %}
+        </div>
     </div>
         
     <div class="text-center">
