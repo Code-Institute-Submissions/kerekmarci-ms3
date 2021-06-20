@@ -8,8 +8,12 @@
                 Author: {{ recipe.uploaded_by}}
             </div>
             <div class="right">
-                <span class="full-recipe-header-dc">Difficulty: <br>{{ recipe.level }} </span>
-                <span class="full-recipe-header-dc">Category: <br> {{ recipe.recipe_cagetory }}</span>
+                <div class="full-recipe-header-dc-1">
+                    <span class="full-recipe-header-dc">Difficulty:</span><span class="full-recipe-header-dc-content">{{ recipe.level }} </span>
+                </div>
+                <div class="full-recipe-header-dc-1">
+                    <span class="full-recipe-header-dc">Category: </span><span class="full-recipe-header-dc-content">{{ recipe.recipe_cagetory }}</span>
+                </div>
             </div>
         </div>
         <section class="full-recipe-description">
