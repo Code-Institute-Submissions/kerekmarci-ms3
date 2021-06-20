@@ -5,7 +5,7 @@
                 <input class="form-control me-2" type="search" name="query" id="query" placeholder="Search"
                     aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
-                <a href="{{ url_for('home') }}" class="btn btn-outline-success" type="submit">Reset</a>
+                <a href="{{ url_for('get_recipes') }}" class="btn btn-outline-success" type="submit">Reset</a>
             </form>
             <!-- 
                 <div>
@@ -24,7 +24,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('get_recipes') }}">Home</a></li>
                     {% if session.user %}
                     <li class="nav-item"><a class="nav-link" href="{{ url_for('upload_recipe') }}">Upload Recipe</a>
                     </li>

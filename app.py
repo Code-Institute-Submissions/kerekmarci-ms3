@@ -46,12 +46,6 @@ def pagination_args(recipes):
 
 
 @app.route("/")
-@app.route("/home")
-def home():
-    recipes = list(mongo.db.recipes.find())
-    return render_template("home.html", recipes=recipes)
-
-
 @app.route("/get_recipes")
 def get_recipes():
     categories = list(mongo.db.categories.find())
@@ -187,7 +181,7 @@ def logout():
     flash("You have been successfully logged out!")
     session.pop("user")
     session.pop("name")
-    return redirect(url_for("home"))
+    return redirect(url_for("get_recipes"))
 
 
 @app.route("/upload_recipe", methods=["GET", "POST"])
@@ -218,7 +212,7 @@ def upload_recipe():
         }
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe has been successfully added!")
-        return redirect(url_for("home"))
+        return redirect(url_for("get_recipes"))
 
     categories = list(mongo.db.categories.find())
     return render_template("upload_recipe.html", categories=categories)
