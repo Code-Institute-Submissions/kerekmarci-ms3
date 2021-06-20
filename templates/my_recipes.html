@@ -8,26 +8,39 @@
         <h2>My Recipes</h2>
     </div>
 
-    <section class="container-xl recipe-container mx1200 text-center">        
-        {% for recipe in recipes %}
-        <article class="card recipe-card" style="width: 18rem;">
-            <a href="{{ url_for('recipe', recipe_id=recipe._id )}}"><img src="{{ recipe.recipe_picture }}" class="card-img-top" alt="Open Full Recipe"></a>
-            <div class="card-body">
-                <a class="card-title" href="{{ url_for('recipe', recipe_id=recipe._id )}}">{{ recipe.recipe_name }} </a>
-                <p class="card-text">{{ recipe.description }}</p>                
-                <div class="card-bottom">
-                    <div class="recipe-index-category">{{ recipe.recipe_cagetory }}</div>
-                    <div class="recipe-index-duration">{{ recipe.cooktime }} min</div>
-                </div>   
-                <div style="padding-bottom: 50px;">
-                {% if session.user|lower == recipe.uploaded_by|lower %}
-                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id )}}" class="btn btn-warning">Edit Recipe</a>
-                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id )}}" class="btn btn-danger">Delete Recipe</a>                    
-                {% endif %}  
-                </div>           
+    <section class="container-xl recipe-container mx1200">
+    {% for recipe in recipes %}
+        <article class="card recipe-card">
+            <div>            
+                <a href="{{ url_for('recipe', recipe_id=recipe._id )}}"><img src="{{ recipe.recipe_picture }}"
+                    class="card-img-top" alt="Open Full Recipe"></a>
             </div>
-        </article>    
-        {% endfor %}   
-    </section>      
+            <div class="card-content2">                
+                <div>                
+                    <a class="card-title" href="{{ url_for('recipe', recipe_id=recipe._id )}}">{{ recipe.recipe_name }} </a>
+                    <p class="card-description">{{ recipe.description }}</p>    
+                </div> 
+                <div class="text-center edit-delete-button">
+                    {% if session.user|lower == recipe.uploaded_by|lower %}
+                        <a href="{{ url_for('edit_recipe', recipe_id=recipe._id )}}" class="btn btn-warning">Edit Recipe</a>
+                        <a href="{{ url_for('delete_recipe', recipe_id=recipe._id )}}" class="btn btn-danger">Delete Recipe</a>
+                    {% endif %} 
+                </div>             
+                <div class="card-bottom">
+                    <div class="recipe-index-category">
+                        <i class="far fa-folder-open"></i>
+                        {{ recipe.recipe_cagetory }}</div>
+                    <div class="recipe-index-duration">
+                        <i class="far fa-clock"></i>
+                        {{ recipe.cooktime }} min</div>
+                </div>            
+            </div>
+        </article>
+    {% endfor %}
+    </section>    
 
 {% endblock %}
+
+
+
+ 

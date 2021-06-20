@@ -253,19 +253,23 @@ def edit_recipe(recipe_id):
     return render_template("edit_recipe.html", categories=categories, recipe=recipe)
 
 
-@app.route("/delete_recipe/<recipe_id>")
-def delete_recipe(recipe_id):
-    mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
-    flash("Recipe Successfully Deleted")
-    return redirect(url_for("get_tasks"))
-
-
 @app.route("/recipe/<recipe_id>")
 def recipe(recipe_id):
     recipe = mongo.db.recipes.find_one(
         {"_id": ObjectId(recipe_id)})
 
-    return render_template("recipe.html", recipe=recipe)
+    comments = mongo.db.comments.find(
+        {"recipe_id": recipe_id})
+
+    return render_template("recipe.html", 
+            recipe=recipe, comments=comments)
+
+
+@app.route("/delete_recipe/<recipe_id>")
+def delete_recipe(recipe_id):
+    mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
+    flash("Recipe Successfully Deleted")
+    return redirect(url_for("get_tasks"))
 
 
 if __name__ == "__main__":

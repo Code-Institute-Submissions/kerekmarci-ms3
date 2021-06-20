@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div class="container-xl" style="max-width: 800px;">
+    <section class="container-xl" style="max-width: 800px;">
         <h4 class="pt-4 pb-4 text-center">{{ recipe.recipe_name }}</h4>
         <div class="full-recipe-header">
             <div class="left">
@@ -42,7 +42,19 @@
                 <div class="numbered-list-step">{{ step }}</div>
             {% endfor %}
         </div>
-    </div>
+
+        <div class="review">
+            <h4>Comments:</h4>
+            {% for comment in comments %}
+                Name: {{ comment.username }}
+                Date: {{ comment.date }}
+                Comment: {{ comment.comment }}
+            {% endfor %}
+        </div>
+
+    </section>
+
+    
         
     <div class="text-center">
         <a href="javascript:history.back()" class="btn btn-primary">Go Back</a>
