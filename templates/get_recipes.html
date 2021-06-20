@@ -41,12 +41,15 @@
     {% endfor %}
 </section>
 
-<div class="text-center">
+<div class="pagination justify-content-center">
     {% if recipes|length >= 1 %}
-    {{ pagination.links }}
-    {{ pagination.info }}
+    <ul>
+        <li>{{ pagination.links }} </li>
+        <li>{{ pagination.info }}</li>
+    </ul>
     {% endif %}
 </div>
+
 
 
 <script>
