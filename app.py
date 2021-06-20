@@ -253,13 +253,24 @@ def edit_recipe(recipe_id):
     return render_template("edit_recipe.html", categories=categories, recipe=recipe)
 
 
-@app.route("/recipe/<recipe_id>")
+@app.route("/recipe/<recipe_id>", methods=["GET", "POST"])
 def recipe(recipe_id):
     recipe = mongo.db.recipes.find_one(
         {"_id": ObjectId(recipe_id)})
 
     comments = mongo.db.comments.find(
         {"recipe_id": recipe_id})
+
+    if request.method == "POST":
+        timestamp = datetime.now().strftime('%d-%m-%Y')
+        review = {
+            "recipe_id": recipe_id,
+            "created_by_username": session["user"],
+            "created_by_name": session["name"],
+            "date": timestamp,
+            "comment": request.form.get("comment")
+        }
+        mongo.db.comments.insert_one(review)
 
     return render_template("recipe.html", 
             recipe=recipe, comments=comments)

@@ -44,13 +44,25 @@
         </div>
 
         <div class="review">
-            <h4>Comments:</h4>
+            <h4 class="mt-4 mb-4">Comments:</h4>
             {% for comment in comments %}
-                Name: {{ comment.username }}
-                Date: {{ comment.date }}
-                Comment: {{ comment.comment }}
+            <div class="comment-container">
+                <div><strong>Name: </strong> {{ comment.created_by_name }}</div>
+                <div><strong>Date: </strong>{{ comment.date }}</div>
+                <div><strong>Comment: </strong>{{ comment.comment }}</div>
+            </div> 
             {% endfor %}
         </div>
+        
+        {% if session.user %}
+        <div class="review">
+            <form action="{{ url_for('recipe', recipe_id=recipe._id ) }}" method="POST">
+                <h4 class="mt-4 mb-4">Leave a comment:</h4>
+                <textarea class="form-control" rows="3" id="comment" name="comment"></textarea>
+                <div class="comment-button"><button type="submit" class="btn btn-info mt-2">Send Comment</button></div>
+            </form>
+        </div>
+        {% endif %}
 
     </section>
 
