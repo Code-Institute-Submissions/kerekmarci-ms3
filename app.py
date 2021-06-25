@@ -7,6 +7,8 @@ from flask_paginate import Pagination, get_page_args, get_page_parameter
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
+import boto3
+from botocore.exceptions import NoCredentialsError
 
 if os.path.exists("env.py"):
     import env
@@ -16,6 +18,28 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
+AWS_ACCESS_KEY = os.environ.get("AWS_ACCESS_KEY")
+AWS_SECRET_KEY = os.environ.get("AWS_SECRET_KEY")
+
+# https://medium.com/bilesanmiahmad/how-to-upload-a-file-to-amazon-s3-in-python-68757a1867c6
+@app.route("/upload_to_aws")
+def upload_to_aws(local_file, bucket, s3_file):
+    s3 = boto3.client('s3', aws_access_key_id=AWS_ACCESS_KEY,
+                      aws_secret_access_key=AWS_SECRET_KEY)
+
+    try:
+        s3.upload_file(local_file, bucket, s3_file)
+        print("Upload Successful")
+        return True
+    except FileNotFoundError:
+        print("The file was not found")
+        return False
+    except NoCredentialsError:
+        print("Credentials not available")
+        return False
+
+
+uploaded = upload_to_aws('dog.jpg', 'epic-food-profile-picture', 'dog')
 
 
 mongo = PyMongo(app)
