@@ -3,6 +3,7 @@
 
     <section class="container-xl" style="max-width: 800px;">
         <h4 class="pt-4 pb-4 text-center">{{ recipe.recipe_name }}</h4>
+        <a href="{{ url_for('add_favorite', recipe_id=recipe._id ) }}" class="btn btn-primary">Add to Favorite</a>
         <div class="full-recipe-header">
             <div class="left">
                 Author: {{ recipe.uploaded_by}}

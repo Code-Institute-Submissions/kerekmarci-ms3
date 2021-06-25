@@ -1,4 +1,4 @@
-import os
+import os, json, boto3, botocore
 from flask import (
     Flask, flash, render_template, redirect,
     request, session, url_for)
@@ -6,8 +6,8 @@ from flask_pymongo import PyMongo
 from flask_paginate import Pagination, get_page_args, get_page_parameter
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.utils import secure_filename
 from datetime import datetime
-import boto3
 from botocore.exceptions import NoCredentialsError
 
 if os.path.exists("env.py"):
@@ -18,28 +18,8 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
-AWS_ACCESS_KEY = os.environ.get("AWS_ACCESS_KEY")
-AWS_SECRET_KEY = os.environ.get("AWS_SECRET_KEY")
 
-# https://medium.com/bilesanmiahmad/how-to-upload-a-file-to-amazon-s3-in-python-68757a1867c6
-@app.route("/upload_to_aws")
-def upload_to_aws(local_file, bucket, s3_file):
-    s3 = boto3.client('s3', aws_access_key_id=AWS_ACCESS_KEY,
-                      aws_secret_access_key=AWS_SECRET_KEY)
-
-    try:
-        s3.upload_file(local_file, bucket, s3_file)
-        print("Upload Successful")
-        return True
-    except FileNotFoundError:
-        print("The file was not found")
-        return False
-    except NoCredentialsError:
-        print("Credentials not available")
-        return False
-
-
-uploaded = upload_to_aws('dog.jpg', 'epic-food-profile-picture', 'dog')
+PER_PAGE = 6
 
 
 mongo = PyMongo(app)
@@ -48,8 +28,6 @@ mongo = PyMongo(app)
 # Pagination help found: https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9
 # and here: https://betterprogramming.pub/simple-flask-pagination-example-4190b12c2e2e
 # flask_paginate documentation: https://flask-paginate.readthedocs.io/_/downloads/en/master/pdf/
-
-PER_PAGE = 6
 
 
 def paginate(recipes):
@@ -304,7 +282,27 @@ def recipe(recipe_id):
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     flash("Recipe Successfully Deleted")
-    return redirect(url_for("get_tasks"))
+    return render_template("home.html")
+
+
+@app.route("/add_favorite/<recipe_id>")
+def add_favorite(recipe_id):
+    user = mongo.db.users.find_one({"username": session["user"]})
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    # Push this receipe to the user's favourite recipe array
+    mongo.db.users.update_one(user, {"$push": {"favorite": ObjectId(recipe_id)}})    
+    flash("Recipe Successfully Added to Favourites")
+
+    return redirect(url_for("favorite_recipes"))
+
+
+@app.route("/favorite_recipes")
+def favorite_recipes():
+    if session.get("user"):
+        user = mongo.db.users.find_one({"username": session["user"]})
+    else:
+        user = False
+    return render_template("favorites.html", user=user)
 
 
 if __name__ == "__main__":
