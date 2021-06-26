@@ -175,7 +175,7 @@ def profile(username):
                                name=name,
                                profile_picture=profile_picture)
 
-    return redirect(url_for("login"))
+    return render_template("profile.html")
 
 
 @app.route("/logout")
@@ -287,10 +287,10 @@ def delete_recipe(recipe_id):
 
 @app.route("/add_favorite/<recipe_id>")
 def add_favorite(recipe_id):
-    user = mongo.db.users.find_one({"username": session["user"]})
+    username = session["user"]
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    # Push this receipe to the user's favourite recipe array
-    mongo.db.users.update_one(user, {"$push": {"favorite": ObjectId(recipe_id)}})    
+    # Push this receipe to the user's favourite recipe array    
+    mongo.db.recipes.update_one(recipe, {"$push": {"favorited_by": username}})    
     flash("Recipe Successfully Added to Favourites")
 
     return redirect(url_for("favorite_recipes"))
@@ -299,10 +299,20 @@ def add_favorite(recipe_id):
 @app.route("/favorite_recipes")
 def favorite_recipes():
     if session.get("user"):
-        user = mongo.db.users.find_one({"username": session["user"]})
-    else:
-        user = False
-    return render_template("favorites.html", user=user)
+        username = session["user"]    
+    
+    recipes = list(mongo.db.recipes.find())   
+    fav_recipes = []      
+    
+    for recipe in recipes:
+        if username in recipe["favorited_by"]:       
+            fav_recipes.append(recipe)           
+   
+    recipes_paginated = paginate(fav_recipes)
+    pagination = pagination_args(fav_recipes)    
+
+    return render_template("get_recipes.html", recipes=recipes_paginated,
+                           pagination=pagination)
 
 
 if __name__ == "__main__":
