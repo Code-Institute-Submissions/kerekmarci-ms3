@@ -1,4 +1,4 @@
-import os, json, boto3, botocore
+import os
 from flask import (
     Flask, flash, render_template, redirect,
     request, session, url_for)
@@ -8,7 +8,9 @@ from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 from datetime import datetime
-from botocore.exceptions import NoCredentialsError
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 if os.path.exists("env.py"):
     import env
@@ -19,8 +21,15 @@ app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
-PER_PAGE = 6
+# Configuring Cloudinary
+# https://pypi.org/project/cloudinary/
+cloudinary.config(
+  cloud_name = os.environ.get("CLOUDINARY_NAME"),
+  api_key = os.environ.get("CLOUD_API_KEY"),
+  api_secret = os.environ.get("CLOUD_API_SECRET_KEY")
+)
 
+PER_PAGE = 6
 
 mongo = PyMongo(app)
 
@@ -313,6 +322,16 @@ def favorite_recipes():
 
     return render_template("get_recipes.html", recipes=recipes_paginated,
                            pagination=pagination)
+
+# Based on Cloudinary documentation
+# https://cloudinary.com/documentation/django_image_and_video_upload#server_side_upload
+@app.route("/'upload_profile_image", methods=["GET", "POST"])
+def upload_profile_image():
+    if request.method == "POST":
+        file_to_upload = request.files['file']        
+        if file_to_upload:
+            upload_result = cloudinary.uploader.upload(file_to_upload)
+    return redirect(url_for("profile", username=session["user"]))
 
 
 if __name__ == "__main__":
