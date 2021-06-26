@@ -176,7 +176,7 @@ def profile(username):
     name = mongo.db.users.find_one(
         {"username": session["user"]})["name"]
     profile_picture = mongo.db.users.find_one(
-        {"username": session["user"]})["profile_picture"]
+        {"username": session["user"]})["profile_picture"]      
 
     if session["user"]:
         return render_template("profile.html",
@@ -186,7 +186,7 @@ def profile(username):
 
     return render_template("profile.html")
 
-
+    
 @app.route("/logout")
 def logout():
     flash("You have been successfully logged out!")
@@ -331,6 +331,10 @@ def upload_profile_image():
         file_to_upload = request.files['file']        
         if file_to_upload:
             upload_result = cloudinary.uploader.upload(file_to_upload)
+            profile_picture_url = upload_result["url"]
+            mongo.db.users.update_one({"username": session["user"]}, {
+                                        "$set": {"profile_picture": profile_picture_url}})
+            
     return redirect(url_for("profile", username=session["user"]))
 
 
