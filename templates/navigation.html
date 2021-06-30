@@ -7,11 +7,7 @@
                 <button class="btn btn-outline-success" type="submit">Search</button>
                 <a href="{{ url_for('get_recipes') }}" class="btn btn-outline-success" type="submit">Reset</a>
             </form>
-            <!-- 
-                <div>
-                    Easy / Medium / Complex
-                </div>
-                
+            <!--                
                 <div class="px-5">
                     {% if session.user %}
                         Welcome {{ session.name }}
@@ -49,45 +45,29 @@
         <a href="{{ url_for('food_category', category='Appetizers' ) }}">
             <img src="../static/images/appetizer.jpg" alt="" class="food-categories-img">
         </a>
-        <!-- <a href="javascript::" onclick="search_recipe('Appetizers')">
-            <img src="../static/images/appetizer.jpg" alt="" class="food-categories-img">
-        </a> -->
         <h4>Appetizers</h4>
     </div>
     <div class="food-categories text-center">
         <a href="{{ url_for('food_category', category='Soup' ) }}">
             <img src="../static/images/soup.jpg" alt="" class="food-categories-img">
-        </a>
-        <!-- <a href="javascript::" onclick="search_recipe('Soup')">
-            <img src="../static/images/soup.jpg" alt="" class="food-categories-img">
-        </a> -->
         <h4>Soup</h4>
     </div>
     <div class="food-categories text-center">
         <a href="{{ url_for('food_category', category='Main Course' ) }}">
             <img src="../static/images/main_course.jpg" alt="" class="food-categories-img">
-        </a>
-        <!-- <a href="javascript::" onclick="search_recipe('Main Course')">
-            <img src="../static/images/main_course.jpg" alt="" class="food-categories-img">
-        </a> -->
+        </a>       
         <h4>Main Course</h4>
     </div>
     <div class="food-categories text-center">
         <a href="{{ url_for('food_category', category='Vegetarian' ) }}">
             <img src="../static/images/vegetarian.jpeg" alt="" class="food-categories-img">
         </a>
-        <!-- <a href="javascript::" onclick="search_recipe('Vegetarian')">
-            <img src="../static/images/vegetarian.jpeg" alt="" class="food-categories-img">
-        </a> -->
         <h4>Vegetarian</h4>
     </div>
     <div class="food-categories text-center">
         <a href="{{ url_for('food_category', category='Desserts' ) }}">
             <img src="../static/images/dessert.jpeg" alt="" class="food-categories-img">
         </a>
-        <!-- <a href="javascript::" onclick="search_recipe('Desserts')">
-            <img src="../static/images/dessert.jpeg" alt="" class="food-categories-img">
-        </a> -->
         <h4>Desserts</h4>
     </div>
 
@@ -105,16 +85,11 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-
-
     window.onload = function () {
-        // code here
-
         '{% if level %}'
         level = '{{ level }}';
         $('#difficulty').val(level);
         '{% endif  %}'
-
     }
 </script>
 

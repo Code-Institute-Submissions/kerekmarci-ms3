@@ -10,11 +10,11 @@
 
 <div class="text-center">
     {% if category %}
-    {% if level %}
-    <h5><b>Category:</b> {{ category }}, <b>Level: </b>{{ level }}</h5>
-    {% else %}
-    <h5><b>Category:</b> {{ category }}</h5>
-    {% endif %}
+        {% if level %}
+        <h5><b>Category:</b> {{ category }}, <b>Level: </b>{{ level }}</h5>
+        {% else %}
+        <h5><b>Category:</b> {{ category }}</h5>
+        {% endif %}
     {% endif %}
 </div>
 
