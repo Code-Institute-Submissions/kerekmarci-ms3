@@ -50,6 +50,7 @@
     <div class="food-categories text-center">
         <a href="{{ url_for('food_category', category='Soup' ) }}">
             <img src="../static/images/soup.jpg" alt="" class="food-categories-img">
+        </a>
         <h4>Soup</h4>
     </div>
     <div class="food-categories text-center">
@@ -73,7 +74,7 @@
 
     <div class="text-center">
         <label for="cars">Select your level:</label>
-        <select name="difficulty" id="difficulty" onchange="search_recipe()">
+        <select name="difficulty" id="difficulty">
             <option value=" all-level">All level</option>
             <option value="easy">Easy</option>
             <option value="medium">Medium</option>
