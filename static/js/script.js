@@ -4,12 +4,6 @@ let methodInputContainer = document.getElementById("methodInputContainer");
 let methodInput = document.getElementsByName("method");
 firstIngredient = ingredientInputContainer.children[1];
 firstMethod = methodInputContainer.children[1];
-firstIngredient.addEventListener("input", enableNext);
-firstMethod.addEventListener("input", enableNext);
-
-function enableNext() {
-    this.nextElementSibling.disabled = false;
-}
 
 function addIngredientField() {
     event.preventDefault();
