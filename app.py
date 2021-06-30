@@ -206,6 +206,13 @@ def upload_recipe():
             ingredient_list.append(ingredient)
             method_list.append(method)
         timestamp = datetime.now().strftime('%d-%m-%Y')
+
+        file_to_upload = request.files['file']        
+        if file_to_upload:            
+            upload_result = cloudinary.uploader.upload(file_to_upload, 
+                folder="recipe-images")
+            recipe_picture_url = upload_result["url"]            
+
         recipe = {
             "recipe_name": request.form.get("recipename"),
             "description": request.form.get("description"),
@@ -217,10 +224,11 @@ def upload_recipe():
             "cooktime": request.form.get("cooktime"),
             "ingredients": ingredient_list,
             "recipe_method": method_list,
-            "recipe_picture": request.form.get("recipe_picture"),
+            "recipe_picture": recipe_picture_url,
             "uploaded_on": timestamp,
             "uploaded_by": session["user"]
         }
+
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe has been successfully added!")
         return redirect(url_for("get_recipes"))
@@ -329,8 +337,9 @@ def favorite_recipes():
 def upload_profile_image():
     if request.method == "POST":
         file_to_upload = request.files['file']        
-        if file_to_upload:
-            upload_result = cloudinary.uploader.upload(file_to_upload)
+        if file_to_upload:            
+            upload_result = cloudinary.uploader.upload(file_to_upload, 
+                folder="profile-images")
             profile_picture_url = upload_result["url"]
             mongo.db.users.update_one({"username": session["user"]}, {
                                         "$set": {"profile_picture": profile_picture_url}})

@@ -9,7 +9,7 @@
     </div>       
 
     <section class="form-container">
-        <form method="POST" action="{{ url_for('upload_recipe') }}">
+        <form method="POST" action="{{ url_for('upload_recipe') }}" enctype="multipart/form-data">
             <!-- Recipe name -->
             <div class="mb-3">
                 <label for="recipename" class="form-label h5">Recipe Name</label>
@@ -94,9 +94,13 @@
             <a href="#" onclick="removeMethodField()" class="btn btn-danger mb-3">Remove</a> 
 
             <!-- Image URL -->
-            <div class="mb-3">
-                <label for="recipe_picture" class="form-label h5">Recipe picture URL</label>
-                <input type="text" name="recipe_picture" class="form-control" id="recipe_picture">
+            <div class="pt-3 mb-3">
+                <h5>Upload Recipe Image:</h5>
+                <br>
+                <label for="upload-recipe-image">
+                    <i class="fas fa-upload"></i>Image</label>
+                </label>
+                <input id="upload-recipe-image" name="file" type="file">                        
             </div>       
 
             <button type="submit" class="btn btn-primary">Submit Recipe</button>
