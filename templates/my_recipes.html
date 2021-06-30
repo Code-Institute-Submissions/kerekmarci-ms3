@@ -23,7 +23,7 @@
                 <div class="text-center edit-delete-button">
                     {% if session.user|lower == recipe.uploaded_by|lower %}
                         <a href="{{ url_for('edit_recipe', recipe_id=recipe._id )}}" class="btn btn-warning">Edit Recipe</a>
-                        <a href="{{ url_for('delete_recipe', recipe_id=recipe._id )}}" class="btn btn-danger">Delete Recipe</a>
+                        <a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmDelete{{ recipe._id }}">Delete Recipe</a>
                     {% endif %} 
                 </div>             
                 <div class="card-bottom">
@@ -36,8 +36,35 @@
                 </div>            
             </div>
         </article>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="confirmDelete{{ recipe._id }}" tabindex="-1" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmDeleteLabel">Confirm Deletion</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you wish to delete this recipe?
+                </div>            
+                <div class="modal-footer">                
+                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id )}}" class="btn btn-danger">Delete Recipe</a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>                
+                </div>
+                </div>
+            </div>
+        </div>
+
     {% endfor %}
     </section>    
+
+    
+
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmDelete">
+        Launch demo modal
+        </button>
 
 {% endblock %}
 
