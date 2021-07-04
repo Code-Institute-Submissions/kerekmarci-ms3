@@ -201,7 +201,8 @@ def upload_recipe():
         is_vegetarian = "veg" if request.form.get("vegetarian") else "nonveg"        
         timestamp = datetime.now().strftime('%d-%m-%Y')
 
-        file_to_upload = request.files['file']        
+        file_to_upload = request.files['file']
+        recipe_picture_url = "https://img.pngio.com/restaurant-svg-dinner-clipart-kitchen-svg-food-png-silhouette-etsy-food-png-silhouette-2048_1536.jpg"
         if file_to_upload:            
             upload_result = cloudinary.uploader.upload(file_to_upload, 
                 folder="recipe-images")
@@ -232,17 +233,19 @@ def upload_recipe():
 
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
-def edit_recipe(recipe_id):
+def edit_recipe(recipe_id):    
     if request.method == "POST":
-        is_vegetarian = "veg" if request.form.get("vegetarian") else "nonveg"
-        ingredient_list, method_list = ([] for i in range(2))
-        ingredients = request.form.getlist("ingredients")
-        methods = request.form.getlist("method")
-        for ingredient, method in zip(ingredients, methods):
-            ingredient_list.append(ingredient)
-            method_list.append(method)
-        timestamp = datetime.now().strftime('%d-%m-%Y')
-        recipe = {
+        is_vegetarian = "veg" if request.form.get("vegetarian") else "nonveg"      
+
+        file_to_upload = request.files['file']
+        recipe_picture_url = mongo.db.recipes.find_one({
+            "_id": ObjectId(recipe_id)})["recipe_picture"]
+        if file_to_upload:            
+            upload_result = cloudinary.uploader.upload(file_to_upload, 
+                folder="recipe-images")
+            recipe_picture_url = upload_result["url"]  
+
+        edited_recipe = {
             "recipe_name": request.form.get("recipename"),
             "description": request.form.get("description"),
             "recipe_cagetory": request.form.get("recipe-category"),
@@ -251,13 +254,11 @@ def edit_recipe(recipe_id):
             "vegetarian": is_vegetarian,
             "preptime": request.form.get("preptime"),
             "cooktime": request.form.get("cooktime"),
-            "ingredients": ingredient_list,
-            "recipe_method": method_list,
-            "recipe_picture": request.form.get("recipe_picture"),
-            "uploaded_on": timestamp,
-            "uploaded_by": session["user"]
+            "ingredients": request.form.getlist("ingredients"),
+            "recipe_method": request.form.getlist("method"),
+            "recipe_picture": recipe_picture_url            
         }
-        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, recipe)
+        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, {"$set": edited_recipe})
         flash("Recipe has been successfully updated!")
         return redirect(url_for("my_recipes"))
 
@@ -309,21 +310,14 @@ def add_favorite(recipe_id):
 
 @app.route("/favorite_recipes")
 def favorite_recipes():
-    if session.get("user"):
-        username = session["user"]    
+    if session.get("user"):          
+        user = mongo.db.users.find_one(
+            {"username": session["user"]})
     
     recipes = list(mongo.db.recipes.find())   
-    fav_recipes = []      
     
-    for recipe in recipes:
-        if username in recipe["favorited_by"]:       
-            fav_recipes.append(recipe)           
-   
-    recipes_paginated = paginate(fav_recipes)
-    pagination = pagination_args(fav_recipes)    
-
-    return render_template("get_recipes.html", recipes=recipes_paginated,
-                           pagination=pagination)
+    return render_template("favorites.html", recipes=recipes,
+                                            user=user)
 
 # Based on Cloudinary documentation
 # https://cloudinary.com/documentation/django_image_and_video_upload#server_side_upload
