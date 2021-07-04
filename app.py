@@ -198,13 +198,7 @@ def logout():
 @app.route("/upload_recipe", methods=["GET", "POST"])
 def upload_recipe():
     if request.method == "POST":
-        is_vegetarian = "veg" if request.form.get("vegetarian") else "nonveg"
-        ingredient_list, method_list = ([] for i in range(2))
-        ingredients = request.form.getlist("ingredients")
-        methods = request.form.getlist("method")
-        for ingredient, method in zip(ingredients, methods):
-            ingredient_list.append(ingredient)
-            method_list.append(method)
+        is_vegetarian = "veg" if request.form.get("vegetarian") else "nonveg"        
         timestamp = datetime.now().strftime('%d-%m-%Y')
 
         file_to_upload = request.files['file']        
@@ -222,8 +216,8 @@ def upload_recipe():
             "vegetarian": is_vegetarian,
             "preptime": request.form.get("preptime"),
             "cooktime": request.form.get("cooktime"),
-            "ingredients": ingredient_list,
-            "recipe_method": method_list,
+            "ingredients": request.form.getlist("ingredients"),
+            "recipe_method": request.form.getlist("method"),
             "recipe_picture": recipe_picture_url,
             "uploaded_on": timestamp,
             "uploaded_by": session["user"]

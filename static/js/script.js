@@ -9,8 +9,8 @@ function addIngredientField() {
     event.preventDefault();
     let input = document.createElement("input");
     input.type = "text";
-    input.className = "form-control mt-3";
     input.name = "ingredients";
+    input.className = "form-control mt-3";
     input.required = true;
     ingredientInputContainer.appendChild(input);    
 }
@@ -24,8 +24,8 @@ function addMethodField() {
     event.preventDefault();
     let input = document.createElement("input");
     input.type = "text";
+    input.name = "method";
     input.className = "form-control mt-3";
-    input.name = "ingredients";
     input.required = true;
     methodInputContainer.appendChild(input);    
 }
