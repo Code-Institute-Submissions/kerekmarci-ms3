@@ -31,6 +31,10 @@ h1, h2, h3, h4, h5, h6 {
     list-style-type: square;
 }
 
+.small-image {
+    width: 50%;
+}
+
 /* Information on CSS counters: https://blog.logrocket.com/styling-numbered-lists-with-css-counters/ */
 
 .numbered-list {      

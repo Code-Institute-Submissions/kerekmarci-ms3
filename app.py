@@ -103,11 +103,15 @@ def food_category(category):
 
 
 @app.route("/my_recipes")
-def my_recipes():
-    recipes = list(mongo.db.recipes.find(
-        {"uploaded_by": session["user"]}
-    ))
-    return render_template("my_recipes.html", recipes=recipes)
+def my_recipes():    
+    if session.get("user"):          
+        user = mongo.db.users.find_one(
+            {"username": session["user"]})
+        recipes = list(mongo.db.recipes.find(
+            {"uploaded_by": session["user"]}))
+
+    return render_template("my_recipes.html", recipes=recipes,
+                                            user=user)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -221,7 +225,7 @@ def upload_recipe():
             "recipe_method": request.form.getlist("method"),
             "recipe_picture": recipe_picture_url,
             "uploaded_on": timestamp,
-            "uploaded_by": session["user"]
+            "uploaded_by": session["user"],
         }
 
         mongo.db.recipes.insert_one(recipe)
@@ -294,7 +298,7 @@ def recipe(recipe_id):
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     flash("Recipe Successfully Deleted")
-    return render_template("home.html")
+    return redirect(url_for("my_recipes"))
 
 
 @app.route("/add_favorite/<recipe_id>")
@@ -303,6 +307,16 @@ def add_favorite(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     # Push this receipe to the user's favourite recipe array    
     mongo.db.recipes.update_one(recipe, {"$push": {"favorited_by": username}})    
+    flash("Recipe Successfully Added to Favourites")
+
+    return redirect(url_for("favorite_recipes"))
+
+
+@app.route("/remove_favorite/<recipe_id>")
+def remove_favorite(recipe_id):
+    username = session["user"]
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    mongo.db.recipes.update_one(recipe, {"$pull": {"favorited_by": username}})    
     flash("Recipe Successfully Added to Favourites")
 
     return redirect(url_for("favorite_recipes"))

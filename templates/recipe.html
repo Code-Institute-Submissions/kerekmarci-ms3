@@ -3,7 +3,15 @@
 
     <section class="container-xl" style="max-width: 800px;">
         <h4 class="pt-4 pb-4 text-center">{{ recipe.recipe_name }}</h4>
-        <a href="{{ url_for('add_favorite', recipe_id=recipe._id ) }}" class="btn btn-primary">Add to Favorite</a>
+        {% if recipe.favorited_by %}
+            {% if session.user in recipe.favorited_by %}
+                <a href="{{ url_for('remove_favorite', recipe_id=recipe._id ) }}" class="btn btn-primary">Remove Favorite</a>
+            {% else %}
+                <a href="{{ url_for('add_favorite', recipe_id=recipe._id ) }}" class="btn btn-primary">Add to Favorite</a>
+            {% endif %}
+        {% else %}
+            <a href="{{ url_for('add_favorite', recipe_id=recipe._id ) }}" class="btn btn-primary">Add to Favorite</a>
+        {% endif %}
         <div class="full-recipe-header">
             <div class="left">
                 Author: {{ recipe.uploaded_by}}

@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 
+{% include "navigation.html" %}
+
 <section class="upload-recipe-container mx1200">
     <div class="text-center mt-3 pt-3 mb-5">
         <h2>Edit Recipe</h2>
@@ -120,7 +122,11 @@
             <a href="#" onclick="addMethodField()" class="btn btn-primary mb-3">Add New</a>
             <a href="#" onclick="removeMethodField()" class="btn btn-danger mb-3">Remove</a> 
 
-            <!-- Image URL -->            
+            <!-- Image URL -->
+            <br>
+            
+            <img src="{{ recipe.recipe_picture }}" alt="Photo of the final dish" class="img-fluid img-thumbnail small-image"><br>
+                                       
             <div class="pt-3 mb-3">
                 <h5>Change Recipe Image:</h5>
                 <br>
