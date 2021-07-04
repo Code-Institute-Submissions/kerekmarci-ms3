@@ -3,15 +3,22 @@
 
 {% include "navigation.html" %}
 
-    <div class="text-center">
-        <h2>Welcome!</h2>
-        <h4>Your usename is: {{ username }}</h4>
-        <h4>Your name is: {{ name }}</h4>
-        <h4>Your profile image is: </h4>
-        <img src="{{ profile_picture }}" alt="Profile picture">         
-    </div>
-    <div class="text-center">
-             
+<section class="upload-recipe-container mx1200">
+    <div class="text-center mt-3 pt-3 mb-5">
+        <h2>Welcome</h2>
+    </div>       
+
+    <section class="form-container">
+
+        <div class="mb-4">        
+            <h4>Your usename is: {{ username }}</h4>
+            <h4>Your name is: {{ name }}</h4>
+            <h4>Your profile image is: </h4>
+            <img src="{{ profile_picture }}" alt="Profile picture" class="small-image">         
+        </div>    
+    
+    <h5 class="mb-3">Change Profile Picture:</h5>
+    
     <form action="{{ url_for('upload_profile_image') }}" method="POST" enctype="multipart/form-data">
         <label for="ppicture">
             <i class="fas fa-upload"></i>Upload Image</label>
@@ -19,5 +26,7 @@
         <input id="ppicture" name="file" type="file">
         <input type="submit" value="Upload">
     </form>
+
+</section>
 
 {% endblock %}
