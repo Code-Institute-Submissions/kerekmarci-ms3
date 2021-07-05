@@ -72,8 +72,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .form-container {
-    max-width: 800px;
-    margin-left: 25%;
+    margin: 0 auto;
+    max-width: 800px;    
 }
 
 .food-categories-container {
@@ -265,7 +265,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .form-control {    
-    width: 80%;    
+       
 }
 
 /* ------- FULL RECIPE PAGE ------- */
