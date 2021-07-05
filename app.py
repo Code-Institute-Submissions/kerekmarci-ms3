@@ -81,12 +81,10 @@ def search():
 
 
 @app.route("/search/<category>")
-def food_category(category):
-    level = request.args.get('level')
+def food_category(category): 
+    level = request.args.get('level')    
 
-    recipes = list(mongo.db.recipes.find(
-        {"recipe_cagetory": category}))
-
+    """
     if level != None:
         recipes_new = []
         for recipe in recipes:
@@ -94,6 +92,13 @@ def food_category(category):
                 recipes_new.append(recipe)
 
         recipes = recipes_new
+    """
+    if category == "Vegetarian":
+        recipes = list(mongo.db.recipes.find(
+            {"vegetarian": "veg"}))
+    else:
+        recipes = list(mongo.db.recipes.find(
+            {"recipe_cagetory": category}))
 
     total = mongo.db.recipes.find().count()
     recipes_paginated = paginate(recipes)
