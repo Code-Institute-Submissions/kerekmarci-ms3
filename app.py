@@ -190,6 +190,11 @@ def profile(username):
 
     return render_template("profile.html")
 
+
+@app.route("/statistics")
+def statistics():
+    return render_template("statistics.html")
+
     
 @app.route("/logout")
 def logout():
