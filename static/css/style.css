@@ -9,6 +9,7 @@
 :root {
     --main-font: "Barlow", sans-serif;
     --grey-text: #7D7F82;
+    --light-grey: #E5E5E5;
 }
 
 .banner {
@@ -301,10 +302,6 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--grey-text);    
 }
 
-.full-recipe-author-info {
-    display: inline-block;
-}
-
 .full-recipe-description {
     font-size: 18px;
     color: var(--grey-text);
@@ -324,6 +321,12 @@ h1, h2, h3, h4, h5, h6 {
 .fa-utensils {
     color: var(--grey-text);
     margin-right: 10px;
+}
+
+.recipe-ingredients,
+.recipe-methods {
+    border-bottom: 1px solid var(--light-grey);
+    padding-bottom: 25px;
 }
 
 .comment-container {
