@@ -92,8 +92,7 @@ h1, h2, h3, h4, h5, h6 {
 .food-categories-img {
     width: 80%;    
     border-radius: 50%;
-    transition-duration: .3s; 
-     
+    transition-duration: .3s;      
 }
 
 .food-categories-img:hover {
@@ -140,6 +139,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .recipe-card {
+    font-family: "Barlow", sans-serif;
     border: 1px solid #ebebeb;
     width: 30.333%;
     min-width: 350px;
@@ -147,22 +147,28 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 1.5% 3%;
     padding: 0;
     border-radius: 5px; 
-    box-shadow: 0px 0px 15px rgb(41 48 55 / 3%);
+    box-shadow: 0px 0px 15px rgb(41 48 55 / 10%);
+    position: relative;
+    transition: 0.3s ease-in-out;
 }
 
-.card-body {
-    
+.recipe-card:hover {
+    box-shadow: 0px 0px 15px rgb(41 48 55 / 40%);
 }
 
-.card-title {
-    font-family: "Barlow", sans-serif;
+.card-title {    
     font-size: 22px;
     font-weight: 600;
     color: #2E2F31;   
     text-decoration: none;   
     padding: 35px;  
     margin-top: 45px;
-    margin-bottom: 0;
+    margin-bottom: 0;    
+    transition: 0.3s ease-in-out;
+}
+
+.card-title:hover {
+    color: #F89223;
 }
 
 .card-description {
@@ -217,9 +223,25 @@ h1, h2, h3, h4, h5, h6 {
     width: 50%;
 }
 
+.card-author {
+    position: absolute;
+    bottom: 80px;
+    padding-left: 35px;
+    font-size: 15px;
+    color: #7D7F82;   
+    font-size: 14px; 
+}
+
+.card-author-name {
+    color: #565758; 
+    font-weight: 600;
+}
+
 .card-profile-picture {
     width: 30px;
-    height: 30px;    
+    height: 30px;
+    object-fit: cover;
+    margin-right: 10px;
 }
 
 /* ------- UPLOAD RECIPE PAGE ------- */
@@ -307,7 +329,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ------- FORM ------- */
-
 
 
 @media screen and (max-width: 576px) {
