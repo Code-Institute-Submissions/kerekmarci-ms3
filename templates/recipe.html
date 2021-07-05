@@ -14,37 +14,43 @@
         {% else %}
             <a href="{{ url_for('add_favorite', recipe_id=recipe._id ) }}" class="btn btn-primary">Add to Favorite</a>
         {% endif %}
-        <div class="full-recipe-header">
-            <div class="left">
-                {% for user in users %}
-                    {% if user.username|lower == recipe.uploaded_by %}
-                        <div class="full-recipe-author-avatar">
-                            <img src="{{ user.profile_picture }}" alt="Author's profile picture" class="card-profile-picture-large rounded-circle">
-                        </div>
-                        <div class="full-recipe-author-info">
-                            <div>AUTHOR:</div>
-                            <div>{{ user.name}}</div>
-                        </div>
-                    {% endif %}
-                {% endfor %}
-            </div>
-            <div class="right">
-                <div class="full-recipe-header-dc-1">
-                    <span class="full-recipe-header-dc">Difficulty:</span><span class="full-recipe-header-dc-content">{{ recipe.level }} </span>
+        <div class="full-recipe-header clearfix">
+            {% for user in users %}
+                {% if user.username|lower == recipe.uploaded_by %}
+                <div>
+                    <div class="float-start">
+                        <img src="{{ user.profile_picture }}" alt="Author's profile picture" class="card-profile-picture-large rounded-circle">
+                    </div>
+                    <div class="float-start">
+                        <div class="full-recipe-header-dc">AUTHOR:</div>
+                        <div class="full-recipe-header-dc-content">{{ user.name }}</div>
+                    </div>
                 </div>
-                <div class="full-recipe-header-dc-1">
-                    <span class="full-recipe-header-dc">Category: </span><span class="full-recipe-header-dc-content">{{ recipe.recipe_cagetory }}</span>
-                </div>
-            </div>
+                <div class="float-end">                        
+                    <div class="full-recipe-header-dc-1">
+                        <div class="full-recipe-header-dc">Difficulty:</div><div class="full-recipe-header-dc-content">{{ recipe.level }} </div>
+                    </div>
+                    <div class="full-recipe-header-dc-1">
+                        <div class="full-recipe-header-dc">Category: </div><div class="full-recipe-header-dc-content">{{ recipe.recipe_cagetory }}</div>
+                    </div>
+                </div>                   
+                {% endif %}
+            {% endfor %}           
         </div>
         <section class="full-recipe-description">
             {{ recipe.description }} 
         </section>
-        <img src="{{ recipe.recipe_picture }}" alt="Photo of the final dish" class="img-fluid"><br>
+        <img src="{{ recipe.recipe_picture }}" alt="Photo of the final dish" class="img-fluid full-recipe-img"><br>
         
         <div class="full-recipe-header mt-5">
             <div class="left">
-                Yields: {{ recipe.servings }} Servings
+                <div class="full-recipe-author-avatar">
+                    <i class="fas fa-utensils fa-3x"></i>
+                </div>
+                <div class="full-recipe-author-info">
+                    <div>YIELDS:</div>
+                    <div>{{ recipe.servings }} Servings</div>
+                </div>          
             </div>
             <div class="right">
                 <span class="full-recipe-header-dc">Preparation Time: <br>{{ recipe.preptime }} mins </span>
