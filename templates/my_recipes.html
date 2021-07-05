@@ -21,7 +21,7 @@
                     <a class="card-title" href="{{ url_for('recipe', recipe_id=recipe._id )}}">{{ recipe.recipe_name }} </a>
                     <p class="card-description">{{ recipe.description }}</p>    
                 </div> 
-                <div class="text-center edit-delete-button">
+                <div class="edit-delete-button">
                     {% if session.user|lower == recipe.uploaded_by|lower %}
                         <a href="{{ url_for('edit_recipe', recipe_id=recipe._id )}}" class="btn btn-warning">Edit Recipe</a>
                         <a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmDelete{{ recipe._id }}">Delete Recipe</a>

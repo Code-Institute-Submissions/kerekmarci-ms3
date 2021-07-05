@@ -287,9 +287,9 @@ def edit_recipe(recipe_id):
 def recipe(recipe_id):
     recipe = mongo.db.recipes.find_one(
         {"_id": ObjectId(recipe_id)})
-
     comments = mongo.db.comments.find(
         {"recipe_id": recipe_id})
+    users = list(mongo.db.users.find())
 
     if request.method == "POST":
         timestamp = datetime.now().strftime('%d-%m-%Y')
@@ -303,7 +303,8 @@ def recipe(recipe_id):
         mongo.db.comments.insert_one(new_comment)
 
     return render_template("recipe.html", 
-            recipe=recipe, comments=comments)
+            recipe=recipe, comments=comments,
+            users=users)
 
 
 @app.route("/delete_recipe/<recipe_id>")
