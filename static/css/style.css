@@ -134,7 +134,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ------- RECIPE CARD ------- */
 
-.recipe-container img {
+.card-img-top {
     height: 260px;
     object-fit: cover;
 }
@@ -215,6 +215,11 @@ h1, h2, h3, h4, h5, h6 {
 .recipe-index-duration {
     float: right;
     width: 50%;
+}
+
+.card-profile-picture {
+    width: 30px;
+    height: 30px;    
 }
 
 /* ------- UPLOAD RECIPE PAGE ------- */

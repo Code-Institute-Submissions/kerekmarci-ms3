@@ -62,11 +62,13 @@ def get_recipes():
     categories = list(mongo.db.categories.find())
     total = mongo.db.recipes.find().count()
     recipes = list(mongo.db.recipes.find())
+    users = list(mongo.db.users.find())
     recipes_paginated = paginate(recipes)
     pagination = pagination_args(recipes)
 
     return render_template("get_recipes.html", recipes=recipes_paginated,
-                           pagination=pagination)
+                           pagination=pagination,
+                           users=users)
 
 
 @app.route("/search", methods=["GET", "POST"])
@@ -291,14 +293,14 @@ def recipe(recipe_id):
 
     if request.method == "POST":
         timestamp = datetime.now().strftime('%d-%m-%Y')
-        review = {
+        new_comment = {
             "recipe_id": recipe_id,
             "created_by_username": session["user"],
             "created_by_name": session["name"],
             "date": timestamp,
             "comment": request.form.get("comment")
         }
-        mongo.db.comments.insert_one(review)
+        mongo.db.comments.insert_one(new_comment)
 
     return render_template("recipe.html", 
             recipe=recipe, comments=comments)
