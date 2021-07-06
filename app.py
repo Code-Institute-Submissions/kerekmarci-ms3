@@ -108,29 +108,26 @@ def food_category(category, difficulty):
 
     if category == 'All':
         # get all recipes from that difficulty
-        recipes = list(mongo.db.recipes.find({"level": difficulty })) 
+        recipes = list(mongo.db.recipes.find({"level": difficulty}))
     elif difficulty == 'All':
         recipes = list(mongo.db.recipes.find({
-            "recipe_cagetory": category }))
+            "recipe_cagetory": category}))
     else:
-        # filter the recipes by category and difficulty 
-        recipes = list(mongo.db.recipes.find({ "$and": [ 
-            {"level": difficulty }, {"recipe_cagetory": category}]})) 
-   
+        # filter the recipes by category and difficulty
+        recipes = list(mongo.db.recipes.find({ "$and": [{"level": difficulty}, {"recipe_cagetory": category}]}))
     total = mongo.db.recipes.find().count()
     recipes_paginated = paginate(recipes)
     pagination = pagination_args(recipes)
-    
-    return render_template("get_recipes.html", 
-                            recipes=recipes_paginated,
-                            pagination=pagination,
-                            category=category,
-                            difficulty=difficulty)    
+    return render_template("get_recipes.html",
+                           recipes=recipes_paginated,
+                           pagination=pagination,
+                           category=category,
+                           difficulty=difficulty)
 
 
 @app.route("/my_recipes")
-def my_recipes():    
-    if session.get("user"):          
+def my_recipes():
+    if session.get("user"):
         user = mongo.db.users.find_one(
             {"username": session["user"]})
         recipes = list(mongo.db.recipes.find(
