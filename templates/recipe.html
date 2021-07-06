@@ -4,16 +4,20 @@
 {% include "navigation.html" %}   
 
     <section class="container-xl" style="max-width: 800px;">
-        <h4 class="pt-4 pb-4 text-center">{{ recipe.recipe_name }}</h4>
-        {% if recipe.favorited_by %}
-            {% if session.user in recipe.favorited_by %}
-                <a href="{{ url_for('remove_favorite', recipe_id=recipe._id ) }}" class="btn btn-primary">Remove Favorite</a>
+        <div>
+            <div><h4 class="pt-4 pb-4 text-center">{{ recipe.recipe_name }}</h4></div>
+            <div class="fav-heart">
+            {% if session.user %}
+                {% if session.user in recipe.favorited_by %}
+                    <a href="{{ url_for('remove_favorite', recipe_id=recipe._id ) }}">Remove Favourite<i class="fas fa-heart fa-2x"></i></a>
+                {% else %}
+                    <a href="{{ url_for('add_favorite', recipe_id=recipe._id ) }}">Add Favourite<i class="far fa-heart fa-2x"></i></a>
+                {% endif %}
             {% else %}
-                <a href="{{ url_for('add_favorite', recipe_id=recipe._id ) }}" class="btn btn-primary">Add to Favorite</a>
+                    <p>Log In/Register to Favourite<i class="fas fa-heart fa-2x"></i></p>
             {% endif %}
-        {% else %}
-            <a href="{{ url_for('add_favorite', recipe_id=recipe._id ) }}" class="btn btn-primary">Add to Favorite</a>
-        {% endif %}
+            </div>
+        </div>
         <div class="full-recipe-header clearfix">
             {% for user in users %}
                 {% if user.username|lower == recipe.uploaded_by %}
@@ -37,9 +41,9 @@
                 {% endif %}
             {% endfor %}           
         </div>
-        <section class="full-recipe-description">
+        <div class="full-recipe-description">
             {{ recipe.description }} 
-        </section>
+        </div>
         <img src="{{ recipe.recipe_picture }}" alt="Photo of the final dish" class="img-fluid full-recipe-img"><br>
         
         <div class="full-recipe-header mt-5 clearfix">
@@ -114,8 +118,8 @@
         </div>
         {% else %}            
         <div class="yellow-box">
-            <p><i class="fas fa-lock"></i> You need to <a href="{{ url_for('login')}}">Log In</a> to leave a comment.</p>
-            <p>Don't have an account yet? <a href="{{ url_for('register')}}">Click here to register.</a></p>
+            <p><i class="fas fa-lock"></i> You need to <a href="{{ url_for('login')}}" class="yellow-box-link">Log In</a> to leave a comment.</p>
+            <p>Don't have an account yet? <a href="{{ url_for('register')}}" class="yellow-box-link">Click here to register.</a></p>
         </div>
         {% endif %}
 
