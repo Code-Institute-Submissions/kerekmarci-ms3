@@ -37,18 +37,6 @@ p {
     font-family: var(--main-font);    
 }
 
-a {
-    color: var(--orange);
-    font-weight: 600;
-    text-decoration: none;
-    transition: color 0.3s ease-in-out;
-}
-
-a:hover {
-    text-decoration: underline;
-    color: var(--dark-orange);
-}
-
 .subtitle {
     color: var(--subtitle-black);
 }
@@ -312,6 +300,23 @@ a:hover {
     padding: 20px;    
 }
 
+.fa-heart {
+    color: var(--subtitle-black);
+    outline: none;
+    border: none;
+    border-radius: 30px;
+    text-align: center;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    background: #ffffff;
+    box-shadow: 2px 2px 6px rgb(0 0 0 / 20%);
+}
+
+.fav-heart {
+    text-align: right;
+}
+
 .vertical-align {
     float: right;
     vertical-align: middle;
@@ -411,6 +416,18 @@ https://www.html-code-generator.com/css/speech-bubble-generator */
 .yellow-box p {
     margin-bottom: 0;
     font-size: 15px;
+}
+
+.yellow-box-link {
+    color: var(--orange);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.yellow-box-link:hover {
+    text-decoration: underline;
+    color: var(--dark-orange);
 }
 
 /* ------- FORM ------- */
