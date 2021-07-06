@@ -10,6 +10,7 @@
     --main-font: "Barlow", sans-serif;
     --grey-text: #7D7F82;
     --light-grey: #E5E5E5;
+    --subtitle-black: ##2E2F31;
 }
 
 .banner {
@@ -27,6 +28,15 @@
 
 h1, h2, h3, h4, h5, h6 {
     font-family: "Barlow", sans-serif;    
+}
+
+.subtitle {
+    color: var(--subtitle-black);
+}
+
+.subtitle-bold {
+    color: var(--subtitle-black);
+    font-weight: 600;
 }
 
 .recipe-text {
