@@ -19,7 +19,7 @@
                 {% if user.username|lower == recipe.uploaded_by %}
                 <div>
                     <div class="float-start">
-                        <img src="{{ user.profile_picture }}" alt="Author's profile picture" class="card-profile-picture-large rounded-circle">
+                        <img src="{{ user.profile_picture }}" alt="Author's profile picture" class="card-profile-picture-md rounded-circle">
                     </div>
                     <div class="float-start">
                         <div class="full-recipe-header-dc">AUTHOR:</div>
@@ -82,11 +82,22 @@
             <h4 class="mt-4 mb-4 subtitle-bold">Comments:</h4>
             {% if comments %}
                 {% for comment in comments %}                    
-                <div class="comment-container">
-                    <div><strong>Name: </strong> {{ comment.created_by_name }}</div>
-                    <div><strong>Date: </strong>{{ comment.date }}</div>
-                    <div><strong>Comment: </strong>{{ comment.comment }}</div>
-                </div>                    
+                    {% for user in users %}
+                        {% if comment.created_by_username == user.username%}
+                            <div>
+                                <img src="{{ user.profile_picture }}" alt="Avatar for Commenter" class="card-profile-picture-lg rounded-circle float-start">                        
+                        {% endif %}
+                {% endfor %}
+                                <div class="comment-container">
+                                    <div>
+                                        <div><strong>Name: </strong> {{ comment.created_by_name }}</div>
+                                        <div><strong>Date: </strong>{{ comment.date }}</div>
+                                        <div><strong>Comment: </strong>{{ comment.comment }}</div>
+                                    </div>
+                                </div>  
+                            </div>   
+            </div>              
+            
                 {% endfor %} 
             {% else %}  
                 <p>No comments received for this recipe yet.</p>

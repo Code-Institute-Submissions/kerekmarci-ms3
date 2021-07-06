@@ -10,7 +10,7 @@
     --main-font: "Barlow", sans-serif;
     --grey-text: #7D7F82;
     --light-grey: #E5E5E5;
-    --subtitle-black: ##2E2F31;
+    --subtitle-black: #2E2F31;
 }
 
 .banner {
@@ -261,9 +261,16 @@ h1, h2, h3, h4, h5, h6 {
     margin-right: 10px;
 }
 
-.card-profile-picture-large {
+.card-profile-picture-md {
     width: 45px;
     height: 45px;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.card-profile-picture-lg {
+    width: 60px;
+    height: 60px;
     object-fit: cover;
     margin-right: 15px;
 }
@@ -340,14 +347,34 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .comment-container {
+    position: relative;
     background: #f4f3f0;
     border-radius: 6px;
-    padding: 8px 30px 8px 30px;
+    padding: 8px 30px 8px 30px;  
     margin-bottom: 30px;
-    font-size: 17px;    
-    overflow: auto;
-    -webkit-box-shadow: 1px 3px 11px 3px rgba(0,0,0,0.33); 
-    box-shadow: 1px 3px 11px 3px rgba(0,0,0,0.33);
+    margin-left: 10px;
+    font-size: 17px;
+    -webkit-box-shadow: 6px 5px 12px -5px rgba(46,47,49,0.68); 
+    box-shadow: 6px 5px 12px -5px rgba(46,47,49,0.68);
+    border-radius: 10px;
+    display: inline-block;
+}
+
+/* Was created with the help of this Speech Bubble Generator:
+https://www.html-code-generator.com/css/speech-bubble-generator */
+
+.comment-container:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    z-index: 1;
+    border-style: solid;
+    border-color: transparent #f4f3f0;
+    border-width: 11px 12px 11px 0;
+    top: 35%;
+    left: -12px;
+    margin-top: -11px;   
 }
 
 .comment-container strong {
