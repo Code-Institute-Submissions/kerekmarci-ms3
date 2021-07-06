@@ -72,17 +72,7 @@
         </a>
         <h4>Desserts</h4>
     </div>
-    <!--
-    <div class="text-center">
-        <label for="cars">Select your level:</label>
-        <select name="difficulty" id="difficulty">
-            <option value=" all-level">All level</option>
-            <option value="easy">Easy</option>
-            <option value="medium">Medium</option>
-            <option value="complex">Complex</option>
-        </select>
-    </div>
--->
+    
     <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="levelselector" data-bs-toggle="dropdown"
             aria-expanded="false">
@@ -111,27 +101,3 @@
     </div>
 
 </section>
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-    window.onload = function () {
-        '{% if level %}'
-        level = '{{ level }}';
-        $('#difficulty').val(level);
-        '{% endif  %}'
-    }
-</script>
-
-<!--
-<section class="text-center">
-    <form action="{{ url_for('search') }}" method="POST">
-        <input type="radio" id="easy" name="easy" value="easy">
-        <label for="easy">Easy</label><br>
-        <input type="radio" id="medium" name="medium" value="medium">
-        <label for="medium">Medium</label><br>
-        <input type="radio" id="complex" name="complex" value="complex">
-        <label for="complex">Complex</label>
-    </form>
-</section>
--->

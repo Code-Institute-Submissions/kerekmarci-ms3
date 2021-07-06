@@ -94,51 +94,18 @@ def food_category(category, difficulty):
         recipes = list(mongo.db.recipes.find({
             "recipe_cagetory": category }))
     else:
-        #filter the recipes by category and difficulty 
+        # filter the recipes by category and difficulty 
         recipes = list(mongo.db.recipes.find({ "$and": [ 
             {"level": difficulty }, {"recipe_cagetory": category}]})) 
-
-    """
-    level = request.args.get('level')    
-    if level != None:
-        recipes_new = []
-        for recipe in recipes:
-            if level.lower() in recipe['level'].lower():
-                recipes_new.append(recipe)
-
-        recipes = recipes_new
-    """
-    """
-    if category == "Vegetarian":
-        recipes = list(mongo.db.recipes.find(
-            {"vegetarian": "veg"}))
-    else:
-        recipes = list(mongo.db.recipes.find(
-            {"recipe_cagetory": category}))
-
-    recipes = list(mongo.db.recipes.find(
-            {"recipe_cagetory": category, "level": difficulty}))
-    """
-    """
-    if difficulty == 'Easy':
-        recipes = list(mongo.db.recipes.find(
-            {"level": "Easy", "recipe_cagetory": category}))
-    elif difficulty == 'Medium':
-        recipes = list(mongo.db.recipes.find(
-            {"level": "Medium", "recipe_cagetory": category}))
-    elif difficulty == 'Complex':
-        recipes = list(mongo.db.recipes.find(
-            {"level": "Complex", "recipe_cagetory": category}))
-    else:
-        return redirect(url_for("get_recipes"))  
-    """
+   
     total = mongo.db.recipes.find().count()
     recipes_paginated = paginate(recipes)
     pagination = pagination_args(recipes)
     return render_template("get_recipes.html", 
                             recipes=recipes_paginated,
                             pagination=pagination,
-                            category=category)
+                            category=category,
+                            difficulty=difficulty)
 
 
 @app.route("/my_recipes")
