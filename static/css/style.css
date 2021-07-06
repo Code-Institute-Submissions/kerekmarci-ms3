@@ -11,6 +11,8 @@
     --grey-text: #7D7F82;
     --light-grey: #E5E5E5;
     --subtitle-black: #2E2F31;
+    --orange: #F89223;
+    --dark-orange: #BD6406;
 }
 
 .banner {
@@ -28,6 +30,23 @@
 
 h1, h2, h3, h4, h5, h6 {
     font-family: "Barlow", sans-serif;    
+}
+
+p {
+    color: var(--grey-text);
+    font-family: var(--main-font);    
+}
+
+a {
+    color: var(--orange);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: var(--dark-orange);
 }
 
 .subtitle {
@@ -185,7 +204,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .card-title:hover {
-    color: #F89223;
+    color: var(--orange);
 }
 
 .card-description {
@@ -283,10 +302,6 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 15px;
 }
 
-.form-control {    
-       
-}
-
 /* ------- FULL RECIPE PAGE ------- */
 
 .full-recipe-header {
@@ -322,7 +337,7 @@ h1, h2, h3, h4, h5, h6 {
 .full-recipe-description {
     font-size: 18px;
     color: var(--grey-text);
-    border-left: 2px solid #f89223;
+    border-left: 2px solid var(--orange);
     padding-left: 25px;
     margin-top: 5px;
     margin-bottom: 40px;
@@ -383,6 +398,19 @@ https://www.html-code-generator.com/css/speech-bubble-generator */
 
 .comment-button {
     text-align: right;
+}
+
+.yellow-box {
+    background: #fffee1;
+    border: 1px solid #e7d95d;
+    padding: 15px 20px 15px 20px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.yellow-box p {
+    margin-bottom: 0;
+    font-size: 15px;
 }
 
 /* ------- FORM ------- */

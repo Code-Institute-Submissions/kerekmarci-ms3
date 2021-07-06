@@ -112,9 +112,11 @@
                 <div class="comment-button"><button type="submit" class="btn btn-info mt-2">Send Comment</button></div>
             </form>
         </div>
-        {% else %}
-            <p>You need to <a href="{{ url_for('login')}}">Log In</a> to leave a comment.</p>
+        {% else %}            
+        <div class="yellow-box">
+            <p><i class="fas fa-lock"></i> You need to <a href="{{ url_for('login')}}">Log In</a> to leave a comment.</p>
             <p>Don't have an account yet? <a href="{{ url_for('register')}}">Click here to register.</a></p>
+        </div>
         {% endif %}
 
     </section>
