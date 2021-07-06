@@ -15,7 +15,7 @@
 .banner {
     height: 200px;    
     background-color: rgb(114, 114, 114);
-    background-image: url("../images/.jpg");
+    background-image: url("../images/banner4.jpg");
     background-repeat: no-repeat;    
     background-position: center right;  
 }
