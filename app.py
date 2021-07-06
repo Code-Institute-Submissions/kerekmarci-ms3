@@ -83,9 +83,20 @@ def search():
 
 
 @app.route("/search/<category>/<difficulty>")
-def food_category(category, difficulty):    
-    recipes = list(mongo.db.recipes.find(
-            {"recipe_cagetory": category, "level": difficulty }))  
+def food_category(category, difficulty):
+
+    recipes = None
+
+    if category == 'All':
+        # get all recipes from that difficulty
+        recipes = list(mongo.db.recipes.find({"level": difficulty })) 
+    elif difficulty == 'All':
+        recipes = list(mongo.db.recipes.find({
+            "recipe_cagetory": category }))
+    else:
+        #filter the recipes by category and difficulty 
+        recipes = list(mongo.db.recipes.find({ "$and": [ 
+            {"level": difficulty }, {"recipe_cagetory": category}]})) 
 
     """
     level = request.args.get('level')    
@@ -124,8 +135,10 @@ def food_category(category, difficulty):
     total = mongo.db.recipes.find().count()
     recipes_paginated = paginate(recipes)
     pagination = pagination_args(recipes)
-    return render_template("get_recipes.html", recipes=recipes_paginated,
-                           pagination=pagination)
+    return render_template("get_recipes.html", 
+                            recipes=recipes_paginated,
+                            pagination=pagination,
+                            category=category)
 
 
 @app.route("/my_recipes")
