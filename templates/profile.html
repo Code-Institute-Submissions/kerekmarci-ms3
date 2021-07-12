@@ -3,28 +3,34 @@
 
 {% include "navigation.html" %}
 
-<section class="upload-recipe-container mx1200">
+<section class="upload-recipe-container mx1200 mb-4 pb-4">
     <div class="text-center mt-3 pt-3 mb-5">
-        <h2>Welcome</h2>
-    </div>       
+        <h4 class="choose-category mt-4">A Little Bit of You...</h4>
+        <h2 class="recipe-categories-title-smaller">{{ name }}'s Profile</h2>
+    </div>        
 
     <section class="form-container">
 
-        <div class="mb-4">        
+        <div class="mb-4" style="padding-left: 20%;">        
             <h4>Your usename is: {{ username }}</h4>
             <h4>Your name is: {{ name }}</h4>
-            <h4>Your profile image is: </h4>
-            <img src="{{ profile_picture }}" alt="Profile picture" class="small-image">         
+            <h4>Your profile image is: </h4>            
         </div>    
-    
-    <h5 class="mb-3">Change Profile Picture:</h5>
+        <div class="text-center">
+            <img src="{{ profile_picture }}" alt="Profile picture" class="img-fluid img-thumbnail small-image">         
+        </div>
+        <div class="mb-4 mt-4" style="padding-left: 20%;">
+            <h4 class="mb-3">Change Profile Picture:</h4>
+        </div>
     
     <form action="{{ url_for('upload_profile_image') }}" method="POST" enctype="multipart/form-data">
-        <label for="ppicture">
-            <i class="fas fa-upload"></i>Upload Image</label>
-        </label>
-        <input id="ppicture" name="file" type="file">
-        <input type="submit" value="Upload">
+        <div class="text-center">
+            <label for="ppicture">
+                <i class="fas fa-upload"></i>Upload Image</label>
+            </label>
+            <input id="ppicture" name="file" type="file">
+            <input type="submit" value="Upload" class="button green-button">
+        </div>
     </form>
 
 </section>
