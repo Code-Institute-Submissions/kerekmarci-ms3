@@ -522,4 +522,7 @@ https://www.html-code-generator.com/css/speech-bubble-generator */
         height: 200px;
         background-size: cover;
     }
-}
+
+    .food-categories {        
+        max-width: 130px;
+    }
