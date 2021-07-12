@@ -4,9 +4,11 @@
 {% include "navigation.html" %}
 
 {% if session.user %}
-    <div class="page-title text-center">
-        <h2>{{ user.name }}'s Favourite Recipes</h2>
-    </div>
+
+    <div class="text-center mt-3 pt-3 mb-5">
+        <h4 class="choose-category mt-4">Let's See What You Fancy...</h4>
+        <h2 class="recipe-categories-title-smaller">{{ user.name }}'s Favourite Recipes</h2>
+    </div>  
 
     <section class="container-xl recipe-container mx1200">
     {% for recipe in recipes %}
@@ -32,8 +34,11 @@
             </article>
         {% endif %}
         {% endif %}
-    {% endfor %}
+    {% endfor %}        
     </section>
+    <div class="text-center">
+        <a href="{{ url_for('get_recipes') }}" class="button orange-button mb-5">View All Recipes</a>
+    </div>
     
 {% endif %}
 
