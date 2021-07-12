@@ -15,6 +15,7 @@ body {
     --background-color: #FAFAFA;
     --grey-text: #7D7F82;
     --light-grey: #E5E5E5;
+    --lightdark-grey: #E8E8E8;
     --subtitle-black: #2E2F31;
     --orange: #F89223;
     --dark-orange: #BD6406;
@@ -108,15 +109,21 @@ p {
 /* -------- NAVIGATION -------- */ 
 
 .food-categories-container {
-    width: 100%;     
+    width: 100%;   
+    background-image: url(../images/food-patterns.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;  
+    /*
     background: repeating-linear-gradient(
         135deg,
         #fafafa,
         #fafafa 10px,
         #f5f5f5 10px,
         #f5f5f5 20px
-    );       
+    );       */
     padding-top: 40px;
+    padding-bottom: 300px;
 }
 
 .choose-category {
@@ -159,17 +166,8 @@ p {
 
 /* -------- ALL RECIPES -------- */ 
 
-.get-recipe-section-banner {
-    background-color: #F7F6F3;
-    background-image: url(../images/food-patterns.jpg);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 400px;
-}
-
 .get-recipe-section {
-    margin-top: -350px;
+    margin-top: -280px;
 }
 
 /* Information on CSS counters: https://blog.logrocket.com/styling-numbered-lists-with-css-counters/ */
@@ -191,7 +189,7 @@ p {
     font-size: 16px;
     background-color: #fff;
     border: 1px solid var(--grey-text);    
-    border-radius:50%;
+    border-radius: 50%;
 }
 
 .numbered-list-step {
@@ -211,32 +209,7 @@ p {
 .recipe-container {
     display: flex;
     flex-wrap: wrap;    
-    justify-content: center;
-    margin-top: 50px;    
-}
-
-.pagination {
-    justify-content: center;
-}
-
-.pagination-page-info {
-    padding: .6em;
-    padding-left: 0;    
-    margin: .5em;
-    margin-left: 0;
-    font-size: 12px;    
-}
-
-.pagination-page-info b {
-    color: black;
-    background: #6aa6ed;
-    padding-left: 2px;
-    padding: .1em .25em;
-    font-size: 150%;    
-}
-
-.pagination li {
-    display: block;
+    justify-content: center; 
 }
 
 /* ------- RECIPE CARD ------- */
@@ -514,7 +487,50 @@ https://www.html-code-generator.com/css/speech-bubble-generator */
     color: var(--dark-orange);
 }
 
-/* ------- FORM ------- */
+/* -------- PAGINATION -------- */ 
+
+.page-item .page-link {
+    color: rgba(0,0,0, 0.6);
+    display: block;
+    margin: 0px 2px 2px 2px;
+    text-align: center;
+    font-size: 14px;
+    padding: 12px 19px 12px 19px;
+    border-radius: 3px;
+    font-weight: 600;
+    background-color: var(--lightdark-grey);
+    border: none;
+}
+
+.page-item.active .page-link,
+.page-item .page-link:hover {
+    color: #fff;
+    background-color: var(--orange);
+}
+
+.page-item.disabled .page-link {
+    display: none;
+}
+
+.pagination-page-info {
+    color: var(--grey-text);
+    font-size: 13px;
+    text-align: center;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.pagination-page-info b {
+    background-color: transparent;
+    color: var(--subtitle-black);
+    font-size: 150%; 
+}
+
+ul.pagination {
+    justify-content: center;
+}
+
+/* ------- MEDIA QUERIES ------- */
 
 
 @media screen and (max-width: 576px) {

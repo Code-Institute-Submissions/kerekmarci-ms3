@@ -3,10 +3,6 @@
 
 {% include "navigation.html" %}
 
-<section class="get-recipe-section-banner">
-
-</section>
-
 <section class="get-recipe-section">
     <div class="page-title text-center">
         <h4 class="choose-category">Browse our Receipes</h4>
@@ -55,17 +51,13 @@
     </section>
 </section>
 
-<div class="pagination justify-content-center">
     {% if recipes|length >= 1 %}
-    <ul>
-        <li>{{ pagination.links }} </li>
-        <li>{{ pagination.info }}</li>
-    </ul>
+    <div>
+        {{ pagination.links }} 
+    </div>
+    <div>
+        {{ pagination.info }}
+    </div>
     {% endif %}
-</div>
-
-
-
-
 
 {% endblock %}
