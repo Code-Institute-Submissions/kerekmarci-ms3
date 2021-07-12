@@ -20,6 +20,7 @@ body {
     --orange: #F89223;
     --dark-orange: #BD6406;
     --dark-green: #1E7344;
+    --beige: #F4F3F0;
 }
 
 .banner {
@@ -65,10 +66,30 @@ body {
     border-color: var(--dark-green);    
 }
 
-.green-button:hover {
+.green-button-thick {
+    border: 3px solid var(--dark-green);
+    font-weight: 500;
+}
+
+.green-button:hover,
+.green-button-thick:hover {
     background-color: var(--dark-green);
     border-color: var(--dark-green);
     color: var(--background-color);
+}
+
+.orange-button {
+    font-size: 15px;
+    color: #fff;
+    font-weight: 600;
+    background-color: var(--orange);
+    border-radius: 4px;
+    padding: 15px 26px 15px 26px;
+}
+
+.orange-button:hover {
+    background-color: var(--dark-orange);
+    color: #fff;
 }
 
 .mx1200 {
@@ -80,9 +101,20 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "Barlow", sans-serif;    
 }
 
-p {
+p,
+.text-link {
     color: var(--grey-text);
     font-family: var(--main-font);    
+}
+
+.text-link {
+    text-decoration: none;
+}
+
+.text-link:hover {
+    color: var(--grey-text);
+    font-family: var(--main-font);  
+    text-decoration: underline;
 }
 
 .subtitle {
@@ -189,48 +221,6 @@ p {
 
 .get-recipe-section {
     margin-top: 80px;
-}
-
-/* Information on CSS counters: https://blog.logrocket.com/styling-numbered-lists-with-css-counters/ */
-
-.numbered-list {      
-    counter-reset: list-number 0;
-    color: var(--grey-text);
-}
-
-.numbered-list div:before {
-    counter-increment: list-number;
-    content: counter(list-number);    
-    margin-right: 8px;
-    width: 25px;
-    height: 25px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    background-color: #fff;
-    border: 1px solid var(--grey-text);    
-    border-radius: 50%;
-}
-
-.numbered-list-step {
-    margin-bottom: 15px;
-}
-
-.page-title {
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
-
-.form-container {
-    margin: 0 auto;
-    max-width: 800px;    
-}
-
-.recipe-container {
-    display: flex;
-    flex-wrap: wrap;    
-    justify-content: center; 
 }
 
 /* ------- RECIPE CARD ------- */
@@ -370,8 +360,57 @@ p {
 
 /* ------- FULL RECIPE PAGE ------- */
 
+.recipe-title {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+    margin-top: 25px;
+}
+
+/* Information on CSS counters: https://blog.logrocket.com/styling-numbered-lists-with-css-counters/ */
+
+.numbered-list {      
+    counter-reset: list-number 0;
+    color: var(--grey-text);
+}
+
+.numbered-list div:before {
+    counter-increment: list-number;
+    content: counter(list-number);    
+    margin-right: 8px;
+    width: 25px;
+    height: 25px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    background-color: #fff;
+    border: 1px solid var(--grey-text);    
+    border-radius: 50%;
+}
+
+.numbered-list-step {
+    margin-bottom: 15px;
+}
+
+.page-title {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.form-container {
+    margin: 0 auto;
+    max-width: 800px;    
+}
+
+.recipe-container {
+    display: flex;
+    flex-wrap: wrap;    
+    justify-content: center; 
+}
+
 .full-recipe-header {
-    background: #f4f3f0;
+    background: var(--beige);
     border-radius: 6px;    
     margin-bottom: 30px;
     font-size: 17px;
@@ -446,7 +485,7 @@ p {
 
 .comment-container {
     position: relative;
-    background: #f4f3f0;
+    background: var(--beige);
     border-radius: 6px;
     padding: 8px 30px 8px 30px;  
     margin-bottom: 30px;
@@ -468,7 +507,7 @@ https://www.html-code-generator.com/css/speech-bubble-generator */
     width: 0;
     z-index: 1;
     border-style: solid;
-    border-color: transparent #f4f3f0;
+    border-color: transparent var(--beige);
     border-width: 11px 12px 11px 0;
     top: 35%;
     left: -12px;
@@ -562,4 +601,12 @@ ul.pagination {
 
     .food-categories {        
         max-width: 130px;
+    }
+
+    .full-recipe-header div {
+        display: block;
+    }
+
+    .full-recipe-header-dc-1:last-child {
+        margin-top: 20px;
     }

@@ -5,13 +5,15 @@
 
     <section class="container-xl" style="max-width: 800px;">
         <div>
-            <div><h4 class="pt-4 pb-4 text-center">{{ recipe.recipe_name }}</h4></div>
+            <div><h2 class="pt-4 pb-4 text-center recipe-title">{{ recipe.recipe_name }}</h2></div>
             <div class="fav-heart">
             {% if session.user %}
                 {% if session.user in recipe.favorited_by %}
-                    <a href="{{ url_for('remove_favorite', recipe_id=recipe._id ) }}">Remove Favourite<i class="fas fa-heart fa-2x"></i></a>
+                    <a href="{{ url_for('remove_favorite', recipe_id=recipe._id ) }}" class="text-link">Remove Favourite<i class="fas fa-heart fa-2x" 
+                        style="color: #F89223;"></i></a>
                 {% else %}
-                    <a href="{{ url_for('add_favorite', recipe_id=recipe._id ) }}">Add Favourite<i class="far fa-heart fa-2x"></i></a>
+                    <a href="{{ url_for('add_favorite', recipe_id=recipe._id ) }}" class="text-link">Add Favourite<i class="far fa-heart fa-2x"
+                        style="color: #F89223;"></i></a>
                 {% endif %}
             {% else %}
                     <p>Log In/Register to Favourite<i class="fas fa-heart fa-2x"></i></p>
@@ -113,7 +115,7 @@
         <div>
             <form action="{{ url_for('recipe', recipe_id=recipe._id ) }}" method="POST">
                 <textarea class="form-control" rows="3" id="comment" name="comment"></textarea>
-                <div class="comment-button"><button type="submit" class="btn btn-info mt-2">Send Comment</button></div>
+                <div class="comment-button"><button type="submit" class="button green-button-thick mt-2">Post Comment</button></div>
             </form>
         </div>
         {% else %}            
@@ -123,12 +125,10 @@
         </div>
         {% endif %}
 
-    </section>
-
-    
+    </section>    
         
     <div class="text-center">
-        <a href="javascript:history.back()" class="btn btn-primary">Go Back</a>
+        <a href="{{ url_for('get_recipes') }}" class="button orange-button mb-5">Go Back</a>
     </div>
 
 {% endblock %}
