@@ -123,7 +123,7 @@ p {
         #f5f5f5 20px
     );       */
     padding-top: 40px;
-    padding-bottom: 300px;
+    padding-bottom: 50px;
 }
 
 .choose-category {
@@ -167,7 +167,7 @@ p {
 /* -------- ALL RECIPES -------- */ 
 
 .get-recipe-section {
-    margin-top: -280px;
+    margin-top: 50px;
 }
 
 /* Information on CSS counters: https://blog.logrocket.com/styling-numbered-lists-with-css-counters/ */
