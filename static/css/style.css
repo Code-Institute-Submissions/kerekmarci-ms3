@@ -105,7 +105,7 @@ p {
     width: 50%;
 }
 
-/* ------ NAVIGATION -------- */ 
+/* -------- NAVIGATION -------- */ 
 
 .food-categories-container {
     width: 100%;     
@@ -157,6 +157,21 @@ p {
     opacity: 0.75;
 }
 
+/* -------- ALL RECIPES -------- */ 
+
+.get-recipe-section-banner {
+    background-color: #F7F6F3;
+    background-image: url(../images/food-patterns.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+}
+
+.get-recipe-section {
+    margin-top: -350px;
+}
+
 /* Information on CSS counters: https://blog.logrocket.com/styling-numbered-lists-with-css-counters/ */
 
 .numbered-list {      
@@ -197,7 +212,7 @@ p {
     display: flex;
     flex-wrap: wrap;    
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 50px;    
 }
 
 .pagination {
