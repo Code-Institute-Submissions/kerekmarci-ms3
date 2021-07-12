@@ -4,9 +4,11 @@
 {% include "navigation.html" %}
 
 <section class="upload-recipe-container mx1200">
+
     <div class="text-center mt-3 pt-3 mb-5">
-        <h2>Edit Recipe</h2>
-    </div>       
+        <h4 class="choose-category mt-4">Change for Better!</h4>
+        <h2 class="recipe-categories-title-smaller">Edit Recipe</h2>
+    </div>      
 
     <section class="form-container">
         <form method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" enctype="multipart/form-data">
@@ -110,7 +112,7 @@
                     <input type="text" name="ingredients" class="form-control mt-3" id="ingredients{{loop.index}}" value="{{ ing }}">                
                 {% endfor %}
             </div>   
-            <a href="#" onclick="addIngredientField()" class="btn btn-primary mb-3">Add New</a>
+            <a href="#" onclick="addIngredientField()" class="button green-button mb-3">Add New</a>
             <a href="#" onclick="removeIngredientField()" class="btn btn-danger mb-3">Remove</a> 
 
             <!-- Recipe Method -->
@@ -120,24 +122,31 @@
                 <input type="text" name="method" class="form-control mt-3" id="method{{loop.index}}" value="{{ step }}">                
                 {% endfor %}
             </div>   
-            <a href="#" onclick="addMethodField()" class="btn btn-primary mb-3">Add New</a>
+            <a href="#" onclick="addMethodField()" class="button green-button mb-3">Add New</a>
             <a href="#" onclick="removeMethodField()" class="btn btn-danger mb-3">Remove</a> 
 
             <!-- Image URL -->
             <br>
-            
-            <img src="{{ recipe.recipe_picture }}" alt="Photo of the final dish" class="img-fluid img-thumbnail small-image"><br>
+            <br>
+            <h5>Current Image:</h5>
+            <div class="text-center">
+                <img src="{{ recipe.recipe_picture }}" alt="Photo of the final dish" class="img-fluid img-thumbnail small-image"><br>
+            </div>
                                        
             <div class="pt-3 mb-3">
                 <h5>Change Recipe Image:</h5>
                 <br>
-                <label for="upload-recipe-image">
-                    <i class="fas fa-upload"></i>Image</label>
-                </label>
-                <input id="upload-recipe-image" name="file" type="file">                        
+                <div class="text-center">
+                    <label for="upload-recipe-image">
+                        <i class="fas fa-upload"></i>Image</label>
+                    </label>
+                    <input id="upload-recipe-image" name="file" type="file">    
+                </div>                    
             </div>         
-
-            <button type="submit" class="btn btn-primary">Finish</button>
+            
+            <div class="text-center">         
+                <button type="submit" class="button green-button-thick mt-3 mb-4">Save Changes</button>
+            </div>
         </form>
     </section>
 </section>
