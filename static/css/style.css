@@ -164,10 +164,22 @@ p {
     opacity: 0.75;
 }
 
+.dropdown {
+    margin-top: 25px;
+}
+
+.cooking-level-dropdown {
+    border: 3px solid var(--dark-green);
+}
+
+.dropdown-menu.show {
+    background: #FAFAFA;
+}
+
 /* -------- ALL RECIPES -------- */ 
 
 .get-recipe-section {
-    margin-top: 50px;
+    margin-top: 80px;
 }
 
 /* Information on CSS counters: https://blog.logrocket.com/styling-numbered-lists-with-css-counters/ */
