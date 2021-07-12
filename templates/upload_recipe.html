@@ -5,7 +5,8 @@
 <section class="upload-recipe-container mx1200">
 
     <div class="text-center mt-3 pt-3 mb-5">
-        <h2>Upload Recipe</h2>
+        <h4 class="choose-category mt-4">Share Your Favourite...</h4>
+        <h2 class="recipe-categories-title-smaller">Upload a Recipe</h2>
     </div>       
 
     <section class="form-container">
@@ -82,7 +83,7 @@
                 <input type="text" name="ingredients" class="form-control mt-3" required>
                 <input type="text" name="ingredients" class="form-control mt-3" required>                
             </div>   
-            <a href="#" onclick="addIngredientField()" class="btn btn-primary mb-3">Add New</a>
+            <a href="#" onclick="addIngredientField()" class="button green-button mb-3">Add New</a>
             <a href="#" onclick="removeIngredientField()" class="btn btn-danger mb-3">Remove</a> 
 
             <!-- Recipe Method -->
@@ -91,7 +92,7 @@
                 <input type="text" name="method" class="form-control mt-3" required>
                 <input type="text" name="method" class="form-control mt-3" required>               
             </div>   
-            <a href="#" onclick="addMethodField()" class="btn btn-primary mb-3">Add New</a>
+            <a href="#" onclick="addMethodField()" class="button green-button mb-3">Add New</a>
             <a href="#" onclick="removeMethodField()" class="btn btn-danger mb-3">Remove</a> 
 
             <!-- Image URL -->
@@ -104,7 +105,9 @@
                 <input id="upload-recipe-image" name="file" type="file">                        
             </div>       
 
-            <button type="submit" class="btn btn-primary">Submit Recipe</button>
+            <div class="text-center">
+                <button type="submit" class="button green-button-thick mt-3 mb-4">Submit Recipe</button>
+            </div>
         </form>
     </section>
         
