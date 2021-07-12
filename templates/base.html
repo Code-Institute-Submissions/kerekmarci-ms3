@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     <title>Epic Food</title>
 </head>
-<body>
+<body>    
     <!-- FLASH MESSAGES -->
     
     {% with messages = get_flashed_messages() %}
@@ -27,11 +27,12 @@
 
     <header class="container-fluid mx1200">
         <div class="banner">
-
+            <div class="main-logo">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Website Logo" class="">
+            </div>
         </div>
-        
     </header>
-        
+    
     {% block content %}
 
     {% endblock %}

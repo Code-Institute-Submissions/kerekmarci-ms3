@@ -6,8 +6,13 @@
     font-family: var(--main-font);
 }
 
+body {
+    background-color: var(--background-color);
+}
+
 :root {
     --main-font: "Barlow", sans-serif;
+    --background-color: #FAFAFA;
     --grey-text: #7D7F82;
     --light-grey: #E5E5E5;
     --subtitle-black: #2E2F31;
@@ -16,11 +21,20 @@
 }
 
 .banner {
-    height: 200px;    
+    height: 300px;    
     background-color: rgb(114, 114, 114);
-    background-image: url("../images/banner4.jpg");
-    background-repeat: no-repeat;    
-    background-position: center right;  
+    background-image: url("../images/banner.jpg");
+    background-repeat: no-repeat;
+    background-position: center right;
+    position: relative;
+}
+
+.main-logo {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 
 .mx1200 {
@@ -435,7 +449,7 @@ https://www.html-code-generator.com/css/speech-bubble-generator */
 
 @media screen and (max-width: 576px) {
     .banner {
-        height: 150px;
+        height: 200px;
         background-size: cover;
     }
 }
