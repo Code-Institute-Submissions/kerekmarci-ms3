@@ -16,21 +16,17 @@
     <!-- FLASH MESSAGES -->
     
     {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            {% for message in messages %}
-                <div class="text-center">
-                    {{ message }}
-                </div>
-            {% endfor %}
-        {% endif %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="text-center">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
     {% endwith %}    
-
-    <header class="container-fluid mx1200">
-        <div class="banner">
-            <div class="main-logo">
-                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Website Logo" class="">
-            </div>
-        </div>
+    
+    <header class="container-fluid mx1200 banner">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Website Logo" class="main-logo">
     </header>
     
     {% block content %}
