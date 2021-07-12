@@ -6,17 +6,18 @@
 <section class="get-recipe-section">
     <div class="page-title text-center">
         <h4 class="choose-category">Browse our Receipes</h4>
-        <h2 class="recipe-categories-title">All Recipes</h2>
-    </div>
-
-    <div class="text-center">
-        {% if category %}
-            {% if level %}
-            <h5><b>Category:</b> {{ category }}, <b>Level: </b>{{ level }}</h5>
+        <h2 class="recipe-categories-title">
+            {% if category %}
+                {% if difficulty %}
+                    {{ category }}
+                    <p class="recipe-categories-subtitle">{{ difficulty }} level</p>
+                {% else %}
+                    {{ category }}
+                {% endif %}
             {% else %}
-            <h5><b>Category:</b> {{ category }}</h5>
-            {% endif %}
-        {% endif %}
+                    All Recipes
+            {% endif %}               
+        </h2>
     </div>
 
     <section class="container-xl recipe-container mx1200">
