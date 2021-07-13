@@ -633,12 +633,6 @@ ul.pagination {
         margin-top: 20px;
     }
 
-    .button {
-        margin-right: 4px;
-        padding-left: 2px;
-        padding-right: 2px;
-    }
-
     .mobile-resize {
-        max-width: 150px;
+        max-width: 120px;
     }

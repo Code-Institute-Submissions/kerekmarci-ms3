@@ -152,7 +152,7 @@ def register():
             "name": request.form.get("name"),
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
-            "profile_picture": request.form.get("profile_picture")
+            "profile_picture": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
         }
 
         mongo.db.users.insert_one(register)
