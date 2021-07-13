@@ -152,7 +152,7 @@ def register():
             "name": request.form.get("name"),
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
-            "profile_picture": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
+            "profile_picture": "https://res.cloudinary.com/epic-food-photo-storage/image/upload/v1626176413/profile-images/profile_avatar_k5035g.png"
         }
 
         mongo.db.users.insert_one(register)
@@ -234,7 +234,7 @@ def upload_recipe():
         timestamp = datetime.now().strftime('%d-%m-%Y')
 
         file_to_upload = request.files['file']
-        recipe_picture_url = "https://img.pngio.com/restaurant-svg-dinner-clipart-kitchen-svg-food-png-silhouette-etsy-food-png-silhouette-2048_1536.jpg"
+        recipe_picture_url = "https://res.cloudinary.com/epic-food-photo-storage/image/upload/v1626176518/recipe-images/food_avatar_eo5tj6.jpg"
         if file_to_upload:            
             upload_result = cloudinary.uploader.upload(file_to_upload, 
                 folder="recipe-images")

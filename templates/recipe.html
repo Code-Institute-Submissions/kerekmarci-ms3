@@ -8,9 +8,14 @@
             <div><h2 class="pt-4 pb-4 text-center recipe-title">{{ recipe.recipe_name }}</h2></div>
             <div class="fav-heart">
             {% if session.user %}
-                {% if session.user in recipe.favorited_by %}
-                    <a href="{{ url_for('remove_favorite', recipe_id=recipe._id ) }}" class="text-link">Remove Favourite<i class="fas fa-heart fa-2x" 
-                        style="color: #F89223;"></i></a>
+                {% if recipe.favorited_by %}
+                    {% if session.user in recipe.favorited_by %}
+                        <a href="{{ url_for('remove_favorite', recipe_id=recipe._id ) }}" class="text-link">Remove Favourite<i class="fas fa-heart fa-2x" 
+                            style="color: #F89223;"></i></a>
+                    {% else %}
+                        <a href="{{ url_for('add_favorite', recipe_id=recipe._id ) }}" class="text-link">Add Favourite<i class="far fa-heart fa-2x"
+                            style="color: #F89223;"></i></a>
+                    {% endif %}
                 {% else %}
                     <a href="{{ url_for('add_favorite', recipe_id=recipe._id ) }}" class="text-link">Add Favourite<i class="far fa-heart fa-2x"
                         style="color: #F89223;"></i></a>

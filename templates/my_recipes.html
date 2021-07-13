@@ -45,15 +45,15 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="confirmDeleteLabel">Confirm Deletion</h5>
+                    <h4 class="modal-title" id="confirmDeleteLabel">Confirm Deletion</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    Are you sure you wish to delete this recipe?
+                    <p>Are you sure you wish to delete this recipe?</p>
                 </div>            
                 <div class="modal-footer">                
                     <a href="{{ url_for('delete_recipe', recipe_id=recipe._id )}}" class="btn btn-danger">Delete Recipe</a>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>                
+                    <button type="button" class="button green-button data-bs-dismiss="modal">Close</button>                
                 </div>
                 </div>
             </div>
