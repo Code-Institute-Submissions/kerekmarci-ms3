@@ -2,18 +2,12 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <form action="{{ url_for('search') }}" method="POST" class="d-flex">
-                <input class="form-control me-2" type="search" name="query" id="query" placeholder="Search"
+                <input class="form-control me-2 mobile-resize" type="search" name="query" id="query" placeholder="Search"
                     aria-label="Search">
                 <button class="button green-button" type="submit">Search</button>
                 <a href="{{ url_for('get_recipes') }}" class="button green-button" type="submit">Reset</a>
-            </form>
-            <!--                
-                <div class="px-5">
-                    {% if session.user %}
-                        Welcome {{ session.name }}
-                    {% endif %}                
-                </div>
-                -->
+            </form>            
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -39,6 +33,11 @@
             </div>
         </div>
     </nav>
+    <div>
+        {% if session.user %}
+            You are logged in, {{ session.name }}!
+        {% endif %}
+    </div>
 </section>
 
 <section class="container-xl mx1200 food-categories-container text-center">
