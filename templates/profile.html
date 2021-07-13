@@ -4,12 +4,11 @@
 {% include "navigation.html" %}
 
 <section class="upload-recipe-container mx1200 mb-4 pb-4">
-    <div class="text-center mt-3 pt-3 mb-5">
+    <form action="{{ url_for('upload_profile_image') }}" method="POST" enctype="multipart/form-data">
+    <div class="text-center mt-3 pt-3">
         <h4 class="choose-category mt-4">A Little Bit of You...</h4>
-        <h2 class="recipe-categories-title-smaller">{{ name }}'s Profile</h2>
-    </div>        
-
-    <section class="form-container">
+        <h2 class="recipe-categories-title-smaller mb-3">{{ name }}'s Profile</h2>
+    </div>    
 
         <div class="mb-4" style="padding-left: 20%;">        
             <h4>Your usename is: {{ username }}</h4>
@@ -21,9 +20,8 @@
         </div>
         <div class="mb-4 mt-4" style="padding-left: 20%;">
             <h4 class="mb-3">Change Profile Picture:</h4>
-        </div>
+        </div>    
     
-    <form action="{{ url_for('upload_profile_image') }}" method="POST" enctype="multipart/form-data">
         <div class="text-center">
             <label for="ppicture">
                 <i class="fas fa-upload"></i>Upload Image</label>

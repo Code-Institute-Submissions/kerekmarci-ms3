@@ -80,7 +80,7 @@ def search():
     pagination = pagination_args(recipes)
     return render_template("get_recipes.html", recipes=recipes_paginated,
                            pagination=pagination)
-                           
+
 
 @app.route("/search/<category>/<difficulty>")
 def food_category(category, difficulty):
@@ -186,7 +186,7 @@ def profile(username):
     name = mongo.db.users.find_one(
         {"username": session["user"]})["name"]
     profile_picture = mongo.db.users.find_one(
-        {"username": session["user"]})["profile_picture"]      
+        {"username": session["user"]})["profile_picture"]
 
     if session["user"]:
         return render_template("profile.html",
@@ -249,8 +249,7 @@ def upload_recipe():
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):    
-    if request.method == "POST":
-        is_vegetarian = "veg" if request.form.get("vegetarian") else "nonveg"      
+    if request.method == "POST":   
 
         file_to_upload = request.files['file']
         recipe_picture_url = mongo.db.recipes.find_one({
