@@ -613,6 +613,10 @@ ul.pagination {
         padding-left: 20px;
         padding-right: 20px;
     }
+
+    .comment-container {
+        max-width: calc(100% - 100px);
+    }
 }
 
 @media screen and (max-width: 576px) {
