@@ -343,13 +343,14 @@ def remove_favorite(recipe_id):
 @app.route("/favorite_recipes")
 def favorite_recipes():
     if session.get("user"):          
-        user = mongo.db.users.find_one(
+        username = mongo.db.users.find_one(
             {"username": session["user"]})
-    
+    users = list(mongo.db.users.find())
     recipes = list(mongo.db.recipes.find())   
     
     return render_template("favorites.html", recipes=recipes,
-                                            user=user)
+                                            username=username,
+                                            users=users)
 
 # Based on Cloudinary documentation
 # https://cloudinary.com/documentation/django_image_and_video_upload#server_side_upload
