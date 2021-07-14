@@ -606,7 +606,7 @@ ul.pagination {
     justify-content: center;
 }
 
-/* ------- FOOTER ------- */
+/* ------- KITCHEN PRODUCTS ------- */
 
 .kitchen-products-container {
     width: 100%;   
@@ -624,6 +624,22 @@ ul.pagination {
     font-weight: 800;
     letter-spacing: -0.2px;
     margin-top: 25px;
+}
+
+.kitchen-products-img-container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.kitchen-product {
+    float: left;
+    width: 20%;
+    padding: 5px;
+}
+
+.kitchen-product img {
+    width: 100%;
 }
 
 /* ------- MEDIA QUERIES ------- */
