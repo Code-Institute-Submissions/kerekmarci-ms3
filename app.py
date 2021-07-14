@@ -78,8 +78,10 @@ def search():
     total = mongo.db.recipes.find().count()
     recipes_paginated = paginate(recipes)
     pagination = pagination_args(recipes)
-    return render_template("get_recipes.html", recipes=recipes_paginated,
-                           pagination=pagination)
+    return render_template("get_recipes.html",
+                            recipes=recipes_paginated,
+                            pagination=pagination,
+                            query=query)
 
 
 @app.route("/search/<category>/<difficulty>")

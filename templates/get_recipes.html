@@ -15,7 +15,11 @@
                     {{ category }}
                 {% endif %}
             {% else %}
+                {% if query %}
+                    Results for {{ query }}
+                {% else%}
                     All Recipes
+                {% endif %}
             {% endif %}               
         </h2>
     </div>
@@ -60,5 +64,7 @@
         {{ pagination.info }}
     </div>
     {% endif %}
+
+{% include "kitchen_products.html" %}
 
 {% endblock %}

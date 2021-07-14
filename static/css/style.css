@@ -606,6 +606,26 @@ ul.pagination {
     justify-content: center;
 }
 
+/* ------- FOOTER ------- */
+
+.kitchen-products-container {
+    width: 100%;   
+    background-image: url(../images/food-patterns-dark.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;  
+    padding-top: 40px;
+    padding-bottom: 50px;
+}
+
+.kitchen-products-title {
+    color: var(--light-grey);
+    font-size: 50px;
+    font-weight: 800;
+    letter-spacing: -0.2px;
+    margin-top: 25px;
+}
+
 /* ------- MEDIA QUERIES ------- */
 
 @media screen and (max-width: 850px) {
