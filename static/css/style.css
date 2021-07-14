@@ -1,13 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Handlee&display=swap');
 
+/* -------- MAIN STYLES, FONTS, COLOURS -------- */ 
+
 * {
     margin: 0;
     padding: 0;
     font-family: var(--main-font);
-}
-
-body {
-    background-color: var(--background-color);
 }
 
 :root {
@@ -25,22 +23,42 @@ body {
     --footer-text: #B5B7BA;
 }
 
-.banner {
-    height: 300px;
-    background-color: rgb(114, 114, 114);
-    background-image: url("../images/banner.jpg");
-    background-repeat: no-repeat;
-    background-position: center right;
-    position: relative;
+.mx1200 {
+    max-width: 1200px;
+    padding: 0;
 }
 
-.main-logo {
-    display: block;
-    margin: 0 auto;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%); 
-    -ms-transform: translateY(-50%); 
+body {
+    background-color: var(--background-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Barlow", sans-serif;    
+}
+
+p,
+.text-link {
+    color: var(--grey-text);
+    font-family: var(--main-font);    
+}
+
+.text-link {
+    text-decoration: none;
+}
+
+.text-link:hover {
+    color: var(--grey-text);
+    font-family: var(--main-font);  
+    text-decoration: underline;
+}
+
+.subtitle {
+    color: var(--subtitle-black);
+}
+
+.subtitle-bold {
+    color: var(--subtitle-black);
+    font-weight: 600;
 }
 
 .button {
@@ -94,51 +112,33 @@ body {
     color: #fff;
 }
 
-.mx1200 {
-    max-width: 1200px;
-    padding: 0;
+.small-image {
+    width: 50%;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: "Barlow", sans-serif;    
+/* -------- BASE.HTML -------- */ 
+
+.banner {
+    height: 300px;
+    background-color: rgb(114, 114, 114);
+    background-image: url("../images/banner.jpg");
+    background-repeat: no-repeat;
+    background-position: center right;
+    position: relative;
 }
 
-p,
-.text-link {
-    color: var(--grey-text);
-    font-family: var(--main-font);    
-}
-
-.text-link {
-    text-decoration: none;
-}
-
-.text-link:hover {
-    color: var(--grey-text);
-    font-family: var(--main-font);  
-    text-decoration: underline;
-}
-
-.subtitle {
-    color: var(--subtitle-black);
-}
-
-.subtitle-bold {
-    color: var(--subtitle-black);
-    font-weight: 600;
+.main-logo {
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%); 
+    -ms-transform: translateY(-50%); 
 }
 
 .recipe-text {
     font-size: 16px;
     color: var(--grey-text);
-}
-
-.checkbox {
-    list-style-type: square;
-}
-
-.small-image {
-    width: 50%;
 }
 
 /* -------- NAVIGATION -------- */ 
@@ -148,15 +148,7 @@ p,
     background-image: url(../images/food-patterns.jpg);
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: cover;  
-    /*
-    background: repeating-linear-gradient(
-        135deg,
-        #fafafa,
-        #fafafa 10px,
-        #f5f5f5 10px,
-        #f5f5f5 20px
-    );       */
+    background-size: cover;
     padding-top: 40px;
     padding-bottom: 50px;
 }
@@ -383,6 +375,10 @@ p,
     font-weight: 700;
     letter-spacing: -0.2px;
     margin-top: 25px;
+}
+
+.checkbox {
+    list-style-type: square;
 }
 
 /* Information on CSS counters: https://blog.logrocket.com/styling-numbered-lists-with-css-counters/ */
