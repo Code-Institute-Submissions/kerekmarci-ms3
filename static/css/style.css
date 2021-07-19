@@ -19,6 +19,7 @@
     --dark-orange: #BD6406;
     --dark-green: #1E7344;
     --beige: #F4F3F0;
+    --dark-beige: #EDEDEB;
     --footer: #28292B;
     --footer-text: #B5B7BA;
 }
@@ -499,7 +500,7 @@ p,
 
 .comment-container {
     position: relative;
-    background: var(--beige);
+    background: var(--dark-beige);
     border-radius: 6px;
     padding: 8px 30px 8px 30px;  
     margin-bottom: 30px;
@@ -521,7 +522,7 @@ https://www.html-code-generator.com/css/speech-bubble-generator */
     width: 0;
     z-index: 1;
     border-style: solid;
-    border-color: transparent var(--beige);
+    border-color: transparent var(--dark-beige);
     border-width: 11px 12px 11px 0;
     top: 35%;
     left: -12px;
