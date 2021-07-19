@@ -4,8 +4,8 @@
             <form action="{{ url_for('search') }}" method="POST" class="d-flex">
                 <input class="form-control me-2 mobile-resize" type="search" name="query" id="query" placeholder="Search"
                     aria-label="Search">
-                <button class="button green-button" type="submit">Search</button>
-                <a href="{{ url_for('get_recipes') }}" class="button green-button" type="submit">Reset</a>
+                <button class="button green-button green-button-filled" type="submit">Search</button>
+                <a href="{{ url_for('get_recipes') }}" class="button green-button d-none" type="submit">Reset</a>
             </form>            
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"

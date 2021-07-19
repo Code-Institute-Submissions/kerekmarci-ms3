@@ -92,6 +92,11 @@ p,
     font-weight: 500;
 }
 
+.green-button-filled {
+    background-color: var(--dark-green);
+    color: #fff;
+}
+
 .green-button:hover,
 .green-button-thick:hover {
     background-color: var(--dark-green);
@@ -710,7 +715,7 @@ ul.pagination {
     }
 
     .mobile-resize {
-        max-width: 120px;
+        max-width: calc(100% - 120px);
     }
 
     .recipe-categories-title,
