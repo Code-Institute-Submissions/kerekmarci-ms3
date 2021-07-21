@@ -1,36 +1,19 @@
-let ingredientInputContainer = document.getElementById("ingredientInputContainer");
-let ingredientsInput = document.getElementsByName("ingredients");
-let methodInputContainer = document.getElementById("methodInputContainer");
-let methodInput = document.getElementsByName("method");
-firstIngredient = ingredientInputContainer.children[1];
-firstMethod = methodInputContainer.children[1];
+const ingredientInputContainer = document.getElementById("ingredientInputContainer");
+const ingredientsInput = document.getElementsByName("ingredients");
+const methodInputContainer = document.getElementById("methodInputContainer");
+const methodInput = document.getElementsByName("method");
 
-function addIngredientField() {
+function addField(container, inputName) {
     event.preventDefault();
     let input = document.createElement("input");
     input.type = "text";
-    input.name = "ingredients";
+    input.name = inputName;
     input.className = "form-control mt-3";
     input.required = true;
-    ingredientInputContainer.appendChild(input);    
+    container.appendChild(input);
 }
 
-function removeIngredientField() {
+function removeField(container) {
     event.preventDefault();
-    ingredientInputContainer.removeChild(ingredientInputContainer.lastChild);
-}
-
-function addMethodField() {
-    event.preventDefault();
-    let input = document.createElement("input");
-    input.type = "text";
-    input.name = "method";
-    input.className = "form-control mt-3";
-    input.required = true;
-    methodInputContainer.appendChild(input);    
-}
-
-function removeMethodField() {
-    event.preventDefault();
-    methodInputContainer.removeChild(methodInputContainer.lastChild);
+    container.removeChild(container.lastChild);
 }
