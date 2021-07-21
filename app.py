@@ -29,6 +29,7 @@ cloudinary.config(
   api_secret = os.environ.get("CLOUD_API_SECRET_KEY")
 )
 
+# declare how many recipes will be shown in one page with pagination
 PER_PAGE = 6
 
 mongo = PyMongo(app)
