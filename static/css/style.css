@@ -151,6 +151,21 @@ p,
     background-color: var(--red);
 }
 
+.recipe-category-hover:hover {
+    background-color: #209956;
+}
+
+/* ------- FORM VALIDATION ------- */
+
+.form-control.success {
+    border-color: var(--light-green);
+    border-width: 2px;
+}
+
+.form-control.error {
+    border-color: var(--red);
+}
+
 /* -------- BASE.HTML -------- */ 
 
 .banner {
@@ -758,4 +773,4 @@ ul.pagination {
 
     .footer-container p {
         font-size: 13px;
-    }
+    }    

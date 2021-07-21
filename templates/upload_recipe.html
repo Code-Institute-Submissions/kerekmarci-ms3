@@ -16,33 +16,35 @@
             <div class="mb-3">
                 <label for="recipename" class="form-label h5">Recipe Name</label>
                 <div>
-                    <input type="text" name="recipename" class="form-control" id="recipename" maxlength="25" required>
-                    <small>*Maximum 25 characters</small> 
+                    <input type="text" name="recipename" class="form-control" id="recipename" maxlength="25" 
+                        oninput="maxInput('recipename', 25, 'max-recipe-name-validation');" required>
+                    <small><span id="max-recipe-name-validation"></span></small> 
                 </div>
             </div>
             <!-- Description -->
             <div class="mb-3">
                 <label for="description" class="form-label h5">Description</label>
                 <div>
-                    <input type="text" name="description" class="form-control" id="description" maxlength="120" required>   
-                    <small>*Maximum 120 characters</small>             
+                    <textarea name="description" class="form-control" id="description" maxlength="120" rows="3" 
+                        oninput="maxInput('description', 120, 'max-description-validation');" required></textarea>
+                    <small><span id="max-description-validation"></span></small>             
                 </div>
             </div>
             <!-- Recipe category -->
             <div class="mt-3 mb-3">
                 <label for="recipe-category" class="form-label h5">Choose a category:</label>
                 <br>
-                <select name="recipe-category" id="recipe-category" class="form-select-sm">
+                <select name="recipe-category" id="recipe-category" class="form-select-sm" required>
                     <option value="" disabled selected>Choose Category</option>
                     {% for category in categories %}
-                        <option value="{{ category.category_name }}">{{ category.category_name }}</option>                    
+                        <option value="{{ category.category_name }}" class="recipe-category-hover">{{ category.category_name }}</option>                    
                     {% endfor %}
                 </select>
             </div>            
             <!-- Level -->
             <div class="pb-3">
                 <h5>Level</h5>
-                <input type="radio" id="easy-level" name="level" value="Easy" class="form-check-input">
+                <input type="radio" id="easy-level" name="level" value="Easy" class="form-check-input" required>
                 <label for="easy-level">Easy</label><br>
                 <input type="radio" id="medium-level" name="level" value="Medium" class="form-check-input">
                 <label for="medium-level">Medium</label><br>
@@ -54,7 +56,7 @@
             <div class="mb-3">
                 <label for="servings" class="form-label h5">Servings</label>
                 <div>
-                    <input type="number" name="servings" class="form-control" id="servings" min="1" max="100">                
+                    <input type="number" name="servings" class="form-control" id="servings" min="1" max="100" required>                
                 </div>
             </div>    
 
@@ -66,7 +68,7 @@
             <div class="mb-3">
                 <label for="preptime" class="form-label h5">Preparation time (minutes)</label>
                 <div>
-                    <input type="number" name="preptime" class="form-control" id="preptime" min="1" max="300">                
+                    <input type="number" name="preptime" class="form-control" id="preptime" min="1" max="300" required>                
                 </div>
             </div>  
             
@@ -74,7 +76,7 @@
             <div class="mb-3">
                 <label for="cooktime" class="form-label h5">Cooking time (minutes)</label>
                  <div class="col-sm-10 h5"></div>
-                    <input type="number" name="cooktime" class="form-control" id="cooktime" min="1" max="300">                
+                    <input type="number" name="cooktime" class="form-control" id="cooktime" min="1" max="300" required>                
                 </div>
             </div>   
 
