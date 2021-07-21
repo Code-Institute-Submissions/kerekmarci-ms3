@@ -1,3 +1,4 @@
+// Recipe upload page
 const ingredientInputContainer = document.getElementById("ingredientInputContainer");
 const ingredientsInput = document.getElementsByName("ingredients");
 const methodInputContainer = document.getElementById("methodInputContainer");
