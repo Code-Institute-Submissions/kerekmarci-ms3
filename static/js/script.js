@@ -5,6 +5,9 @@ const methodInputContainer = document.getElementById("methodInputContainer");
 const methodInput = document.getElementsByName("method");
 const receipeName = document.getElementById("recipename");
 
+//Registration page
+const username = document.getElementById("username");
+
 
 function addField(container, inputName) {
     event.preventDefault();
@@ -31,3 +34,9 @@ function maxInput(formId, maxChar, outputName) {
         document.getElementById(outputName).innerHTML = "";
     }
 }
+
+username.addEventListener('input', function (event) {
+    if (!username.validity.valid) {
+        document.getElementById("username-error").innerHTML = "error";
+    }
+})
