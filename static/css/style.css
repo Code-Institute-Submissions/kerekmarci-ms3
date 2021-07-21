@@ -156,7 +156,7 @@ p,
 
 .food-categories-container {
     width: 100%;   
-    background-image: url(../images/food-patterns.jpg);
+    background-image: url(../images/food_patterns.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -619,7 +619,7 @@ ul.pagination {
 
 .kitchen-products-container {
     width: 100%;   
-    background-image: url(../images/food-patterns-dark.jpg);
+    background-image: url(../images/food_patterns_dark.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;  
