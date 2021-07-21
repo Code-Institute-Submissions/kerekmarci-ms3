@@ -20,8 +20,10 @@
     --orange: #F89223;
     --dark-orange: #BD6406;
     --dark-green: #1E7344;
+    --light-green: #209956;
     --beige: #F4F3F0;
     --dark-beige: #EDEDEB;
+    --red: #DC3545;
     --footer: #28292B;
     --footer-text: #B5B7BA;
     --yellow-box-background: #FFFEE1;
@@ -113,6 +115,11 @@ p,
     color: var(--white);
 }
 
+.green-button-filled:hover {
+    color: var(--white);
+    background-color: var(--light-green);
+}
+
 .green-button:hover,
 .green-button-thick:hover {
     background-color: var(--dark-green);
@@ -132,6 +139,16 @@ p,
 .orange-button:hover {
     background-color: var(--dark-orange);
     color: var(--white);
+}
+
+.red-button {
+    color: var(--red);
+    border-color: var(--red);
+}
+
+.red-button:hover {
+    color: var(--white);
+    background-color: var(--red);
 }
 
 /* -------- BASE.HTML -------- */ 
