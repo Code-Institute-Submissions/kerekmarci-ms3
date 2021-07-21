@@ -62,6 +62,12 @@ p,
     font-weight: 600;
 }
 
+.small-image {
+    width: 50%;
+}
+
+/* ------- BUTTONS ------- */
+
 .button {
     display: inline-block;
     font-weight: 400;
@@ -116,10 +122,6 @@ p,
 .orange-button:hover {
     background-color: var(--dark-orange);
     color: #fff;
-}
-
-.small-image {
-    width: 50%;
 }
 
 /* -------- BASE.HTML -------- */ 
