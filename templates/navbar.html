@@ -1,0 +1,41 @@
+<section class="container-xl mx1200 text-center">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <form action="{{ url_for('search') }}" method="POST" class="d-flex">
+                <input class="form-control me-2 mobile-resize" type="search" name="query" id="query" placeholder="Search"
+                    aria-label="Search">
+                <button class="button green-button green-button-filled" type="submit">Search</button>
+                <a href="{{ url_for('get_recipes') }}" class="button green-button d-none" type="submit">Reset</a>
+            </form>            
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('get_recipes') }}">Home</a></li>
+                    {% if session.user %}
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('upload_recipe') }}">Upload Recipe</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('my_recipes') }}">My Recipes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('favorite_recipes') }}">Favourites</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link"
+                            href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('statistics') }}">Statistics</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('logout') }}">Log Out</a></li>
+                    {% else %}
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}">Log In</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('register') }}">Register</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div>
+        {% if session.user %}
+            Good to see you back, {{ session.name }}!
+        {% endif %}
+    </div>
+</section>
