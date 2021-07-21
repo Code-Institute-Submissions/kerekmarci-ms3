@@ -29,10 +29,15 @@ cloudinary.config(
   api_secret = os.environ.get("CLOUD_API_SECRET_KEY")
 )
 
+mongo = PyMongo(app)
+
 # declare how many recipes will be shown in one page with pagination
 PER_PAGE = 6
 
-mongo = PyMongo(app)
+# if user does not upload a profile picture or a recipe picture, these default photos are shown
+DEFAULT_PROFILE_PICTURE = "https://res.cloudinary.com/epic-food-photo-storage/image/upload/v1626176413/profile-images/profile_avatar_k5035g.png"
+DEFAULT_RECIPE_PICTURE = "https://res.cloudinary.com/epic-food-photo-storage/image/upload/v1626176518/recipe-images/food_avatar_eo5tj6.jpg"
+
 
 # Pagination
 # Pagination help found: https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9
@@ -138,7 +143,7 @@ def register():
             "name": request.form.get("name"),
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
-            "profile_picture": "https://res.cloudinary.com/epic-food-photo-storage/image/upload/v1626176413/profile-images/profile_avatar_k5035g.png"
+            "profile_picture": DEFAULT_PROFILE_PICTURE
         }
 
         mongo.db.users.insert_one(register)
@@ -220,7 +225,7 @@ def upload_recipe():
         timestamp = datetime.now().strftime('%d-%m-%Y')
 
         file_to_upload = request.files['file']
-        recipe_picture_url = "https://res.cloudinary.com/epic-food-photo-storage/image/upload/v1626176518/recipe-images/food_avatar_eo5tj6.jpg"
+        recipe_picture_url = DEFAULT_RECIPE_PICTURE
         if file_to_upload:            
             upload_result = cloudinary.uploader.upload(file_to_upload, 
                 folder="recipe-images")
