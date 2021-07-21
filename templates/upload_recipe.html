@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
+{% include "navbar.html" %}
 {% include "navigation.html" %}
 
 <section class="upload-recipe-container mx1200">
@@ -37,7 +38,7 @@
                 <select name="recipe-category" id="recipe-category" class="form-select-sm" required>
                     <option value="" disabled selected>Choose Category</option>
                     {% for category in categories %}
-                        <option value="{{ category.category_name }}" class="recipe-category-hover">{{ category.category_name }}</option>                    
+                        <option value="{{ category.category_name }}">{{ category.category_name }}</option>                    
                     {% endfor %}
                 </select>
             </div>            

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-{% include "navigation.html" %}   
+{% include "navbar.html" %} 
 
 <section class="upload-recipe-container mx1200">
     <div class="text-center mt-3 pt-3 mb-5">
@@ -10,20 +10,21 @@
     </div>     
 
     <section class="form-container text-center mb-4 pb-4">
-        <form method="POST" action="{{ url_for('register') }}">
+        <form method="POST" action="{{ url_for('register') }}" id="register-form">
             <div class="mb-3">
-                <label for="name" class="form-label h4">Name</label>
+                <!-- <label for="name" class="form-label h4">Name</label> -->
                 <input type="text" name="name" class="form-control" id="name" aria-describedby="enterName" 
-                    minlength="2" maxlength="20" placeholder="Enter Your Name Here">
+                    minlength="2" maxlength="20" placeholder="Your Name" oninput="maxInput('name', 20, 'registration-name-validation');">
+                <span id="registration-name-validation"></span>
             </div>
             <div class="mb-3">
-                <label for="username" class="form-label h4">Username</label>
+                <!-- <label for="username" class="form-label h4">Username</label> -->
                 <input type="text" name="username" class="form-control" id="username" aria-describedby="enterUserName"
-                    placeholder="Enter a Username"> 
+                    placeholder="username"> 
             </div>            
             <div class="mb-3">
-                <label for="password" class="form-label h4">Password</label>
-                <input type="password" name="password" class="form-control" id="password" placeholder="Enter a Password">
+                <!-- <label for="password" class="form-label h4">Password</label> -->
+                <input type="password" name="password" class="form-control" id="password" placeholder="**********">
             </div>   
             <button type="submit" class="button green-button-thick">Register</button>
         </form>
