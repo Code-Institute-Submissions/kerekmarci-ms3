@@ -16,6 +16,7 @@
     --light-grey: #E5E5E5;
     --lightdark-grey: #E8E8E8;
     --subtitle-black: #2E2F31;
+    --card-author-name: #565758;
     --orange: #F89223;
     --dark-orange: #BD6406;
     --dark-green: #1E7344;
@@ -25,6 +26,12 @@
     --footer-text: #B5B7BA;
     --yellow-box-background: #FFFEE1;
     --yellow-box-border: #E7D95D;
+    --light-font: 300;
+    --bold-font-medium: 400;
+    --bold-font-medium-stronger: 500;
+    --bold-font: 600;
+    --bold-font-heavier: 700;
+    --bold-font-heavy: 800;
 }
 
 .mx1200 {
@@ -62,7 +69,7 @@ p,
 
 .subtitle-bold {
     color: var(--subtitle-black);
-    font-weight: 600;
+    font-weight: var(--bold-font);
 }
 
 .small-image {
@@ -73,7 +80,7 @@ p,
 
 .button {
     display: inline-block;
-    font-weight: 400;
+    font-weight: var(--bold-font-medium);
     line-height: 1.5;
     color: var(--dark-green);
     text-align: center;
@@ -98,7 +105,7 @@ p,
 
 .green-button-thick {
     border: 3px solid var(--dark-green);
-    font-weight: 500;
+    font-weight: var(--bold-font-medium-stronger);
 }
 
 .green-button-filled {
@@ -116,7 +123,7 @@ p,
 .orange-button {
     font-size: 15px;
     color: var(--white);
-    font-weight: 600;
+    font-weight: var(--bold-font);
     background-color: var(--orange);
     border-radius: 4px;
     padding: 15px 26px 15px 26px;
@@ -168,19 +175,19 @@ p,
     color: var(--orange);
     font-family: "Handlee", Sans-serif;
     font-size: 19px;
-    font-weight: 400;
+    font-weight: var(--bold-font-medium);
 }
 
 .recipe-categories-title {
     font-size: 50px;
-    font-weight: 800;
+    font-weight: var(--bold-font-heavy);
     letter-spacing: -0.2px;
     margin-top: 25px;
 }
 
 .recipe-categories-title-smaller {
     font-size: 36px;
-    font-weight: 800;
+    font-weight: var(--bold-font-heavy);
     letter-spacing: -0.2px;
     margin-top: 25px;
 }
@@ -189,13 +196,13 @@ p,
     color: var(--grey-text);
     font-family: var(--main-font);
     font-size: 20px;
-    font-weight: 300;
+    font-weight: var(--light-font);
 }
 
 .nav-category {
     font-size: 18px;
     color: var(--subtitle-black);
-    font-weight: 600;
+    font-weight: var(--bold-font);
 }
 
 .food-categories {
@@ -271,7 +278,7 @@ p,
 
 .card-title {    
     font-size: 22px;
-    font-weight: 600;
+    font-weight: var(--bold-font);
     color: var(--subtitle-black);   
     text-decoration: none;   
     padding: 35px;  
@@ -312,7 +319,7 @@ p,
     border-top: 1px solid #e5e5e5;        
     text-align: center;
     font-size: 13px;
-    font-weight: 500;
+    font-weight: var(--bold-font-medium-stronger);
 }
 
 .card-bottom i {
@@ -346,8 +353,8 @@ p,
 }
 
 .card-author-name {
-    color: #565758; 
-    font-weight: 600;
+    color: var(--card-author-name); 
+    font-weight: var(--bold-font);
 }
 
 .card-profile-picture {
@@ -383,7 +390,7 @@ p,
 
 .recipe-title {
     font-size: 36px;
-    font-weight: 700;
+    font-weight: var(--bold-font-heavier);
     letter-spacing: -0.2px;
     margin-top: 25px;
 }
@@ -472,7 +479,7 @@ p,
 .full-recipe-header-dc {     
     color: var(--subtitle-black);
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: var(--bold-font);
     font-size: 13px;
 }
 
@@ -540,7 +547,7 @@ https://www.html-code-generator.com/css/speech-bubble-generator */
 }
 
 .comment-container strong {
-    font-weight: 600;
+    font-weight: var(--bold-font);
 }
 
 .comment-button {
@@ -562,7 +569,7 @@ https://www.html-code-generator.com/css/speech-bubble-generator */
 
 .yellow-box-link {
     color: var(--orange);
-    font-weight: 600;
+    font-weight: var(--bold-font);
     text-decoration: none;
     transition: color 0.3s ease-in-out;
 }
@@ -582,7 +589,7 @@ https://www.html-code-generator.com/css/speech-bubble-generator */
     font-size: 14px;
     padding: 12px 19px 12px 19px;
     border-radius: 3px;
-    font-weight: 600;
+    font-weight: var(--bold-font);
     background-color: var(--lightdark-grey);
     border: none;
 }
@@ -630,7 +637,7 @@ ul.pagination {
 .kitchen-products-title {
     color: var(--light-grey);
     font-size: 50px;
-    font-weight: 800;
+    font-weight: var(--bold-font-heavy);
     letter-spacing: -0.2px;
     margin-top: 25px;
 }
