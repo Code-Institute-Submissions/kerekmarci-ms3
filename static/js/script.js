@@ -3,6 +3,7 @@ const ingredientsInput = document.getElementsByName("ingredients");
 const methodInputContainer = document.getElementById("methodInputContainer");
 const methodInput = document.getElementsByName("method");
 
+
 function addField(container, inputName) {
     event.preventDefault();
     let input = document.createElement("input");
