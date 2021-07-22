@@ -74,10 +74,6 @@ p,
     font-weight: var(--bold-font);
 }
 
-.small-image {
-    width: 50%;
-}
-
 /* ------- BUTTONS ------- */
 
 .button {
@@ -608,6 +604,37 @@ https://www.html-code-generator.com/css/speech-bubble-generator */
     color: var(--dark-orange);
 }
 
+/* -------- PROFILE PAGE -------- */ 
+
+#profile-info-container {
+    width: 60%;
+    background-color: var(--light-grey);
+    padding-top: 15px;
+    padding-bottom: 30px;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.profile-left p {
+    margin-bottom: 0;
+}
+
+.small-image {
+    width: 150px;
+    border-radius: 50%;
+    -webkit-box-shadow: 5px 4px 15px 1px rgba(0,0,0,0.19); 
+    box-shadow: 5px 4px 15px 1px rgba(0,0,0,0.19);
+}
+
+.profile-left {
+    padding-left: 15%;
+    padding-top: 30px;
+}
+
+.profile-right {
+    
+}
+
 /* -------- PAGINATION -------- */ 
 
 .page-item .page-link {
@@ -735,6 +762,10 @@ ul.pagination {
     .comment-container {
         max-width: calc(100% - 100px);
     }
+
+    #profile-info-container {
+        width: 80%;
+    }
 }
 
 @media screen and (max-width: 576px) {
@@ -770,4 +801,17 @@ ul.pagination {
 
     .footer-container p {
         font-size: 13px;
-    }    
+    }
+
+    .profile-right {
+        text-align: center;
+    }
+
+    .profile-left {
+        padding-top: 0;
+    }
+
+    .small-image {
+        width: 120px;
+        margin-top: 25px;
+    }

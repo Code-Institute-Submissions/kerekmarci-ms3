@@ -7,17 +7,22 @@
     <form action="{{ url_for('upload_profile_image') }}" method="POST" enctype="multipart/form-data">
     <div class="text-center mt-3 pt-3">
         <h4 class="choose-category mt-4">A Little Bit of You...</h4>
-        <h2 class="recipe-categories-title-smaller mb-3">{{ name }}'s Profile</h2>
     </div>    
-
-        <div class="mb-4" style="padding-left: 20%;">        
-            <h4>Your usename is: {{ username }}</h4>
-            <h4>Your name is: {{ name }}</h4>
-            <h4>Your profile image is: </h4>            
-        </div>    
-        <div class="text-center">
-            <img src="{{ profile_picture }}" alt="Profile picture" class="img-fluid img-thumbnail small-image">         
+    
+    <article id="profile-info-container">
+        <h2 class="recipe-categories-title-smaller mb-3 pb-3 text-center">{{ name }}'s Profile</h2>
+        <div class="row">
+            <div class="col-sm-6 profile-left">
+                <p><b>Username: </b>{{ username }}</p>
+                <p><b>Member since: </b>Date here</p>
+                <p><b>Uploaded recipes: </b>99</p>
+            </div>
+            <div class="col-sm-6 profile-right">
+                <img src="{{ profile_picture }}" alt="Profile picture" class="small-image">
+            </div>
         </div>
+    </article>  
+        
         <div class="mb-4 mt-4" style="padding-left: 20%;">
             <h4 class="mb-3">Change Profile Picture:</h4>
         </div>    
