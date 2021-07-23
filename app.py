@@ -171,7 +171,7 @@ def login():
                 session["user"] = request.form.get("username").lower()
                 session["name"] = mongo.db.users.find_one(
                     {"username": session["user"]})["name"]
-                flash("Welcome, {}".format(
+                flash("Great to see you, {}".format(
                     session["name"]))
                 return redirect(url_for(
                     "profile", username=session["user"]))
