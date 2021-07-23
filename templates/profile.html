@@ -14,8 +14,28 @@
         <div class="row">
             <div class="col-sm-6 profile-left">
                 <p><b>Username: </b>{{ username }}</p>
-                <p><b>Member since: </b>Date here</p>
-                <p><b>Uploaded recipes: </b>99</p>
+                <p><b>Uploaded recipes: </b>
+                    {% set count_uploaded = [] %}
+                    {% for recipe in recipes %}
+                        {% if session.user == recipe.uploaded_by %}
+                            {% if count_uploaded.append(1) %}{% endif %}
+                        {% endif %}
+                    {% endfor %}
+                    {% set fav_recipes_count = count_uploaded|length %}
+                    {{ fav_recipes_count }}              
+                </p>
+                <p><b>Favourited recipes: </b>
+                {% set count_fav = [] %}
+                {% for recipe in recipes %}
+                    {% if recipe.favorited_by %}
+                        {% if session.user in recipe.favorited_by %}
+                            {% if count_fav.append(1) %}{% endif %}
+                        {% endif %}
+                    {% endif %}  
+                {% endfor %}
+                {% set fav_recipes_count = count_fav|length %}
+                {{ fav_recipes_count }}
+                </p>
             </div>
             <div class="col-sm-6 profile-right">
                 <img src="{{ profile_picture }}" alt="Profile picture" class="small-image">
