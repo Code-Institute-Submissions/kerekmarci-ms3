@@ -1,13 +1,12 @@
 <section class="container-xl mx1200 text-center">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <form action="{{ url_for('search') }}" method="POST" class="d-flex">
-                <input class="form-control me-2 mobile-resize" type="search" name="query" id="query" placeholder="Search"
+            <form action="{{ url_for('search') }}" method="POST" class="d-flex mobile-resize">
+                <input class="form-control me-2" type="search" name="query" id="query" placeholder="Search"
                     aria-label="Search">
                 <button class="button green-button green-button-filled" type="submit">Search</button>
                 <a href="{{ url_for('get_recipes') }}" class="button green-button d-none" type="submit">Reset</a>
             </form>            
-
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
