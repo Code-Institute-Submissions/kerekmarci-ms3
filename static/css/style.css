@@ -809,9 +809,19 @@ ul.pagination {
 
     .profile-left {
         padding-top: 0;
+        text-align: center;
+        padding-left: 0;
     }
 
     .small-image {
         width: 120px;
         margin-top: 25px;
+    }
+
+    #profile-info-container {
+        width: 100%;
+    }
+
+    #profile-info-container .recipe-categories-title-smaller {
+        font-size: 26px;
     }
