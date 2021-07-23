@@ -6,7 +6,7 @@ const methodInput = document.getElementsByName("method");
 const receipeName = document.getElementById("recipename");
 
 //Registration page
-const username = document.getElementById("username");
+let username = document.getElementById("username");
 
 
 function addField(container, inputName) {
@@ -35,8 +35,4 @@ function maxInput(formId, maxChar, outputName) {
     }
 }
 
-username.addEventListener('input', function (event) {
-    if (!username.validity.valid) {
-        document.getElementById("username-error").innerHTML = "error";
-    }
-})
+const letterNumber = /^[0-9a-zA-Z]+$/;

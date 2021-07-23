@@ -20,7 +20,7 @@
             <div class="mb-3">
                 <!-- <label for="username" class="form-label h4">Username</label> -->
                 <input type="text" name="username" class="form-control" id="username" aria-describedby="enterUserName"
-                    placeholder="username" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" required>
+                    placeholder="username" oninput="checkValidity();" required>
                 <span id="username-error"></span>
             </div>            
             <div class="mb-3">
