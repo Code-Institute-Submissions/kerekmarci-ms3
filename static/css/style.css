@@ -159,6 +159,11 @@ p,
     border-width: 2px;
 }
 
+#registration-name-validation,
+#username-error {
+    color: var(--red);
+}
+
 /* -------- BASE.HTML -------- */ 
 
 .banner {

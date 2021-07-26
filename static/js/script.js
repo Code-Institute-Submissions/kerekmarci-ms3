@@ -5,10 +5,7 @@ const methodInputContainer = document.getElementById("methodInputContainer");
 const methodInput = document.getElementsByName("method");
 const receipeName = document.getElementById("recipename");
 
-//Registration page
-let username = document.getElementById("username");
-
-
+// Adding and removing fields on Upload Receipe page
 function addField(container, inputName) {
     event.preventDefault();
     let input = document.createElement("input");
@@ -24,15 +21,33 @@ function removeField(container) {
     container.removeChild(container.lastChild);
 }
 
+// Maximum number of characters on Upload Receipe page
 function maxInput(formId, maxChar, outputName) {
     var name = document.getElementById(formId).value;
     let remainingChar = maxChar-name.length;
     if (remainingChar < 6) {
-        document.getElementById(outputName).innerHTML = remainingChar + " characters left";
+        document.getElementById(outputName).innerHTML = remainingChar + " characters left.";
         remainingChar == 0 ? document.getElementById(outputName).style.color = "#DC3545" : document.getElementById(outputName).style.color = "#212529";
     } else {
         document.getElementById(outputName).innerHTML = "";
     }
 }
 
-const letterNumber = /^[0-9a-zA-Z]+$/;
+// Form validation on Registration page
+// Help found here: https://stackoverflow.com/questions/47088833/javascript-form-validation-check-for-all-letters-only
+
+function validateForm(pattern, input, output, errorMsg) {
+    let regex = new RegExp(pattern);
+    let x = document.getElementById(input).value;
+    let message = document.getElementById(output);
+    if (x == null || x == "") {
+        message.innerHTML = "";
+        return false;
+    } else if (!regex.test(x)) {
+        message.innerHTML = errorMsg;
+        return false;
+    } else {
+        message.innerHTML = "";
+        return true;
+    }
+}

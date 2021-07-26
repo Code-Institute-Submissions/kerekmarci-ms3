@@ -10,17 +10,20 @@
     </div>     
 
     <section class="form-container text-center mb-4 pb-4">
-        <form method="POST" action="{{ url_for('register') }}" id="register-form">
+        <form method="POST" action="{{ url_for('register') }}" id="register-form" onsubmit="validateForm()">
             <div class="mb-3">
                 <!-- <label for="name" class="form-label h4">Name</label> -->
                 <input type="text" name="name" class="form-control" id="name" aria-describedby="enterName" 
-                    minlength="2" maxlength="20" placeholder="Your Name" oninput="maxInput('name', 20, 'registration-name-validation');" required>
+                    minlength="2" maxlength="20" placeholder="Your Name" oninput="maxInput('name', 20, 'registration-name-characters'); 
+                    validateForm('^[a-zA-Z ]+$', 'name', 'registration-name-validation', 'Letters and spaces only! ');" pattern="^[a-zA-Z ]+$" required>
                 <span id="registration-name-validation"></span>
+                <span id="registration-name-characters"></span>
             </div>
             <div class="mb-3">
                 <!-- <label for="username" class="form-label h4">Username</label> -->
                 <input type="text" name="username" class="form-control" id="username" aria-describedby="enterUserName"
-                    placeholder="username" oninput="checkValidity();" required>
+                    placeholder="username" oninput="validateForm('^[a-zA-Z0-9]+$', 'username', 'username-error', 'Letters and numbers please, without spaces.');" 
+                    pattern="^[a-zA-Z0-9]+$" required>
                 <span id="username-error"></span>
             </div>            
             <div class="mb-3">
