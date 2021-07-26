@@ -209,7 +209,11 @@ def profile(username):
 
 @app.route("/statistics")
 def statistics():
-    return render_template("statistics.html")
+    total_recipes = mongo.db.recipes.find().count()
+    total_comments = mongo.db.comments.find().count()
+    return render_template("statistics.html",
+                            total=total_recipes,
+                            comments=total_comments)
 
     
 @app.route("/logout")
