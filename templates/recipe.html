@@ -119,8 +119,8 @@
         <h4 class="mt-4 mb-4 subtitle-bold">Leave a Comment:</h4>
         {% if session.user %}
         <div>
-            <form action="{{ url_for('recipe', recipe_id=recipe._id ) }}" method="POST">
-                <textarea class="form-control" rows="3" id="comment" name="comment"></textarea>
+            <form action="{{ url_for('recipe', recipe_id=recipe._id ) }}#recipe-section" method="POST">
+                <textarea class="form-control" rows="3" id="comment" name="comment" required></textarea>
                 <div class="comment-button"><button type="submit" class="button green-button-thick mt-2">Post Comment</button></div>
             </form>
         </div>
