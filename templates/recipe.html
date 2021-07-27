@@ -4,7 +4,7 @@
 {% include "navbar.html" %}
 {% include "navigation.html" %}   
 
-    <section class="container-xl" style="max-width: 800px;">
+    <section class="container-xl" id="recipe-section" style="max-width: 800px;">
         <div>
             <div><h2 class="pt-4 pb-4 text-center recipe-title">{{ recipe.recipe_name }}</h2></div>
             <div class="fav-heart">
@@ -134,7 +134,7 @@
     </section>    
         
     <div class="text-center">
-        <a href="{{ url_for('get_recipes') }}" class="button orange-button mb-5">Go Back</a>
+        <a href="{{ url_for('favorite_recipes') }}#favorite-section" class="button orange-button mb-5">Go Back</a>
     </div>
 
 {% endblock %}

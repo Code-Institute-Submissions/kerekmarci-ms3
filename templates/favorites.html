@@ -6,7 +6,7 @@
 
 {% if session.user %}
 
-    <div class="text-center mt-3 pt-3 mb-5">
+    <div class="text-center mt-3 pt-3 mb-5" id="favorite-section">
         <h4 class="choose-category mt-4">Let's See What You Fancy...</h4>
         <h2 class="recipe-categories-title-smaller">{{ username.name }}'s Favourite Recipes</h2>
     </div>  
@@ -17,11 +17,11 @@
         {% if session.user in recipe.favorited_by %}
         <article class="card recipe-card">
             <div>            
-                <a href="{{ url_for('recipe', recipe_id=recipe._id )}}"><img src="{{ recipe.recipe_picture }}"
+                <a href="{{ url_for('recipe', recipe_id=recipe._id )}}#recipe-section"><img src="{{ recipe.recipe_picture }}"
                     class="card-img-top" alt="Open Full Recipe"></a>
             </div>
             <div class="card-content2">           
-                <a class="card-title" href="{{ url_for('recipe', recipe_id=recipe._id )}}">{{ recipe.recipe_name }} </a>         
+                <a class="card-title" href="{{ url_for('recipe', recipe_id=recipe._id )}}#recipe-section">{{ recipe.recipe_name }} </a>         
                 <p class="card-description">{{ recipe.description }}</p>       
                 <div class="card-author">                
                     {% for user in users %}
