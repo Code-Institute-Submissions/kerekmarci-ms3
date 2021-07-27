@@ -327,7 +327,7 @@ def recipe(recipe_id):
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
-    flash("Recipe Successfully Deleted")
+    flash("Recipe successfully deleted")
     return redirect(url_for("my_recipes"))
 
 
@@ -337,7 +337,7 @@ def add_favorite(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     # Push this receipe to the user's favourite recipe array    
     mongo.db.recipes.update_one(recipe, {"$push": {"favorited_by": username}})    
-    flash("Recipe Successfully Added to Favourites")
+    flash("Recipe successfully added to favourites")
 
     return redirect(url_for("favorite_recipes"))
 
@@ -347,7 +347,7 @@ def remove_favorite(recipe_id):
     username = session["user"]
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     mongo.db.recipes.update_one(recipe, {"$pull": {"favorited_by": username}})    
-    flash("Recipe Successfully Removed from Favourites")
+    flash("Recipe successfully removed from favourites")
 
     return redirect(url_for("favorite_recipes"))
 
