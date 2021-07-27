@@ -347,7 +347,7 @@ def remove_favorite(recipe_id):
     username = session["user"]
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     mongo.db.recipes.update_one(recipe, {"$pull": {"favorited_by": username}})    
-    flash("Recipe Successfully Added to Favourites")
+    flash("Recipe Successfully Removed from Favourites")
 
     return redirect(url_for("favorite_recipes"))
 
