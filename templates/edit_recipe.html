@@ -4,7 +4,7 @@
 {% include "navbar.html" %}
 {% include "navigation.html" %}
 
-<section class="upload-recipe-container mx1200">
+<section class="upload-recipe-container mx1200" id="edit-recipe-section">
 
     <div class="text-center mt-3 pt-3 mb-5">
         <h4 class="choose-category mt-4">Change for Better!</h4>
@@ -131,7 +131,7 @@
             <br>
             <h5>Current Image:</h5>
             <div class="text-center">
-                <img src="{{ recipe.recipe_picture }}" alt="Photo of the final dish" class="img-fluid img-thumbnail small-image"><br>
+                <img src="{{ recipe.recipe_picture }}" alt="Photo of the final dish" class="img-fluid img-thumbnail"><br>
             </div>
                                        
             <div class="pt-3 mb-3">
@@ -147,6 +147,7 @@
             
             <div class="text-center">         
                 <button type="submit" class="button green-button-thick mt-3 mb-4">Save Changes</button>
+                <a href="{{ url_for('my_recipes') }}#my-recipe-section" class="button red-button mt-3 mb-4">Cancel</a>
             </div>
         </form>
     </section>

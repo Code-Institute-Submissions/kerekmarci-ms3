@@ -142,6 +142,11 @@ p,
     border-color: var(--red);
 }
 
+.red-button-thick {
+    border: 3px solid var(--red);
+    font-weight: var(--bold-font-medium-stronger);
+}
+
 .red-button:hover {
     color: var(--white);
     background-color: var(--red);
