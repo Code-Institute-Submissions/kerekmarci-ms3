@@ -283,7 +283,8 @@ p,
 /* -------- ALL RECIPES -------- */ 
 
 .get-recipe-section {
-    margin-top: 80px;
+    margin-top: 10px;
+    padding-top: 10px;
 }
 
 /* ------- RECIPE CARD ------- */
