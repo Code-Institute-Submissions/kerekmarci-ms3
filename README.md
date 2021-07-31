@@ -114,9 +114,9 @@ The colour palette can be seen here.\
 
 * **Typography:**
 
-For the text content of the website, traditional-looking fonts were selected that are easy to read.
-    - The main font is called *Barlow*. This is a suitable font for both the content and a headlines, with a heavier font-weight for the latter.
-    - To add a little flavour to the titles, the friendly one-liners on the top of each sections are written with a fond called  *Handlee*
+For the text content of the website, traditional-looking fonts were selected that are easy to read.\  
+    - The main font is called *Barlow*. This is a suitable font for both the content and a headlines, with a heavier font-weight for the latter.\  
+    - To add a little flavour to the titles, the friendly one-liners on the top of each sections are written with a fond called  *Handlee*  
 
 * **Icons:**
 
