@@ -163,42 +163,55 @@ FontAwesome icons are used on the recipe cards and on the full recipe pages to a
 
 Data is stored in MongoDB non-relational database, consisting of 4 tables:
 
+### Food Categories:
+
+| Name              | Type      |
+| :---              | :---      |
+| id                | ObjectID  |
+| Category Name     | String    |
+
 ### Users:
 
 | Name              | Type      |
 | :---              | :---      |
 | id                | ObjectID  |
-| name              | String    |
-| username          | String    |
-| password          | String    |
-| profile picture   | String    |
+| Name              | String    |
+| Username          | String    |
+| Password          | String    |
+| Profile Picture   | String    |
 
-| Syntax      | Description | Test Text     |
-| :---        |    :----:   |          ---: |
-| Header      | Title       | Here's this   |
-| Paragraph   | Text        | And more      |
-
-* name
-* username: string
-* password: string
-* email: string
-* profile picture:
-* is_admin: Boolean
+![Users in MongoDB](https://github.com/kerekmarci/ms3/blob/master/documentation/images/mongodb_users.jpg)
 
 ### Recipe:
 
-* Name
-* Category
-* Level (Easy/Medium/Hard)
-* Servings
-* Vegetarian (Boolean) 
-* Preparation time
-* Cooking Time
-* Ingredients
-* Recipe Method
-* Image
-___
+| Name              | Type      |
+| :---              | :---      |
+| id                | ObjectID  |
+| Recipe Name       | String    |
+| Description       | String    |
+| Recipe Category   | String    |
+| Level             | String    |
+| Servings          | Integer   |
+| Preparation Time  | Integer   |
+| Cooking Time      | Integer   |
+| Ingredients       | Array     |
+| Recipe Method     | Array     |
+| Recipe Picture    | String    |
+| Uploaded On       | Timestamp |
+| Uploaded By       | String    |
+| Favourited By     | Array     |
 
-* Uploaded On (date)
-* Uploaded By (username’s name)
-* Comments
+### Comments:
+
+| Name              | Type      |
+| :---              | :---      |
+| id                | ObjectID  |
+| Recipe ID         | String    |
+| Created by Username | String  |
+| Created by Name   | String    |
+| Date              | Timestamp |
+| Comment           | String    |
+
+The relations among the tables can be seen here
+
+![Relations among database tables](https://github.com/kerekmarci/ms3/blob/master/documentation/images/database_schema.jpg)
