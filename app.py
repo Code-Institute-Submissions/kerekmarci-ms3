@@ -81,11 +81,12 @@ def get_recipes():
 def search():
     query = request.form.get("query")
     recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
-    total = mongo.db.recipes.find().count()
+    all_recipes = list(mongo.db.recipes.find())
     recipes_paginated = paginate(recipes)
     pagination = pagination_args(recipes)
     return render_template("get_recipes.html",
                             recipes=recipes_paginated,
+                            all_recipes=all_recipes,
                             pagination=pagination,
                             query=query)
 
