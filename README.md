@@ -165,12 +165,17 @@ Data is stored in MongoDB non-relational database, consisting of 4 tables:
 
 ### Users:
 
-| Name      | Type      |
-| id        | ObjectID  |
-| name      | String    |
-| username  | String    |
-| password  | String    |
-| profile picture | String |
+| Name              | Type      |
+| id                | ObjectID  |
+| name              | String    |
+| username          | String    |
+| password          | String    |
+| profile picture   | String    |
+
+| Syntax      | Description | Test Text     |
+| :---        |    :----:   |          ---: |
+| Header      | Title       | Here's this   |
+| Paragraph   | Text        | And more      |
 
 * name
 * username: string
