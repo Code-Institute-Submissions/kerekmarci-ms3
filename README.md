@@ -94,25 +94,23 @@ The website will feature the following:
 
 ### Skeleton
 
-The skeleton of the website is available in the below wireframes:
+The skeleton of the website is designed with the wireframes below:
 
 1. [Index Page](https://github.com/kerekmarci/ms3/blob/master/documentation/wireframes/landing_page.png)
 2. [Upload Recipe Page](https://github.com/kerekmarci/ms3/blob/master/documentation/wireframes/upload_recipe.png)
 3. [Full Recipe Page](https://github.com/kerekmarci/ms3/blob/master/documentation/wireframes/recipe_page.png)
+4. [Registration Page](https://github.com/kerekmarci/ms3/blob/master/documentation/wireframes/registration_page.png)
+4. [Login Page](https://github.com/kerekmarci/ms3/blob/master/documentation/wireframes/login_page.png)
 
 ### Surface
 
-* **Planning of layout:**
-
-xxx
-
-* **Theme:**
-
-xxx
-
 * **Colours:**
 
+For a website that contains a database, I believe that a brigther scheme is more suitable than a dark one.
+Being a recipe website, a food-related banner on the top of the page will immediately create a feeling in the user what the entire website is about. This is why an image was selected which is showing some ingredients. A green colour in the theme is a suitable match with the ingredients and food in overall, and brown and orange go well with green. This is why the main colour of the banner is brown, and the various highlights and buttons are either green or orange. The overall white and grey background is neutral and is a good match with any colours.\
 The colour palette can be seen here.\
+
+![Colour palette](https://github.com/kerekmarci/ms3/blob/master/documentation/images/color_palette.JPG)
 
 * **Typography:**
 
