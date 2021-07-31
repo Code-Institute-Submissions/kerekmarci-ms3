@@ -170,6 +170,8 @@ Data is stored in MongoDB non-relational database, consisting of 4 tables:
 | id                | ObjectID  |
 | Category Name     | String    |
 
+![Categories in MongoDB](https://github.com/kerekmarci/ms3/blob/master/documentation/images/mongodb_categories.JPG)
+
 ### Users:
 
 | Name              | Type      |
@@ -201,6 +203,8 @@ Data is stored in MongoDB non-relational database, consisting of 4 tables:
 | Uploaded By       | String    |
 | Favourited By     | Array     |
 
+![Recipes in MongoDB](https://github.com/kerekmarci/ms3/blob/master/documentation/images/mongodb_recipes.JPG)
+
 ### Comments:
 
 | Name              | Type      |
@@ -212,6 +216,8 @@ Data is stored in MongoDB non-relational database, consisting of 4 tables:
 | Date              | Timestamp |
 | Comment           | String    |
 
-The relations among the tables can be seen here
+![Comments in MongoDB](https://github.com/kerekmarci/ms3/blob/master/documentation/images/mongodb_comments.JPG)
+
+### The relations among the tables can be seen here:
 
 ![Relations among database tables](https://github.com/kerekmarci/ms3/blob/master/documentation/images/database_schema.jpg)
