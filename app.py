@@ -36,7 +36,7 @@ PER_PAGE = 6
 
 # if user does not upload a profile picture or a recipe picture, these default photos are shown
 DEFAULT_PROFILE_PICTURE = "https://res.cloudinary.com/epic-food-photo-storage/image/upload/v1626176413/profile-images/profile_avatar_k5035g.png"
-DEFAULT_RECIPE_PICTURE = "https://res.cloudinary.com/epic-food-photo-storage/image/upload/v1626176518/recipe-images/food_avatar_eo5tj6.jpg"
+DEFAULT_RECIPE_PICTURE = "https://res.cloudinary.com/epic-food-photo-storage/image/upload/v1627730195/recipe-images/food_avatar_mmbalr.jpg"
 
 
 # Pagination
