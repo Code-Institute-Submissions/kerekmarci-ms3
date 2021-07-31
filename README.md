@@ -287,6 +287,20 @@ The best example for this is to prevent the user accidentally deleting a recipe.
 
 ---
 
+## Testing
+
+### Testing cross-browser compatibility
+
+### Testing responsiveness
+
+### Testing mobile-friendliness
+
+### Testing user stories
+
+### Validation
+
+---
+
 ## Deployment
 
 All necessary code for this web app is stored in *GitHub* repository, and is available to view at https://kerekmarci.github.io/ms3/ \
@@ -307,7 +321,7 @@ In the *env.py* file, the following variables are set up: *IP, PORT, SECRET_KEY,
 ### Requirements for Heroku
 
 Heroku needs the *Procfile* and the *Requirements* in order to run the app.
-To create the file for the requirements, the following needs to be created: `pip3 freeze --local > requirements.txt"`.
+To create the file for the requirements, the following needs to be created: `pip3 freeze --local > requirements.txt`.
 In the *Procfile*, the following line needs to be added so that Heroku will know which file to run: `web: python app.py`.
 
 ### Setting up and deploying to Heroku 
