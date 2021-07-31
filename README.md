@@ -166,6 +166,7 @@ Data is stored in MongoDB non-relational database, consisting of 4 tables:
 ### Users:
 
 | Name              | Type      |
+| :---              | :---      |
 | id                | ObjectID  |
 | name              | String    |
 | username          | String    |
