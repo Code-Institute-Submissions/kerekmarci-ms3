@@ -289,8 +289,8 @@ The best example for this is to prevent the user accidentally deleting a recipe.
 
 ## Deployment
 
-All necessary code for this web app is stored in *GitHub* repository, and is available to view at https://kerekmarci.github.io/ms3/ \  
-The full web app is hosted on *Heroku* and can be viewed here: https://epic-food.herokuapp.com/ \  
+All necessary code for this web app is stored in *GitHub* repository, and is available to view at https://kerekmarci.github.io/ms3/
+The full web app is hosted on *Heroku* and can be viewed here: https://epic-food.herokuapp.com/
 
 ### Setting up Github
 
