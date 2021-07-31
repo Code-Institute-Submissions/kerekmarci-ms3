@@ -226,8 +226,7 @@ def logout():
 
 @app.route("/upload_recipe", methods=["GET", "POST"])
 def upload_recipe():
-    if request.method == "POST":
-        is_vegetarian = "veg" if request.form.get("vegetarian") else "nonveg"        
+    if request.method == "POST":  
         timestamp = datetime.now().strftime('%d-%m-%Y')
 
         file_to_upload = request.files['file']
@@ -243,7 +242,6 @@ def upload_recipe():
             "recipe_cagetory": request.form.get("recipe-category"),
             "level": request.form.get("level"),
             "servings": request.form.get("servings"),
-            "vegetarian": is_vegetarian,
             "preptime": request.form.get("preptime"),
             "cooktime": request.form.get("cooktime"),
             "ingredients": request.form.getlist("ingredients"),
@@ -279,7 +277,6 @@ def edit_recipe(recipe_id):
             "recipe_cagetory": request.form.get("recipe-category"),
             "level": request.form.get("level"),
             "servings": request.form.get("servings"),
-            "vegetarian": is_vegetarian,
             "preptime": request.form.get("preptime"),
             "cooktime": request.form.get("cooktime"),
             "ingredients": request.form.getlist("ingredients"),
