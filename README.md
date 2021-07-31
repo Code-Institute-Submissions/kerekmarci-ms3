@@ -300,17 +300,30 @@ The full web app is hosted on *Heroku* and can be viewed here: https://epic-food
 
 ### Setting up Environment Variables
 
-This is text, `this is code` and ``two ticks`` 
+Sensitive data needs to be hidden using environment variables in the `env.py` file. Files that should not be pushed to GitHub needs to be added to the `.gitignore` file.
+The enviroment variables take two arguments: first the name of the variable, second the data itself, for example `os.environ.setdefault("PORT", "5000")`.
+In the *env.py* file, the following variables are set up: *IP, PORT, SECRET_KEY, MONGO_URI, MONGO_DBNAME.* In my project, *Cloudinary* is used to store images, therefore *CLOUDINARY_NAME, CLOUD_API_KEY, CLOUD_API_SECRET_KEY* need to be included too.
 
-### Deploying the application to Heroku
+### Requirements for Heroku
+
+Heroku needs the *Procfile* and the *Requirements* in order to run the app.
+To create the file for the requirements, the following needs to be created: `pip3 freeze --local > requirements.txt"`.
+In the *Procfile*, the following line needs to be added so that Heroku will know which file to run: `web: python app.py`.
+
+### Setting up and deploying to Heroku 
+
+As the enviroment variables contained in the *env.py* file will not be pushed, therefore these variables need to be configured directly in Heroku.
+Once a Heroku app has been created, under the *Settings* tab, the variables can be entered by clicking on the *Reveal Config Vars* button.
+
+To automatically deploy code to Heroku from Github, in the *Deployment method* in Heroku, the *GitHub* icon needs to be selected. Then, the name of the GitHub repository needs to be entered and automatic deployment can be enabled.
 
 ### Cloning
 
-Here is a step-by-step guide on how to clone the repository:\
+To clone the GitHub repository, follow these steps:\  
 
-1. Go to my GitHub repository - https://github.com/kerekmarci/ms2
+1. Go to my GitHub repository - https://github.com/kerekmarci/ms3
 2. Click on the CODE button
 3. Copy the link with the HTTPS option selected
 4. Open your IDE
-5. Type git clone in the terminal, followed by pasting the link. For example: *git clone https://github.com/kerekmarci/ms2.git*
+5. Type git clone in the terminal, followed by pasting the link. For example: *git clone https://github.com/kerekmarci/ms3.git*
 6. Press Enter, and now a local clone has been created
