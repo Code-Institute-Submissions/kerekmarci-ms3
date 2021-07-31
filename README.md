@@ -109,12 +109,14 @@ The skeleton of the website is designed with the wireframes below:
 For a website that contains a database, I believe that a brigther scheme is more suitable than a dark one.
 Being a recipe website, a food-related banner on the top of the page will immediately create a feeling in the user what the entire website is about. This is why an image was selected which is showing some ingredients. A green colour in the theme is a suitable match with the ingredients and food in overall, and brown and orange go well with green. This is why the main colour of the banner is brown, and the various highlights and buttons are either green or orange. The overall white and grey background is neutral and is a good match with any colours.\
 The colour palette can be seen here.\
-
+\
 ![Colour palette](https://github.com/kerekmarci/ms3/blob/master/documentation/images/color_palette.JPG)
 
 * **Typography:**
 
-xxx
+For the text content of the website, traditional-looking fonts were selected that are easy to read.
+    - The main font is called *Barlow*. This is a suitable font for both the content and a headlines, with a heavier font-weight for the latter.\
+    - To add a little flavour to the titles, the friendly one-liners on the top of each sections are written with a fond called  *Handlee*
 
 * **Icons:**
 
