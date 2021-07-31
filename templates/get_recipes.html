@@ -56,12 +56,16 @@
         </article>
         {% endfor %}
         {% else %}
-            No recipes found for {{ query }}. Try one of these:
-            {% for recipe in all_recipes|reverse %}
-                <ul>
-                    <li>{{ recipe.recipe_name }}</li>
-                </ul>
-            {% endfor %}
+        <div>
+            <div>
+                <p>No recipes found for {{ query }}. Try one of these from our latest recipes:</p>
+            </div>
+            <div class="pt-3 text-center">
+                    {% for recipe in all_recipes[:5]|reverse %}
+                        <li><a href="{{ url_for('recipe', recipe_id=recipe._id )}}#recipe-section" class="text-link">{{ recipe.recipe_name }}</a></li>
+                    {% endfor %}
+            </div>
+        </div>
         {% endif %}
     </section>
 </section>
