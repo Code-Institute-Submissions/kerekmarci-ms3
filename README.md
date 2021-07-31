@@ -152,20 +152,25 @@ FontAwesome icons are used on the recipe cards and on the full recipe pages to a
 ### For Registered Users:
 
 * Home
-* Statistics
-* Upload Recipe
+* Upload Recipes
 * My Recipes
+* Favourites
 * Profile
+* Statistics
 * Log Out
-
-### For Admin (same as registered, plus):
-
-* Dashboard (to manage all recipes)
-* Manage Categories
 
 ## Database Schema
 
+Data is stored in MongoDB non-relational database, consisting of 4 tables:
+
 ### Users:
+
+| Name | Type |
+| id | ObjectID
+| name | String
+| username | String
+| password | String
+| profile picture | String
 
 * name
 * username: string
