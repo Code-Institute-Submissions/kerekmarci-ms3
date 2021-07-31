@@ -221,3 +221,26 @@ Data is stored in MongoDB non-relational database, consisting of 4 tables:
 ### The relations among the tables can be seen here:
 
 ![Relations among database tables](https://github.com/kerekmarci/ms3/blob/master/documentation/images/database_schema.jpg)
+
+## Security Features
+
+During the user's journey, there are certain security-related features that have been implemented.
+
+### User Registration
+
+When user creates an account, the username and password are stored in the MongoDB database.
+To prevent storing the actual password, the password gets hashed and salted with the help of the *generate_password_hash()* security helper.
+This has been imported from Werkzeug Security with the following import command:
+*from werkzeug.security import generate_password_hash*
+
+### User Login
+
+The *check_password_hash* security helper from Werkzeug Security is able to check a password against a given salted and hashed password value.
+This has been imported from Werkzeug Security with the following import command:
+*from werkzeug.security import check_password_hash*
+
+### Defensive Programming
+
+It is a good practice to add a step of confirmation before user can make significant changes with the data.
+The best example for this is to prevent the user accidentally deleting a recipe. Therefore, when the user clicks on the *Delete Recipe* button, a prompt alert (modal) appears to reconfirm if the user would indeed like to delete the recipe.
+
