@@ -1,4 +1,4 @@
-# Epic Food Receipe Website - Milestone Project 3
+# Epic Food Recipe Website - Milestone Project 3
 
 ## View live project here: [Epic Food](http://epic-food.herokuapp.com/)
 
@@ -72,23 +72,23 @@ The website will feature the following:
 
 * Registered users can log in by entering their username and password.
 
-#### Upload Recipe Page (Resistered Users):
+#### Upload Recipe Page (Registered Users):
 
 * Registered users can upload a recipe. On this page, they can provide the title of the recipe, a brief description, food category, cooking level, number of servings, preparation time, cooking time, list of ingredients, recipe method and a photo of the ready meal.
 
-#### My Recipes Page (Resistered Users):
+#### My Recipes Page (Registered Users):
 
 * On this page, registered users can access the collection of the recipes uploaded by themselves.
 
-#### Favourites Page (Resistered Users):
+#### Favourites Page (Registered Users):
 
 * Users can access to the recipes that they have added to their collection of favourites.
 
-#### Profile Page (Resistered Users):
+#### Profile Page (Registered Users):
 
 * Registered users can view their information and some basic statistics. On this page, their name, username and profile picture are displayed, as well as how many recipes the user has uploaded and how many they have added to their favourites. Users can also change their profile picture if they wish.
 
-#### Statistics Page (Resistered Users):
+#### Statistics Page (Registered Users):
 
 * On this page, the total number of recipes are shown that are available on the website, as well as the total number of comments left by the community. Furthermore, there are two MongoDB charts that presents a summary on chart: a pie chart displaying the distribution of recipes by meal type, and a bar chart showing the total amount of recipes uploaded by users.
 
@@ -142,9 +142,11 @@ FontAwesome icons are used on the recipe cards and on the full recipe pages to a
 * **Photo Upload:** Users can upload images of the ready food for the recipes, as well as uploading an image as their profile picture. Images are handled by *Cloudinary* image-management solution, and the URL is stored in the MongoDB database
 * **Responsive:** the website is responsive to desktop, tablet and mobile devices
 
+---
+
 ## Structure of the menu
 
-### For All Users (without resitration)
+### For All Users (without registration)
 
 * Home
 * Log In
@@ -159,6 +161,8 @@ FontAwesome icons are used on the recipe cards and on the full recipe pages to a
 * Profile
 * Statistics
 * Log Out
+
+---
 
 ## Database Schema
 
@@ -223,6 +227,8 @@ Data is stored in MongoDB non-relational database, consisting of 4 tables:
 
 ![Relations among database tables](https://github.com/kerekmarci/ms3/blob/master/documentation/images/database_schema.jpg)
 
+---
+
 ## Security Features
 
 During the user's journey, there are certain security-related features that have been implemented.
@@ -244,6 +250,8 @@ This has been imported from Werkzeug Security with the following import command:
 
 It is a good practice to add a step of confirmation before user can make significant changes with the data.
 The best example for this is to prevent the user accidentally deleting a recipe. Therefore, when the user clicks on the *Delete Recipe* button, a prompt alert (modal) appears to reconfirm if the user would indeed like to delete the recipe.
+
+---
 
 ## Technologies Used
 
@@ -276,3 +284,33 @@ The best example for this is to prevent the user accidentally deleting a recipe.
 ### Hosting
 
 * Heroku: the web app is hosted on Heroku Cloud Application Platform
+
+---
+
+## Deployment
+
+All necessary code for this web app is stored in *GitHub* repository, and is available to view at https://kerekmarci.github.io/ms3/ \  
+The full web app is hosted on *Heroku* and can be viewed here: https://epic-food.herokuapp.com/ \  
+
+### Setting up Github
+
+1. As a starting point, I used the base templated provided by The Code Institute: https://github.com/Code-Institute-Org/gitpod-full-template
+2. I clicked on the button called *Use this template*
+3. Entered a name for my new repository, then clicked on the *Create repository from this template* button. Now the development environment has been created.
+
+### Setting up Environment Variables
+
+This is text, `this is code` and ``two ticks`` 
+
+### Deploying the application to Heroku
+
+### Cloning
+
+Here is a step-by-step guide on how to clone the repository:\
+
+1. Go to my GitHub repository - https://github.com/kerekmarci/ms2
+2. Click on the CODE button
+3. Copy the link with the HTTPS option selected
+4. Open your IDE
+5. Type git clone in the terminal, followed by pasting the link. For example: *git clone https://github.com/kerekmarci/ms2.git*
+6. Press Enter, and now a local clone has been created
