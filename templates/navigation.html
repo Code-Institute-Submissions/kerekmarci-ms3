@@ -3,31 +3,31 @@
     <h2 class="recipe-categories-title">Recipe Categories</h2>
 
     <div class="food-categories">
-        <a href="{{ url_for('food_category', category='Appetizers', difficulty='All' ) }}">
+        <a href="{{ url_for('food_category', category='Appetizers', difficulty='All' ) }}#get-recipe-section">
             <img src="{{ url_for('static', filename='images/appetizer.jpg') }}" alt="" class="food-categories-img">
         </a>
         <h3 class="nav-category">Appetizers</h3>
     </div>
     <div class="food-categories text-center">
-        <a href="{{ url_for('food_category', category='Soup', difficulty='All' ) }}">
+        <a href="{{ url_for('food_category', category='Soup', difficulty='All' ) }}#get-recipe-section">
             <img src="{{ url_for('static', filename='images/soup.jpg') }}" alt="" class="food-categories-img">
         </a>
         <h3 class="nav-category">Soup</h3>
     </div>
     <div class="food-categories text-center">
-        <a href="{{ url_for('food_category', category='Main Course', difficulty='All' ) }}">
+        <a href="{{ url_for('food_category', category='Main Course', difficulty='All' ) }}#get-recipe-section">
             <img src="{{ url_for('static', filename='images/main_course.jpg') }}" alt="" class="food-categories-img">
         </a>
         <h3 class="nav-category">Main Course</h3>
     </div>
     <div class="food-categories text-center">
-        <a href="{{ url_for('food_category', category='Vegetarian', difficulty='All' ) }}">
+        <a href="{{ url_for('food_category', category='Vegetarian', difficulty='All' ) }}#get-recipe-section">
             <img src="{{ url_for('static', filename='images/vegetarian.jpeg') }}" alt="" class="food-categories-img">
         </a>
         <h3 class="nav-category">Vegetarian</h3>
     </div>
     <div class="food-categories text-center">
-        <a href="{{ url_for('food_category', category='Desserts', difficulty='All' ) }}">
+        <a href="{{ url_for('food_category', category='Desserts', difficulty='All' ) }}#get-recipe-section">
             <img src="{{ url_for('static', filename='images/dessert.jpeg') }}" alt="" class="food-categories-img">
         </a>
         <h3 class="nav-category">Desserts</h3>
@@ -41,26 +41,26 @@
         {% if category %}
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             <li><a class="dropdown-item"
-                    href="{{ url_for('food_category', category=category, difficulty='Easy') }}">Easy</a></li>
+                    href="{{ url_for('food_category', category=category, difficulty='Easy') }}#get-recipe-section">Easy</a></li>
             <li><a class="dropdown-item"
-                    href="{{ url_for('food_category', category=category, difficulty='Medium') }}">Medium</a></li>
+                    href="{{ url_for('food_category', category=category, difficulty='Medium') }}#get-recipe-section">Medium</a></li>
             <li><a class="dropdown-item"
-                    href="{{ url_for('food_category', category=category, difficulty='Complex') }}">Complex</a></li>
+                    href="{{ url_for('food_category', category=category, difficulty='Complex') }}#get-recipe-section">Complex</a></li>
             <div class="dropdown-divider"></div>
             <li><a class="dropdown-item"
-                    href="{{ url_for('food_category', category=category, difficulty='All') }}">All</a></li>
+                    href="{{ url_for('food_category', category=category, difficulty='All') }}#get-recipe-section">All</a></li>
         </ul>
         {% else %}
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             <li><a class="dropdown-item"
-                    href="{{ url_for('food_category', category='All', difficulty='Easy') }}">Easy</a></li>
+                    href="{{ url_for('food_category', category='All', difficulty='Easy') }}#get-recipe-section">Easy</a></li>
             <li><a class="dropdown-item"
-                    href="{{ url_for('food_category', category='All', difficulty='Medium') }}">Medium</a></li>
+                    href="{{ url_for('food_category', category='All', difficulty='Medium') }}#get-recipe-section">Medium</a></li>
             <li><a class="dropdown-item"
-                    href="{{ url_for('food_category', category='All', difficulty='Complex') }}">Complex</a></li>
+                    href="{{ url_for('food_category', category='All', difficulty='Complex') }}#get-recipe-section">Complex</a></li>
             <div class="dropdown-divider"></div>
             <li><a class="dropdown-item"
-                    href="{{ url_for('food_category', category=category, difficulty='All') }}">All</a></li>
+                    href="{{ url_for('food_category', category=category, difficulty='All') }}#get-recipe-section">All</a></li>
         </ul>
         {% endif %}
 
