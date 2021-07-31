@@ -139,6 +139,7 @@ FontAwesome icons are used on the recipe cards and on the full recipe pages to a
 * **Favourites:** registered users can add recipes to their favourites collection
 * **Statistics:** registered users can see statistics on the recipes, such as the total number of recipes in the database and a visual chart on the meal categories
 * **Pagination:** when recipe cards are loaded, 6 cards are shown per page, and users can navigate between pages on a pagination tab
+* **Photo Upload:** Users can upload images of the ready food for the recipes, as well as uploading an image as their profile picture. Images are handled by *Cloudinary* image-management solution, and the URL is stored in the MongoDB database
 * **Responsive:** the website is responsive to desktop, tablet and mobile devices
 
 ## Structure of the menu
@@ -244,3 +245,34 @@ This has been imported from Werkzeug Security with the following import command:
 It is a good practice to add a step of confirmation before user can make significant changes with the data.
 The best example for this is to prevent the user accidentally deleting a recipe. Therefore, when the user clicks on the *Delete Recipe* button, a prompt alert (modal) appears to reconfirm if the user would indeed like to delete the recipe.
 
+## Technologies Used
+
+### Languages
+
+* HTML5
+* CSS3
+* JavaScript
+* Python
+
+### Libraries
+
+* Bootstrap: HTML, CSS and JavaScript library to create modern websites and web apps
+* Balsamiq: an industry standard low-fidelity wireframing tool
+* Google Fonts: for providing stylish fonts across the website
+
+### Framework
+
+* Flask: micro web framework written in Python, that depends on the Jinja template engine and the Werkzeug WSGI toolkit
+
+### Database
+
+* MongoDB: non-relational database
+
+### Version control
+
+* Github: is used to store all codes
+* Gitpod: is used as a IDE and to push code to Github
+
+### Hosting
+
+* Heroku: the web app is hosted on Heroku Cloud Application Platform
