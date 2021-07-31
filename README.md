@@ -114,8 +114,8 @@ The colour palette can be seen here.\
 
 * **Typography:**
 
-For the text content of the website, traditional-looking fonts were selected that are easy to read.\  
-    - The main font is called *Barlow*. This is a suitable font for both the content and a headlines, with a heavier font-weight for the latter.\  
+For the text content of the website, traditional-looking fonts were selected that are easy to read.  
+    - The main font is called *Barlow*. This is a suitable font for both the content and a headlines, with a heavier font-weight for the latter.  
     - To add a little flavour to the titles, the friendly one-liners on the top of each sections are written with a fond called  *Handlee*  
 
 * **Icons:**
@@ -126,20 +126,20 @@ FontAwesome icons are used on the recipe cards and on the full recipe pages to a
 
 ## Features
 
-* Database: a database to store all recipes (this is the main purpose of the website).
-* Registration: users can create an account to gain access to more functionalities.
-* Login: users with an account can upload, modify and delete their own recipes, as well as comment any recipes.
-* Profile page: users can review their name, username and profile picture, as well as a quick stats on how many recipes they uploaded and favourited.
-* Search functionality: uses can select recipes with keywords that will search in the recipe name and description. Users can also select recipes based on meal type, in combination with cooking level.
-* Recipes are loaded in card views. Each card leads to the full recipe page with detailed information for that particular recipe.
-* Comment: registered users are able to comment any recipes.
-* Upload a recipe: registered users can upload a recipe with detailed information that is required to prepare that meal.
-* Edit a recipe: registered users can make changes on the recipes uploaded by them.
-* Delete a recipe: registered users can delete their own recipes. Deletion needs to be confirmed in a pop-up modal.
-* Favourites: registered users can add recipes to their favourites collection
-* Statistics: registered users can see statistics on the recipes, such as the total number of recipes in the database and a visual chart on the meal categories
-* Pagination: when recipe cards are loaded, 6 cards are shown per page, and users can navigate between pages on a pagination tab
-* Responsive: the website is responsive to desktop, tablet and mobile devices
+* **Database:** a database to store all recipes (this is the main purpose of the website).
+* **Registration:** users can create an account to gain access to more functionalities.
+* **Login:** users with an account can upload, modify and delete their own recipes, as well as comment any recipes.
+* **Profile page:** users can review their name, username and profile picture, as well as a quick stats on how many recipes they uploaded and favourited.
+* **Search functionality:** uses can select recipes with keywords that will search in the recipe name and description. Users can also select recipes based on meal type, in combination with cooking level.
+* **Card views:** Recipes are loaded in card views. Each card leads to the full recipe page with detailed information for that particular recipe.
+* **Comment:** registered users are able to comment any recipes.
+* **Upload a recipe:** registered users can upload a recipe with detailed information that is required to prepare that meal.
+* **Edit a recipe:** registered users can make changes on the recipes uploaded by them.
+* **Delete a recipe:** registered users can delete their own recipes. Deletion needs to be confirmed in a pop-up modal.
+* **Favourites:** registered users can add recipes to their favourites collection
+* **Statistics:** registered users can see statistics on the recipes, such as the total number of recipes in the database and a visual chart on the meal categories
+* **Pagination:** when recipe cards are loaded, 6 cards are shown per page, and users can navigate between pages on a pagination tab
+* **Responsive:** the website is responsive to desktop, tablet and mobile devices
 
 ## Structure of the menu
 
