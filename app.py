@@ -24,9 +24,9 @@ app.secret_key = os.environ.get("SECRET_KEY")
 # Configuring Cloudinary
 # https://pypi.org/project/cloudinary/
 cloudinary.config(
-  cloud_name = os.environ.get("CLOUDINARY_NAME"),
-  api_key = os.environ.get("CLOUD_API_KEY"),
-  api_secret = os.environ.get("CLOUD_API_SECRET_KEY")
+    cloud_name=os.environ.get("CLOUDINARY_NAME"),
+    api_key=os.environ.get("CLOUD_API_KEY"),
+    api_secret=os.environ.get("CLOUD_API_SECRET_KEY")
 )
 
 mongo = PyMongo(app)
@@ -34,7 +34,8 @@ mongo = PyMongo(app)
 # declare how many recipes will be shown in one page with pagination
 PER_PAGE = 6
 
-# if user does not upload a profile picture or a recipe picture, these default photos are shown
+# if user does not upload a profile picture or a recipe picture,
+# these default photos are shown
 DEFAULT_PROFILE_PICTURE = "https://res.cloudinary.com/epic-food-photo-storage/image/upload/v1626176413/profile-images/profile_avatar_k5035g.png"
 DEFAULT_RECIPE_PICTURE = "https://res.cloudinary.com/epic-food-photo-storage/image/upload/v1627730195/recipe-images/food_avatar_mmbalr.jpg"
 
@@ -104,7 +105,8 @@ def food_category(category, difficulty):
             "recipe_cagetory": category}))
     else:
         # filter the recipes by category and difficulty
-        recipes = list(mongo.db.recipes.find({ "$and": [{"level": difficulty}, {"recipe_cagetory": category}]}))
+        recipes = list(mongo.db.recipes.find(
+            {"$and": [{"level": difficulty}, {"recipe_cagetory": category}]}))
     total = mongo.db.recipes.find().count()
     users = list(mongo.db.users.find())
     recipes_paginated = paginate(recipes)
@@ -216,7 +218,7 @@ def statistics():
                             total=total_recipes,
                             comments=total_comments)
 
-    
+
 @app.route("/logout")
 def logout():
     flash("You have been successfully logged out!")
@@ -227,15 +229,15 @@ def logout():
 
 @app.route("/upload_recipe", methods=["GET", "POST"])
 def upload_recipe():
-    if request.method == "POST":  
+    if request.method == "POST":
         timestamp = datetime.now().strftime('%d-%m-%Y')
 
         file_to_upload = request.files['file']
         recipe_picture_url = DEFAULT_RECIPE_PICTURE
-        if file_to_upload:            
-            upload_result = cloudinary.uploader.upload(file_to_upload, 
+        if file_to_upload:
+            upload_result = cloudinary.uploader.upload(file_to_upload,
                 folder="recipe-images")
-            recipe_picture_url = upload_result["url"]            
+            recipe_picture_url = upload_result["url"]
 
         recipe = {
             "recipe_name": request.form.get("recipename"),
@@ -261,16 +263,16 @@ def upload_recipe():
 
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
-def edit_recipe(recipe_id):    
-    if request.method == "POST":   
+def edit_recipe(recipe_id):
+    if request.method == "POST":
 
         file_to_upload = request.files['file']
         recipe_picture_url = mongo.db.recipes.find_one({
             "_id": ObjectId(recipe_id)})["recipe_picture"]
-        if file_to_upload:            
-            upload_result = cloudinary.uploader.upload(file_to_upload, 
+        if file_to_upload:
+            upload_result = cloudinary.uploader.upload(file_to_upload,
                 folder="recipe-images")
-            recipe_picture_url = upload_result["url"]  
+            recipe_picture_url = upload_result["url"]
 
         edited_recipe = {
             "recipe_name": request.form.get("recipename"),
@@ -282,29 +284,32 @@ def edit_recipe(recipe_id):
             "cooktime": request.form.get("cooktime"),
             "ingredients": request.form.getlist("ingredients"),
             "recipe_method": request.form.getlist("method"),
-            "recipe_picture": recipe_picture_url            
+            "recipe_picture": recipe_picture_url
         }
-        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, {"$set": edited_recipe})
+        mongo.db.recipes.update({
+            "_id": ObjectId(recipe_id)}, {"$set": edited_recipe})
         flash("Recipe has been successfully updated!")
         return redirect(url_for("my_recipes"))
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     categories = list(mongo.db.categories.find())
-    return render_template("edit_recipe.html", categories=categories, recipe=recipe)
+    return render_template(
+        "edit_recipe.html", categories=categories, recipe=recipe)
 
 
 @app.route("/recipe/<recipe_id>", methods=["GET", "POST"])
 def recipe(recipe_id):
     recipe = mongo.db.recipes.find_one(
-        {"_id": ObjectId(recipe_id)})    
+        {"_id": ObjectId(recipe_id)})
     number_of_comments = mongo.db.comments.count(
         {"recipe_id": recipe_id})
     if number_of_comments > 0:
         comments = mongo.db.comments.find(
             {"recipe_id": recipe_id})
-    else: comments = None
+    else:
+        comments = None
 
-    users = list(mongo.db.users.find()) 
+    users = list(mongo.db.users.find())
 
     if request.method == "POST":
         timestamp = datetime.now().strftime('%d-%m-%Y')
@@ -317,7 +322,7 @@ def recipe(recipe_id):
         }
         mongo.db.comments.insert_one(new_comment)
 
-    return render_template("recipe.html", 
+    return render_template("recipe.html",
             recipe=recipe, comments=comments,
             users=users)
 
@@ -333,8 +338,8 @@ def delete_recipe(recipe_id):
 def add_favorite(recipe_id):
     username = session["user"]
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    # Push this receipe to the user's favourite recipe array    
-    mongo.db.recipes.update_one(recipe, {"$push": {"favorited_by": username}})    
+    # Push this receipe to the user's favourite recipe array
+    mongo.db.recipes.update_one(recipe, {"$push": {"favorited_by": username}})
     flash("Recipe successfully added to favourites")
 
     return redirect(url_for("favorite_recipes"))
@@ -344,7 +349,7 @@ def add_favorite(recipe_id):
 def remove_favorite(recipe_id):
     username = session["user"]
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    mongo.db.recipes.update_one(recipe, {"$pull": {"favorited_by": username}})    
+    mongo.db.recipes.update_one(recipe, {"$pull": {"favorited_by": username}})
     flash("Recipe successfully removed from favourites")
 
     return redirect(url_for("favorite_recipes"))
@@ -352,33 +357,35 @@ def remove_favorite(recipe_id):
 
 @app.route("/favorite_recipes")
 def favorite_recipes():
-    if session.get("user"):          
+    if session.get("user"):
         username = mongo.db.users.find_one(
             {"username": session["user"]})
     users = list(mongo.db.users.find())
-    recipes = list(mongo.db.recipes.find())   
-    
+    recipes = list(mongo.db.recipes.find())
+
     return render_template("favorites.html", recipes=recipes,
                                             username=username,
                                             users=users)
+
 
 # Based on Cloudinary documentation
 # https://cloudinary.com/documentation/django_image_and_video_upload#server_side_upload
 @app.route("/'upload_profile_image", methods=["GET", "POST"])
 def upload_profile_image():
     if request.method == "POST":
-        file_to_upload = request.files['file']        
-        if file_to_upload:            
-            upload_result = cloudinary.uploader.upload(file_to_upload, 
+        file_to_upload = request.files['file']
+        if file_to_upload:
+            upload_result = cloudinary.uploader.upload(file_to_upload,
                 folder="profile-images")
             profile_picture_url = upload_result["url"]
-            mongo.db.users.update_one({"username": session["user"]}, {
-                                        "$set": {"profile_picture": profile_picture_url}})
-            
+            mongo.db.users.update_one({
+                "username": session["user"]}, {
+                    "$set": {"profile_picture": profile_picture_url}})
+
     return redirect(url_for("profile", username=session["user"]))
 
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=True)
+            debug=False)
