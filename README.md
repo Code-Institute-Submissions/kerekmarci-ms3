@@ -289,13 +289,36 @@ The best example for this is to prevent the user accidentally deleting a recipe.
 
 ## Testing
 
+There has been a variety of testings carried out on the website. Since the website uses Front-End and Back-End elements, there was a great emphasis on functionality testing, ensuring data is handled correctly, and manipulation of one collection will not result in an error in another collection. Also, no user interaction should result in an error.
+Above all these, I wanted the site to be responsive and that the design/layout loads aesthetically on various devices, different screen sizes and different types of browsers.
+
+### Testing User Stories
+
+In this section, the user stories are tested
+
+| No  | User Story | Result |
+| :--- | :--- | :--- |
+| 1 | I would like to be able to have a quick and easy access to recipes | The recipe cards are immediately loaded on the main landing page. It is only one click either on the recipe name or recipe image to go to the full recipe page with all details and instructions |
+| 2 | I would like to filter recipes by meal types and keywords |
+| 3 | I would like to easily find recipes on various cooking levels |
+| 4 | I would like to be part of the website by being able to register and upload recipes |
+| 5 | I would like to be part of the community by being able to leave my comments on recipes |
+| 6 | I would like to see a website that displays well on various devices, such as desktop and mobile devices |
+| 7 | I would like easy navigation between pages |
+
+As a site owner...,
+
+* I would like to have useful recipes presented in a pleasing way that encourages users to revisit the website and try out recipes
+* I would like to encourage users to return to the website by allowing them to be part of the community, such as uploading and commenting recipes
+* I would like to promote cooking tools. The more returning users I have, the more changes that users click on the cooking tools and purchase them
+
+### Testing functionality
+
 ### Testing cross-browser compatibility
 
 ### Testing responsiveness
 
 ### Testing mobile-friendliness
-
-### Testing user stories
 
 ### Validation
 
