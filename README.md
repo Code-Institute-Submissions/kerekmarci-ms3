@@ -335,11 +335,27 @@ In this section, various functionalities were tested to ensure the user will not
 
 ### Testing cross-browser compatibility
 
+Other then testing with desktops, laptops and mobile phones available at myself and friends, a Cross Browser Testing Cloud called Lambdatest was used to simulate real-time testing. The website is available at https://www.lambdatest.com/
+This website is able to simulate various types of browsers (Google Chrome, Firefox, Opera, etc.) in various versions and screen resolution real-time, so that I was able to ensure that all functionalities work in different environments. The website was showing the same result in simulation of Google Chrome, Firefox, Opera, Safari and Edge.
+
 ### Testing responsiveness
+
+A website called http://responsivetesttool.com/ provides a quick and easy way to display a website in mobile, desktop and tablet views in the most common resolutions, including landscape and portrait views. Due to the media queries added, the website was able to successfully resize to various screen sizes.
 
 ### Testing mobile-friendliness
 
+For this test, Google's mobile friendly test was used: https://search.google.com/test/mobile-friendly \
+
+The result shown was:
+*Page is mobile friendly*
+*This page is easy to use on a mobile device*
+
 ### Validation
+
+**HTML5:** W3C for HTML - validation passed with no error found. *Note: errors were showing only as W3C did not recognise Jinja2 language.*
+**CSS3:** Jigsaw - validation passed with no error found.
+**JavaScript:** https://jshint.com/ - Passed.
+**Python PEP8 requirements:** http://pep8online.com/ - no PEP8 incompliance or trailing white space found. The only two remarks were *line too long* or *continuation line over-indented for visual indent.* The *line too long* message is only applicable for 2 URLs for the default images, and the rest for commented out sections when referencing websites. The other remark was for visual indentation when passing parameters to Jinja2.
 
 ---
 
