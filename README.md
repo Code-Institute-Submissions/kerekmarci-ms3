@@ -331,7 +331,7 @@ In this section, various functionalities were tested to ensure the user will not
 | 9 | **Deleting Recipe:** Registered users can delete their own recipes, and it deletes correctly in the MongoDB database. User is prompted to delete by a pop-up modal to reconfirm deletion. Deleted recipe does not interrupt other functionalities, for example if another user favourited that recipe. | PASS |
 | 10 | **Form validation for recipe upload:** Recipe name and description have character limits. A message appears when reacing the last 5 characters. | PASS |
 | 11 | **Form validation for registration:** Accepted characters for name are letters and space. Accepted characters for username are letters and numbers without spaces. A message appears under the form if any unauthorised character is used and the form cannot be submitted. | PASS |
-| 12 | **Log out** | Logged in users are logged out when clicking *Log Out* on the navigation bar, and features of the website changes to limited for guest user. | PASS |
+| 12 | **Log out:** Logged in users are logged out when clicking *Log Out* on the navigation bar, and features of the website changes to limited for guest user. | PASS |
 
 ### Testing cross-browser compatibility
 
