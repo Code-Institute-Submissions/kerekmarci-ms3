@@ -352,9 +352,9 @@ The result shown was:
 
 ### Validation
 
-**HTML5:** W3C for HTML - validation passed with no error found. *Note: errors were showing only as W3C did not recognise Jinja2 language.*
-**CSS3:** Jigsaw - validation passed with no error found.
-**JavaScript:** https://jshint.com/ - Passed.
+**HTML5:** W3C for HTML - validation passed with no error found. *Note: errors were showing only as W3C did not recognise Jinja2 language.* \  
+**CSS3:** Jigsaw - validation passed with no error found. \  
+**JavaScript:** https://jshint.com/ - Passed.\  
 **Python PEP8 requirements:** http://pep8online.com/ - no PEP8 incompliance or trailing white space found. The only two remarks were *line too long* or *continuation line over-indented for visual indent.* The *line too long* message is only applicable for 2 URLs for the default images, and the rest for commented out sections when referencing websites. The other remark was for visual indentation when passing parameters to Jinja2.
 
 ---
