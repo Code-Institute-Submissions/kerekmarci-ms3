@@ -23,7 +23,7 @@ function removeField(container) {
 
 // Maximum number of characters on Upload Receipe page
 function maxInput(formId, maxChar, outputName) {
-    var name = document.getElementById(formId).value;
+    let name = document.getElementById(formId).value;
     let remainingChar = maxChar-name.length;
     if (remainingChar < 6) {
         document.getElementById(outputName).innerHTML = remainingChar + " characters left.";
