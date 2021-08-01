@@ -298,19 +298,21 @@ In this section, the user stories are tested
 
 | No  | User Story | Result |
 | :--- | :--- | :--- |
-| 1 | I would like to be able to have a quick and easy access to recipes | The recipe cards are immediately loaded on the main landing page. It is only one click either on the recipe name or recipe image to go to the full recipe page with all details and instructions |
-| 2 | I would like to filter recipes by meal types and keywords |
-| 3 | I would like to easily find recipes on various cooking levels |
-| 4 | I would like to be part of the website by being able to register and upload recipes |
-| 5 | I would like to be part of the community by being able to leave my comments on recipes |
-| 6 | I would like to see a website that displays well on various devices, such as desktop and mobile devices |
-| 7 | I would like easy navigation between pages |
+| 1 | I would like to be able to have a quick and easy access to recipes. | The recipe cards are immediately loaded on the main landing page. It is only one click either on the recipe name or recipe image to go to the full recipe page with all details and instructions. |
+| 2 | I would like to filter recipes by meal types and keywords. | The main navigation bar is loaded on the main homepage. The keyword search field is located on the navigation bar which is easy to see. The meal type search icons are loaded to the middle of the screen with visual icons which is very intuitive. |
+| 3 | I would like to easily find recipes on various cooking levels. | The recipes can be filtered for cooking levels with a drop-down menu which is right under the meal type search icons. The filter works together with the meal type search and very intuitive too. |
+| 4 | I would like to be part of the website by being able to register and upload recipes. | Registered users will have access to uploading recipes. The main site goal is to get registered users, therefore the Registration button is highlighted on the navigaton bar.
+| 5 | I would like to be part of the community by being able to leave my comments on recipes. | Registered users are able to leave comment for the recipes, along with the profile image and date shown. |
+| 6 | I would like to see a website that displays well on various devices, such as desktop and mobile devices. | The website is responsive, further testing results are detailed in the below section. |
+| 7 | I would like easy navigation between pages. | The links to access various functions are intuitive and it takes no more than 3 clicks to reach any page/functionality of the website. |
 
-As a site owner...,
+### Testing Site Owner Stories
 
-* I would like to have useful recipes presented in a pleasing way that encourages users to revisit the website and try out recipes
-* I would like to encourage users to return to the website by allowing them to be part of the community, such as uploading and commenting recipes
-* I would like to promote cooking tools. The more returning users I have, the more changes that users click on the cooking tools and purchase them
+| No  | Site Owner Story | Result |
+| :--- | :--- | :--- |
+| 1 | As a site owner, I would like to have useful recipes presented in a pleasing way that encourages users to revisit the website and try out recipes. | The recipe cards present recipe in an appealing way, where a photo of the ready dish is always presented. The search buttons for meal types are also visualised with appetising icons, which is encouraging for the user to spend time on the website and explore recipes. |
+| 2 | As a site owner, I would like to encourage users to return to the website by allowing them to be part of the community, such as uploading and commenting recipes. | Registered users can upload, amend and comment on recipes. Comments are a great way of sharing users' feedback in the community. |
+| 3 | As a site owner, I would like to promote cooking tools. The more returning users I have, the more changes that users click on the cooking tools and purchase them. | Cooking equipments are displayed on the main landing page, each of them pointing to the webshop to purchase them. |
 
 ### Testing functionality
 
