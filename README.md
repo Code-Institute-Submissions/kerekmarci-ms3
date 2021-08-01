@@ -316,6 +316,23 @@ In this section, the user stories are tested
 
 ### Testing functionality
 
+In this section, various functionalities were tested to ensure the user will not encounter an error. In CRUD operation, it is equally important not to be able to manipulate date in a way that will result an error elsewhere. Also, defensive programming was tested, such as when the user is promted before carrying out an operation.
+
+| No  | Desired functionality | Result |
+| :--- | :--- | :--- |
+| 1 | *Home, Login, Register* buttons presented on the navigation bar. Once user registers/logs in, further menu items appear: *Upload Recipe, My Recipes, Favourites, Profile, Statistics* | PASS |
+| 2 | **Full Recipe Page** appears when clicking on the recipe card title or image. | PASS |
+| 3 | **Auto Scroll:** When full recipe page load, the page automatically scrolls down to the recipe, below the navigation section. | PASS |
+| 4 | **Adding to favourites:** the button is active only for registered users. When user clicks on the Favourite icon, the heart icon gets filled and text changes to *Remove Favourite.* The recipe also appears under the *Favourites* menu. | PASS |
+| 5 | **My Recipes:** When clickin on this menu, all recipes are loaded correctly that have been uploaded by that particular user. | PASS |
+| 6 | **Profile:** User's name, profile image and basic statistics are loaded under this menu. | PASS |
+| 7 | **Statistics:** User can see statistic on the total number of recipes and comments available. MongoDB charts are showing diagrams on additional statistics. | PASS |
+| 8 | **Editing Recipe:** Registered users can update their own recipes, and it updates correctly in the MongoDB database. | PASS |
+| 9 | **Deleting Recipe:** Registered users can delete their own recipes, and it deletes correctly in the MongoDB database. User is prompted to delete by a pop-up modal to reconfirm deletion. Deleted recipe does not interrupt other functionalities, for example if another user favourited that recipe. | PASS |
+| 10 | **Form validation for recipe upload:** Recipe name and description have character limits. A message appears when reacing the last 5 characters. | PASS |
+| 11 | **Form validation for registration:** Accepted characters for name are letters and space. Accepted characters for username are letters and numbers without spaces. A message appears under the form if any unauthorised character is used and the form cannot be submitted. | PASS |
+| 12 | **Log out** | Logged in users are logged out when clicking *Log Out* on the navigation bar, and features of the website changes to limited for guest user. | PASS |
+
 ### Testing cross-browser compatibility
 
 ### Testing responsiveness
