@@ -94,13 +94,23 @@ The website will feature the following:
 
 ### Skeleton
 
-The skeleton of the website is designed with the wireframes below:
+The skeleton of the website is designed with the wireframes below.
+
+**Desktop Wireframe:**
 
 1. [Index Page](https://github.com/kerekmarci/ms3/blob/master/documentation/wireframes/landing_page.png)
 2. [Upload Recipe Page](https://github.com/kerekmarci/ms3/blob/master/documentation/wireframes/upload_recipe.png)
 3. [Full Recipe Page](https://github.com/kerekmarci/ms3/blob/master/documentation/wireframes/recipe_page.png)
 4. [Registration Page](https://github.com/kerekmarci/ms3/blob/master/documentation/wireframes/registration_page.png)
-4. [Login Page](https://github.com/kerekmarci/ms3/blob/master/documentation/wireframes/login_page.png)
+5. [Login Page](https://github.com/kerekmarci/ms3/blob/master/documentation/wireframes/login_page.png)
+
+**Mobile Wireframe:**
+
+1. [Index Page](https://github.com/kerekmarci/ms3/blob/master/documentation/wireframes/landing_page_mobile.png)
+2. [Upload Recipe Page](https://github.com/kerekmarci/ms3/blob/master/documentation/wireframes/upload_recipe_mobile.png)
+3. [Full Recipe Page](https://github.com/kerekmarci/ms3/blob/master/documentation/wireframes/recipe_page_mobile.png)
+4. [Registration Page](https://github.com/kerekmarci/ms3/blob/master/documentation/wireframes/registration_page_mobile.png)
+5. [Login Page](https://github.com/kerekmarci/ms3/blob/master/documentation/wireframes/login_page_mobile.png)
 
 ### Surface
 
