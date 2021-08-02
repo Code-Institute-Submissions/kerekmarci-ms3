@@ -106,11 +106,11 @@ The skeleton of the website is designed with the wireframes below.
 
 **Mobile Wireframe:**
 
-1. [Index Page](https://github.com/kerekmarci/ms3/blob/master/documentation/wireframes/landing_page_mobile.png)
-2. [Upload Recipe Page](https://github.com/kerekmarci/ms3/blob/master/documentation/wireframes/upload_recipe_mobile.png)
-3. [Full Recipe Page](https://github.com/kerekmarci/ms3/blob/master/documentation/wireframes/recipe_page_mobile.png)
-4. [Registration Page](https://github.com/kerekmarci/ms3/blob/master/documentation/wireframes/registration_page_mobile.png)
-5. [Login Page](https://github.com/kerekmarci/ms3/blob/master/documentation/wireframes/login_page_mobile.png)
+1. [Index Page mobile](https://github.com/kerekmarci/ms3/blob/master/documentation/wireframes/landing_page_mobile.png)
+2. [Upload Recipe Page mobile](https://github.com/kerekmarci/ms3/blob/master/documentation/wireframes/upload_recipe_mobile.png)
+3. [Full Recipe Page mobile](https://github.com/kerekmarci/ms3/blob/master/documentation/wireframes/recipe_page_mobile.png)
+4. [Registration Page mobile](https://github.com/kerekmarci/ms3/blob/master/documentation/wireframes/registration_page_mobile.png)
+5. [Login Page mobile](https://github.com/kerekmarci/ms3/blob/master/documentation/wireframes/login_page_mobile.png)
 
 ### Surface
 
@@ -288,8 +288,8 @@ The best example for this is to prevent the user accidentally deleting a recipe.
 
 ### Version control
 
-* Github: is used to store all codes
-* Gitpod: is used as a IDE and to push code to Github
+* GitHub: is used to store all codes
+* Gitpod: is used as a IDE and to push code to GitHub
 
 ### Hosting
 
@@ -374,7 +374,7 @@ The result shown was:
 All necessary code for this web app is stored in *GitHub* repository, and is available to view at https://kerekmarci.github.io/ms3/ \
 The full web app is hosted on *Heroku* and can be viewed here: https://epic-food.herokuapp.com/
 
-### Setting up Github
+### Setting up GitHub
 
 1. As a starting point, I used the base templated provided by The Code Institute: https://github.com/Code-Institute-Org/gitpod-full-template
 2. I clicked on the button called *Use this template*
@@ -383,7 +383,7 @@ The full web app is hosted on *Heroku* and can be viewed here: https://epic-food
 ### Setting up Environment Variables
 
 Sensitive data needs to be hidden using environment variables in the `env.py` file. Files that should not be pushed to GitHub needs to be added to the `.gitignore` file.
-The enviroment variables take two arguments: first the name of the variable, second the data itself, for example `os.environ.setdefault("PORT", "5000")`.
+The environment variables take two arguments: first the name of the variable, second the data itself, for example `os.environ.setdefault("PORT", "5000")`.
 In the *env.py* file, the following variables are set up: *IP, PORT, SECRET_KEY, MONGO_URI, MONGO_DBNAME.* In my project, *Cloudinary* is used to store images, therefore *CLOUDINARY_NAME, CLOUD_API_KEY, CLOUD_API_SECRET_KEY* need to be included too.
 
 ### Requirements for Heroku
@@ -394,10 +394,10 @@ In the *Procfile*, the following line needs to be added so that Heroku will know
 
 ### Setting up and deploying to Heroku 
 
-As the enviroment variables contained in the *env.py* file will not be pushed, therefore these variables need to be configured directly in Heroku.
+As the environment variables contained in the *env.py* file will not be pushed, therefore these variables need to be configured directly in Heroku.
 Once a Heroku app has been created, under the *Settings* tab, the variables can be entered by clicking on the *Reveal Config Vars* button.
 
-To automatically deploy code to Heroku from Github, in the *Deployment method* in Heroku, the *GitHub* icon needs to be selected. Then, the name of the GitHub repository needs to be entered and automatic deployment can be enabled.
+To automatically deploy code to Heroku from GitHub, in the *Deployment method* in Heroku, the *GitHub* icon needs to be selected. Then, the name of the GitHub repository needs to be entered and automatic deployment can be enabled.
 
 ### Cloning
 
