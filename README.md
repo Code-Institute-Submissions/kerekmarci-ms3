@@ -367,6 +367,12 @@ The result shown was:
 **JavaScript:** https://jshint.com/ - Passed.  
 **Python PEP8 requirements:** http://pep8online.com/ - no PEP8 incompliance or trailing white space found. The only two remarks were *line too long* or *continuation line over-indented for visual indent.* The *line too long* message is only applicable for 2 URLs for the default images, and the rest for commented out sections when referencing websites. The other remark was for visual indentation when passing parameters to Jinja2.
 
+### Known issue with functionality
+
+When a registered user adds a comment on the recipe page, sometimes the comment is not showing immediately after pressing the *Post comment* button, but when visiting the page again, the comment is there. This is because of Heroku's slow response time. After posting the comment, the page reloads automatically in order to show the comment. 
+However, due to Heroku's slow communication, the comment often reaches the database after the page reloads, this is why it is not showing at the first reload.
+Upgrading Heroku would result in quicker response time and solve this problem.
+
 ---
 
 ## Deployment
