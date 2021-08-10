@@ -14,12 +14,10 @@
     <section class="form-container text-center mb-4 pb-4">
         <form method="POST" action="{{ url_for('login') }}">            
             <div class="mb-3">
-                <label for="username" class="form-label h4">Username</label>
-                <input type="text" name="username" class="form-control" id="username" aria-describedby="enterUserName" required>                
+                <input type="text" name="username" class="form-control" id="username" aria-describedby="enterUserName" placeholder="username" required>                
             </div>            
             <div class="mb-3">
-                <label for="password" class="form-label h4">Password</label>
-                <input type="password" name="password" class="form-control" id="password" required>
+                <input type="password" name="password" class="form-control" id="password" placeholder="**********" required>
             </div>               
             <button type="submit" class="button green-button-thick">Login</button>
         </form>
