@@ -17,8 +17,9 @@
             <div class="mb-3">
                 <label for="recipename" class="form-label h5">Recipe Name</label>
                 <div>
-                    <input type="text" name="recipename" class="form-control" id="recipename" maxlength="25" value="{{ recipe.recipe_name }}" required>
-                    <small>*Maximum 25 characters</small> 
+                    <input type="text" name="recipename" class="form-control" id="recipename" maxlength="25" 
+                        value="{{ recipe.recipe_name }}" oninput="maxInput('recipename', 25, 'max-recipe-name-validation');" required>
+                        <small><span id="max-recipe-name-validation"></span></small>
                 </div>
             </div>
 
@@ -26,8 +27,9 @@
             <div class="mb-3">
                 <label for="description" class="form-label h5">Description</label>
                 <div>
-                    <input type="text" name="description" class="form-control" id="description" maxlength="120" value="{{ recipe.description }}" required>   
-                    <small>*Maximum 120 characters</small>             
+                    <textarea name="description" class="form-control" id="description" maxlength="120" rows="3" 
+                        oninput="maxInput('description', 120, 'max-description-validation');" value="{{ recipe.description }}" required></textarea>
+                    <small><span id="max-description-validation"></span></small>           
                 </div>
             </div>
 
