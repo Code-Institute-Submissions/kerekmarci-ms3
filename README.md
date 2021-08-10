@@ -5,6 +5,8 @@
 This website was created for my 3rd Milestone Project at the Code Institute. 
 The website will utilise the languages and tools I learned so far in Front-End and Back-End, namely HTML, CSS, JavaScript, Python+Flask, MongoDB.
 
+![Photo of the finished website](https://github.com/kerekmarci/ms3/blob/master/documentation/images/responsive.JPG)
+
 ---
 
 ## Description
@@ -421,12 +423,12 @@ To clone the GitHub repository, follow these steps:\
 ## Credits
 
 In this section, I would like to give credit to all tools, sources and support that inspired and helped me towards the success of my project:
-* Code Institute mini project called *Task Manager* in the Backend development module, that provided an excellent foundation on how to put these technologies together
-* Code Institute Tutor support who assisted with moving on when I felt I was stuck
+* Code Institute mini project called *Task Manager* in the Backend development module, that provided an excellent foundation on how to put these technologies together.
+* Code Institute Tutor support who assisted with moving on when I felt I was stuck.
 * The below articles and documentation to support the implementation of Pagination:
     * https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9
     * https://betterprogramming.pub/simple-flask-pagination-example-4190b12c2e2e
     * flask_paginate documentation: https://flask-paginate.readthedocs.io/_/downloads/en/master/pdf/
-* https://www.dreamstime.com/ for the banner image
-* https://www.bbcgoodfood.com/ to collect some great recipes
-* My mentor at Code Institute Nishant Kumar for his valuable advice
+* https://www.dreamstime.com/ for the banner image.
+* https://www.bbcgoodfood.com/ to collect some great recipes.
+* My mentor at Code Institute Nishant Kumar for his valuable advice throughout the consultations.
