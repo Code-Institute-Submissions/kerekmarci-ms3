@@ -783,6 +783,11 @@ ul.pagination {
         padding-right: 20px;
     }
 
+    #recipe-section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
     .comment-container {
         max-width: calc(100% - 100px);
     }
@@ -817,6 +822,11 @@ ul.pagination {
 
     .full-recipe-header-dc-1:last-child {
         margin-top: 20px;
+    }
+
+    .comment-button {
+        margin-top: 15px;
+        margin-bottom: 20px;
     }
 
     .mobile-resize {
