@@ -741,7 +741,7 @@ ul.pagination {
 
 .footer-container {
     background-color: var(--footer);
-    padding: 15px;
+    padding: 13px 15px 0px 15px;
     height: 65px;
 }
 
