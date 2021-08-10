@@ -12,7 +12,6 @@
     <section class="form-container text-center mb-4 pb-4">
         <form method="POST" action="{{ url_for('register') }}" id="register-form" onsubmit="validateForm()">
             <div class="mb-3">
-                <!-- <label for="name" class="form-label h4">Name</label> -->
                 <input type="text" name="name" class="form-control" id="name" aria-describedby="enterName" 
                     minlength="2" maxlength="20" placeholder="Your Name" oninput="maxInput('name', 20, 'registration-name-characters'); 
                     validateForm('^[a-zA-Z ]+$', 'name', 'registration-name-validation', 'Letters and spaces only! ');" pattern="^[a-zA-Z ]+$" required>
@@ -20,14 +19,12 @@
                 <span id="registration-name-characters"></span>
             </div>
             <div class="mb-3">
-                <!-- <label for="username" class="form-label h4">Username</label> -->
                 <input type="text" name="username" class="form-control" id="username" aria-describedby="enterUserName"
                     placeholder="username" oninput="validateForm('^[a-zA-Z0-9]+$', 'username', 'username-error', 'Letters and numbers please, without spaces.');" 
                     pattern="^[a-zA-Z0-9]+$" required>
                 <span id="username-error"></span>
             </div>            
             <div class="mb-3">
-                <!-- <label for="password" class="form-label h4">Password</label> -->
                 <input type="password" name="password" class="form-control" id="password" placeholder="**********" required>
             </div>   
             <button type="submit" class="button green-button-thick">Register</button>
