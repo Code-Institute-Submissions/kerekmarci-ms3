@@ -14,7 +14,7 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="{{ url_for('get_recipes') }}">Home</a></li>
                     {% if session.user %}
-                    <li class="nav-item"><a class="nav-link" href="{{ url_for('upload_recipe') }}#upload-recipe-section">Upload Recipe</a>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('upload_recipe') }}#upload-recipe-section">Add Recipe</a>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="{{ url_for('my_recipes') }}#my-recipe-section">My Recipes</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url_for('favorite_recipes') }}#favorite-section">Favourites</a>
