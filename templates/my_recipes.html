@@ -12,6 +12,7 @@
     </div>
 
     <section class="container-xl recipe-container mx1200">
+    {% if recipes %}
     {% for recipe in recipes %}
         <article class="card recipe-card">
             <div>            
@@ -61,10 +62,16 @@
         </div>
 
     {% endfor %}
+    {% else %}
+        <div class="mb-5 text-center">
+            <p>You haven't uploaded any recipes yet.</p> 
+            <p>Maybe it's time to add one? <i class="far fa-smile-wink"></i></p>
+        </div>
+    {% endif %}
     </section>
 
     <div class="text-center">
-        <a href="{{ url_for('get_recipes') }}" class="button orange-button mb-5">View All Recipes</a>
+        <a href="{{ url_for('upload_recipe') }}#upload-recipe-section" class="button orange-button mb-5">Add Recipe</a>
     </div>
 
 {% endblock %}
