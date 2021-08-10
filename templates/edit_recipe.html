@@ -28,7 +28,7 @@
                 <label for="description" class="form-label h5">Description</label>
                 <div>
                     <textarea name="description" class="form-control" id="description" maxlength="120" rows="3" 
-                        oninput="maxInput('description', 120, 'max-description-validation');" value="{{ recipe.description }}" required></textarea>
+                        value="{{ recipe.description }}" oninput="maxInput('description', 120, 'max-description-validation');" required></textarea>
                     <small><span id="max-description-validation"></span></small>           
                 </div>
             </div>
