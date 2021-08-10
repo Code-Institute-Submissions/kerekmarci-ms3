@@ -61,9 +61,10 @@
                 <p>No recipes found for {{ query }}. Try one of these from our latest recipes:</p>
             </div>
             <div class="pt-3 text-center">
-                    {% for recipe in all_recipes[:5]|reverse %}
-                        <li><a href="{{ url_for('recipe', recipe_id=recipe._id )}}#recipe-section" class="text-link">{{ recipe.recipe_name }}</a></li>
-                    {% endfor %}
+                <!-- Getting the last 5 recipes of the database -->
+                {% for recipe in all_recipes[-5:]|reverse %}
+                    <li><a href="{{ url_for('recipe', recipe_id=recipe._id )}}#recipe-section" class="text-link">{{ recipe.recipe_name }}</a></li>
+                {% endfor %}
             </div>
         </div>
         {% endif %}
