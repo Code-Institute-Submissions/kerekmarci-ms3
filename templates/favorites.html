@@ -12,39 +12,53 @@
     </div>  
 
     <section class="container-xl recipe-container mx1200">
+    <!-- Define a counter to see whether there is any favorited recipes. 
+    It gets incremented if there is, so at the end we can see if the value is 0 or not. -->
+    {% set count = namespace(value=0) %}
+
     {% for recipe in recipes %}
         {% if recipe.favorited_by %}
-        {% if session.user in recipe.favorited_by %}
-        <article class="card recipe-card">
-            <div>            
-                <a href="{{ url_for('recipe', recipe_id=recipe._id )}}#recipe-section"><img src="{{ recipe.recipe_picture }}"
-                    class="card-img-top" alt="Open Full Recipe"></a>
-            </div>
-            <div class="card-content2">           
-                <a class="card-title" href="{{ url_for('recipe', recipe_id=recipe._id )}}#recipe-section">{{ recipe.recipe_name }} </a>         
-                <p class="card-description">{{ recipe.description }}</p>       
-                <div class="card-author">                
-                    {% for user in users %}
-                        {% if user.username == recipe.uploaded_by %}
-                            <img src="{{ user.profile_picture }}" alt="User Profile Picture" class="card-profile-picture rounded-circle">
-                            By <span class="card-author-name">{{ user.name }}</span>                        
-                        {% endif %}
-                    {% endfor %}
-                </div>     
-                <div class="card-bottom">
-                    <div class="recipe-index-category">
-                        <i class="far fa-folder-open"></i>
-                        {{ recipe.recipe_cagetory }}</div>
-                    <div class="recipe-index-duration">
-                        <i class="far fa-clock"></i>
-                        {{ recipe.cooktime }} min</div>
-                </div>            
-            </div>
-        </article>
+            {% if session.user in recipe.favorited_by %}
+            {% set count.value = count.value + 1 %}
+            <article class="card recipe-card">
+                <div>            
+                    <a href="{{ url_for('recipe', recipe_id=recipe._id )}}#recipe-section"><img src="{{ recipe.recipe_picture }}"
+                        class="card-img-top" alt="Open Full Recipe"></a>
+                </div>
+                <div class="card-content2">           
+                    <a class="card-title" href="{{ url_for('recipe', recipe_id=recipe._id )}}#recipe-section">{{ recipe.recipe_name }} </a>         
+                    <p class="card-description">{{ recipe.description }}</p>       
+                    <div class="card-author">                
+                        {% for user in users %}
+                            {% if user.username == recipe.uploaded_by %}
+                                <img src="{{ user.profile_picture }}" alt="User Profile Picture" class="card-profile-picture rounded-circle">
+                                By <span class="card-author-name">{{ user.name }}</span>                        
+                            {% endif %}
+                        {% endfor %}
+                    </div>     
+                    <div class="card-bottom">
+                        <div class="recipe-index-category">
+                            <i class="far fa-folder-open"></i>
+                            {{ recipe.recipe_cagetory }}</div>
+                        <div class="recipe-index-duration">
+                            <i class="far fa-clock"></i>
+                            {{ recipe.cooktime }} min</div>
+                    </div>            
+                </div>
+            </article>
+            {% endif %}
         {% endif %}
-        {% endif %}
-    {% endfor %}        
+    {% endfor %}
+
+    {% if count.value == 0 %}
+        <div class="mb-5 text-center">
+            <p>You haven't favourited any recipes yet.</p> 
+            <p>Maybe it's time to find The Big One? <i class="far fa-smile"></i></p>
+        </div>
+    {% endif %}
+
     </section>
+
     <div class="text-center">
         <a href="{{ url_for('get_recipes') }}" class="button orange-button mb-5">View All Recipes</a>
     </div>
