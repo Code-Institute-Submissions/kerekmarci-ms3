@@ -409,3 +409,18 @@ To clone the GitHub repository, follow these steps:\
 4. Open your IDE
 5. Type git clone in the terminal, followed by pasting the link. For example: *git clone https://github.com/kerekmarci/ms3.git*
 6. Press Enter, and now a local clone has been created
+
+---
+
+## Credits
+
+In this section, I would like to give credit to all tools, sources and support that inspired and helped me towards the success of my project:
+* Code Institute mini project called *Task Manager* in the Backend development module, that provided an excellent foundation on how to put these technologies together
+* Code Institute Tutor support who assisted with moving on when I felt I was stuck
+* The below articles and documentation to support the implementation of Pagination:
+    * https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9
+    * https://betterprogramming.pub/simple-flask-pagination-example-4190b12c2e2e
+    * flask_paginate documentation: https://flask-paginate.readthedocs.io/_/downloads/en/master/pdf/
+* https://www.dreamstime.com/ for the banner image
+* https://www.bbcgoodfood.com/ to collect some great recipes
+* My mentor at Code Institute Nishant Kumar for his valuable advice
